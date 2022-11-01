@@ -3,32 +3,18 @@
 session_start();
 // If the user is not logged in redirect to the login page...
 if (!isset($_SESSION['loggedin'])) {
-    header('Location: loggin.html');
-    exit;
+	header('Location: loggin.html');
+	exit;
 }
-$DATABASE_HOST = 'localhost';
-$DATABASE_USER = 'root';
-$DATABASE_PASS = '';
-$DATABASE_NAME = 'ramit';
-$con = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATABASE_NAME);
-if (mysqli_connect_errno()) {
-    exit('Failed to connect to MySQL: ' . mysqli_connect_error());
-}
-// We don't have the password or email info stored in sessions so instead we can get the results from the database.
-$stmt = $con->prepare('SELECT pswd, email, fname, mname, lname, pstion FROM accounts WHERE id = ?');
-// In this case we can use the account ID to get the account info.
-$stmt->bind_param('i', $_SESSION['id']);
-$stmt->execute();
-$stmt->bind_result($pswd, $email, $fname, $mname, $lname, $pstion);
-$stmt->fetch();
-$stmt->close();
 ?>
+
+
 
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">
-<title>Profile Page</title>
+<title>Tickets Page</title>
 <link rel="stylesheet" href="code/css/cbcollapse.css">
 <link href="code/css/home.css" rel="stylesheet" type="text/css">
 </head>
@@ -42,30 +28,20 @@ $stmt->close();
         </div>
     </nav>
     <div class="content">
-        <h2>Profile Page</h2>
+        <h2>Ticket Page</h2>
+        <a href="addt.php"><button> Add Ticket </button></a>
         <div>
-            <p>Your account details are below:</p>
+            <p>Your tickets are below:</p>
             <!-- info table -->
+            <?php include "ttable.php";?>
             <table>
                 <tr>
                     <td>Name:</td>
                     <td><?=$_SESSION['fname']?> <?=$_SESSION['mname']?> <?=$_SESSION['lname']?></td>
                 </tr>
                 <tr>
-                    <td>Password:</td>
-                    <td><?=sha1($pswd)?></td>
-                </tr>
-                <tr>
-                    <td>Email:</td>
-                    <td><?=$email?></td>
-                </tr>
-                <tr>
                     <td>ID no#:</td>
                     <td><?=$_SESSION['id']?></td>
-                </tr>
-                <tr>
-                    <td>Position:</td>
-                    <td><?=$pstion?></td>
                 </tr>
             </table>
         </div>
