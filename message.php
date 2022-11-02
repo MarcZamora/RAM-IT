@@ -25,6 +25,7 @@ if(mysqli_num_rows($run_query) > 0){
     //storing replay to a varible which we'll send to ajax
     $replay = $fetch_data['replies'];
     echo $replay;
+    
 }else{
     echo "Sorry I don't quite understand what you are saying";
 }

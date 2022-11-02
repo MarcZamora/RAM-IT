@@ -8,15 +8,13 @@ if (!isset($_SESSION['loggedin'])) {
 }
 ?>
 
-
-
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">
 <title>Tickets Page</title>
-<link rel="stylesheet" href="code/css/cbcollapse.css">
 <link href="code/css/home.css" rel="stylesheet" type="text/css">
+<link href="code/css/ticket.css" rel="stylesheet" type="text/css">
 </head>
 <body class="loggedin">  
     <nav class="navtop">
@@ -29,33 +27,16 @@ if (!isset($_SESSION['loggedin'])) {
     </nav>
     <div class="content">
         <h2>Ticket Page</h2>
-        <a href="addt.php"><button> Add Ticket </button></a>
+
+        <?php if ($_SESSION['pstion'] == "student"){echo '<a href="tadd.php"><button> Add Ticket </button></a>';} ?>
+       
         <div>
             <p>Your tickets are below:</p>
             <!-- info table -->
             <?php include "ttable.php";?>
-            <table>
-                <tr>
-                    <td>Name:</td>
-                    <td><?=$_SESSION['fname']?> <?=$_SESSION['mname']?> <?=$_SESSION['lname']?></td>
-                </tr>
-                <tr>
-                    <td>ID no#:</td>
-                    <td><?=$_SESSION['id']?></td>
-                </tr>
-            </table>
         </div>
     </div>
-<!-- chatbot -->
-    <button class="open-button" onclick="openForm()">Chatbot</button>
-        <div class="chat-popup" id="myForm">
-            <div class="form-container">
-                <?php include "cb.php"?>
-    <button type="button"  class="btn cancel" onclick="closeForm()">Close</button>
-            </div>
-        </div>
+
+        
 </body>
-    <script src="code/scripts/cbcollapse.js"></script>
-	<script src="code/scripts/cb.js"></script>
-	<script src="https://kit.fontawesome.com/a076d05399.js"></script>
 </html>

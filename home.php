@@ -31,6 +31,7 @@ if (!isset($_SESSION['loggedin'])) {
 			<h2>Home Page</h2>
 			<p>Welcome back, <?=$_SESSION['fname']?> <?=$_SESSION['lname']?>!</p>
 		</div>
+		
 <!-- chatbot -->
 		<button class="open-button" onclick="openForm()">Chatbot</button>
 	<div class="chat-popup" id="myForm">
