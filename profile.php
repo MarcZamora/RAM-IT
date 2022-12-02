@@ -29,7 +29,7 @@ $stmt->close();
 <head>
 <meta charset="utf-8">
 <title>Profile Page</title>
-<link rel="stylesheet" href="code/css/cbcollapse.css">
+<link href="code/css/cbcollapse.css"  rel="stylesheet" type="text/css" >
 <link href="code/css/home.css" rel="stylesheet" type="text/css">
 </head>
 <body class="loggedin">  

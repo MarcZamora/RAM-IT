@@ -13,7 +13,7 @@ if (!isset($_SESSION['loggedin'])) {
 		
 		<meta charset="utf-8">
 		<title>Home Page</title>
-		<link rel="stylesheet" href="code/css/cbcollapse.css">
+		<link href="code/css/cbcollapse.css" rel="stylesheet">
 		<link href="code/css/home.css" rel="stylesheet" type="text/css">
 		
 	</head>

@@ -11,6 +11,7 @@ if ( mysqli_connect_errno() ) {
 	exit('Failed to connect to MySQL: ' . mysqli_connect_error());
 }
 
+
 // Now we check if the data from the login form was submitted, isset() will check if the data exists.
 if ( !isset($_POST['email'], $_POST['pswd']) ) {
 	// Could not get the data that should have been sent.
@@ -45,12 +46,13 @@ if ($stmt = $con->prepare('SELECT id, pswd, fname, mname, lname, pstion FROM acc
             header('Location: home.php');
         } else {
             // Incorrect password
-            echo 'Incorrect username and/or password!';
+            include('login.html');
+            echo"<center><b><font color = 'red'>Invalid Password</b></center>";
         }
     } else {
         // Incorrect username
-        header('Location: login.html');
-        echo '<script>alert("Incorrect username and/or password!")</script>';
+        include('login.html');
+            echo"<h1><center><b><font color = 'red'>Invalid Username</b></center></h1>";
     }
 
 

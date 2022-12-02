@@ -6,7 +6,7 @@ body {	margin: 0 auto;
     	background-color: #222;
 		}
 
-.navtop {	background-color: #46472f;
+.navtop {	background-color: goldenrod;
 			height: 60px;
 			width: 100%;
 			border: 0;
@@ -68,3 +68,17 @@ body.loggedin {background-color: #f3f4f7;}
 .content > div p {	padding: 5px;	
 					margin: 0 0 10px 0;
 					}
+
+#addt {  padding: 10px 25px 8px; 
+	color: #fff; 
+	background-color: #0067ab; 
+	text-shadow: rgba(0,0,0,0.24) 0 1px 0; 
+	font-size: 16px; 
+	box-shadow: rgba(255,255,255,0.24) 0 2px 0 0 inset,#fff 0 1px 0 0; 
+	border: 1px solid #0164a5; 
+	border-radius: 2px; 
+	margin-left: 10px;
+	margin-top: 10px;
+	margin-bottom: 10px;  
+	cursor:pointer;
+}

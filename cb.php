@@ -9,7 +9,9 @@ echo'
                     <i class="fas fa-user"></i>
                 </div>
                 <div class="msg-header">
-                    <p>Hello there, how can I help you?</p>
+                    <p>Hello there, how can I help you? Input the numbers below if your problem is fit within this catergory: 1. hardware, 2. account, 3. others </p>
+                    
+                    
                 </div>
             </div>
         </div>
