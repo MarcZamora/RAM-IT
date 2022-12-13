@@ -43,6 +43,8 @@ if (!isset($_SESSION['loggedin'])) {
             }
             elseif ($_SESSION['pstion'] == "student"){
                 include "tstu.php";
+            } else{
+                echo "ERROR no Position";
             }
 
             ?>

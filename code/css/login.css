@@ -50,12 +50,3 @@ input[type='submit']{   padding: 10px 25px 8px;
 
 input[type='submit']:hover {background-color: #024978;}
 
-#inquiry { width: 200%; 
-            border-radius: 2px;border: 1px solid #CCC;
-            padding: 10px; 
-            color: #333;
-            font-size: 14px; 
-            margin-left: 10px;
-            margin-top: 10px;
-
-}

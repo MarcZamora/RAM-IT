@@ -1,26 +1,29 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Basic MySQLi Commands</title>
+<title></title>
 </head>
-<link href="home.css" rel="stylesheet" type="text/css">
-<link href="table.css" rel="stylesheet" type="text/css">
+<link href="code/css/home.css" rel="stylesheet" type="text/css">
+<link href="code/css/table.css" rel="stylesheet" type="text/css">
 <body>
+	<div class="container">
+					<table>
+					<th>Ticket ID#</th> 
+					<th>Inquiry ID#</th>
+					<th>Inquiry</th> 
+					<th>Status</th> 
+					<th>Assigned ID#</th> 
+					<th>Name Assigned</th> 
+					<th>Date</th> 
+					
+
 					<?php
-					$DATABASE_HOST = 'localhost';
-					$DATABASE_USER = 'root';
-					$DATABASE_PASS = '';
-					$DATABASE_NAME = 'ramit';
-					$con = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATABASE_NAME);
-					if (mysqli_connect_errno()) {
-						exit('Failed to connect to MySQL: ' . mysqli_connect_error());
-						
-					}
-				
-					$query=mysqli_query($con,"SELECT iid, tid, inquiry, stat, assignid, afname, alname, dt FROM ticket ");
+					require 'connect.php';				
+					$query=mysqli_query($con,"SELECT iid,tid, inquiry, stat, assignid, afname, alname, assignid, dt FROM ticket");
 					while($row=mysqli_fetch_array($query)){
+
 						?>
-						<table>
+						<tbody>
 						<tr>
 							<td><?php echo $row['tid']; ?></td>
 							<td><?php echo $row['iid']; ?></td>
@@ -30,17 +33,15 @@
 							<td><?php echo $row['afname']. " ". $row['alname']; ?></td>
 							<td><?php echo $row['dt'] ?></td>
 							<td>
-								<a href="tdetails.php? id=<?php echo $row['tid']; ?>"><button>Assign</button></a>
+								<a href="tdetails.php? id=<?php echo $row['tid']; ?>"><button>Open</button></a>
 								<a href="delete.php? id=<?php echo $row['tid']; ?>"><button>Delete</button></a>
 							</td>
 						</tr>
-						</table>
-						
+						</tbody>
 						<?php
 					}
 				?>
-			</tbody>
-		</table>
+						</table>
 	</div>
 </body>
 </html>
