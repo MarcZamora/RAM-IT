@@ -1,6 +1,6 @@
 <?php
 session_start();
-require 'connect.php';
+require 'code/components/connect.php';
 
 
 // Now we check if the data from the login form was submitted, isset() will check if the data exists.
@@ -42,7 +42,7 @@ if ($stmt = $con->prepare('SELECT id, pswd, fname, mname, lname, pstion FROM acc
         }
     } else {
         // Incorrect username
-        include('login.html');
+            include('login.html');
             echo"<center><b><font color = 'red'>Invalid Username</b></center>";
     }
 

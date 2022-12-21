@@ -1,6 +1,6 @@
 <?php
 session_start();
-require 'connect.php';
+require 'code/components/connect.php';
 
 // getting user message through ajax
 $getMesg = mysqli_real_escape_string($con, $_POST['text']);

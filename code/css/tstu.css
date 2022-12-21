@@ -39,8 +39,21 @@
     z-index: -1;
   }
   
-  .assignid {
+  th.assignid {
     width: 100px;
     text-align: center;
+  }
+
+  td.assignid {
+    width: 100px;
+    text-align: center;
+  }
+  
+  th.dt {
+    width: 200px;
+  }
+
+  td.dt {
+    width: 200px;
   }
   

@@ -3,10 +3,10 @@
 session_start();
 // If the user is not logged in redirect to the login page...
 if (!isset($_SESSION['loggedin'])) {
-    header('Location: loggin.html');
+    header('Location: login.html');
     exit;
 }
-require 'connect.php';
+require 'code/components/connect.php';
 
     $id=$_GET['id'];
 	$query=mysqli_query($con,"SELECT iid, tid, inquiry, stat, assignid, afname, alname, dt FROM ticket where tid = '$id'");
@@ -27,7 +27,7 @@ require 'connect.php';
             <h1><a href="home.php">RAM-IT</a></h1>
             <a href="ticket.php">Tickets</a>
             <a href="profile.php">Profile</a>
-            <a href="logout.php">Logout</a>
+            <a href="code/components/logout.php">Logout</a>
         </div>
     </nav>
     <div class="content">
@@ -37,7 +37,8 @@ require 'connect.php';
             <p>Your ticket details are below:</p>
             <!-- info table -->
             <?php
-            require 'details.php';
+            require 'code/components/details.php';
+            require 'code/components/chat.php';
             ?>
 </body>
 </html>

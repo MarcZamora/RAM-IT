@@ -4,6 +4,7 @@ html {	scroll-behavior: smooth;
 
 body {	margin: 0 auto;
     	background-color: #222;
+		overflow:auto;
 		}
 
 .navtop {	background-color: goldenrod;
@@ -64,3 +65,4 @@ a { color:#0067ab;
         }
 
 a:hover {text-decoration:underline;}
+

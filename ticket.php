@@ -3,7 +3,7 @@
 session_start();
 // If the user is not logged in redirect to the login page...
 if (!isset($_SESSION['loggedin'])) {
-	header('Location: loggin.html');
+	header('Location: login.html');
 	exit;
 }
 ?>
@@ -23,7 +23,7 @@ if (!isset($_SESSION['loggedin'])) {
             <h1><a href="home.php">RAM-IT</a></h1>
             <a href="ticket.php">Tickets</a>
             <a href="profile.php">Profile</a>
-            <a href="logout.php">Logout</a>
+            <a href="code/components/logout.php">Logout</a>
         </div>
     </nav>
     <div class="content">
@@ -36,13 +36,13 @@ if (!isset($_SESSION['loggedin'])) {
             <!-- info table -->
             <?php 
             if ($_SESSION['pstion'] == "supervisor"){
-                include "tsup.php";
+                include "code/components/tsup.php";
             }
             elseif ($_SESSION['pstion'] == "it"){
-                include "tit.php";
+                include "code/components/tit.php";
             }
             elseif ($_SESSION['pstion'] == "student"){
-                include "tstu.php";
+                include "code/components/tstu.php";
             } else{
                 echo "ERROR no Position";
             }

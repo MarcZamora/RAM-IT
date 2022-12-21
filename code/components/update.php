@@ -10,5 +10,5 @@
 	
 	mysqli_query($con,"update `ticket` set  stat='$stat', assignid='$assignid', afname='$afname', alname='$alname' where tid='$id'");
 
-	header('location:ticket.php');
+	header('location:../../ticket.php');
 ?>

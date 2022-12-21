@@ -3,8 +3,8 @@
 <head>
 <title></title>
 </head>
-<link href="code/css/home.css" rel="stylesheet" type="text/css">
-<link href="code/css/table.css" rel="stylesheet" type="text/css">
+<link href="../css/home.css" rel="stylesheet" type="text/css">
+<link href="../css/table.css" rel="stylesheet" type="text/css">
 <body>
 	<div class="container">
 					<table>
@@ -12,9 +12,9 @@
 					<th>Inquiry ID#</th>
 					<th>Inquiry</th> 
 					<th>Status</th> 
-					<th>Assigned ID#</th> 
+					<th class = "assignid">Assigned ID#</th> 
 					<th>Name Assigned</th> 
-					<th>Date</th> 
+					<th class = "dt" >Date</th> 
 					
 
 					<?php
@@ -29,12 +29,12 @@
 							<td><?php echo $row['iid']; ?></td>
 							<td><?php echo $row['inquiry']; ?></td>
 							<td><?php echo $row['stat']; ?></td>
-							<td><?php echo $row['assignid']; ?></td>
+							<td class = "assignid"><?php echo $row['assignid']; ?></td>
 							<td><?php echo $row['afname']. " ". $row['alname']; ?></td>
-							<td><?php echo $row['dt'] ?></td>
+							<td class = "dt"> <?php echo $row['dt'] ?></td>
 							<td>
 								<a href="tdetails.php? id=<?php echo $row['tid']; ?>"><button>Open</button></a>
-								<a href="delete.php? id=<?php echo $row['tid']; ?>"><button>Delete</button></a>
+								<a href="code/components/delete.php? id=<?php echo $row['tid']; ?>"><button>Delete</button></a>
 							</td>
 						</tr>
 						</tbody>

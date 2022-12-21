@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 13, 2022 at 05:27 AM
+-- Generation Time: Dec 21, 2022 at 03:14 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.0.13
 
@@ -69,9 +69,30 @@ INSERT INTO `cbr` (`id`, `queries`, `replies`) VALUES
 (3, 'Rock | rock | ROCK | bato | Bato | BATO', 'Paper'),
 (4, 'Paper | paper | PAPER | papel | PAPEL | Papel', 'Scissors'),
 (5, 'scissors | Scissors | SCISSORS | scissor | Scissor | SCISSOR | gunting | GUNTING | Gunting', 'Rock'),
-(6, '1 | one | uno | isa', 'Sorry at the moment the database is in progress would you mind go to the ticketing system. So that your problem will be added to our database and increase my knowledge to answer everyone who has a problem with the subject. <a href=\"http://localhost/ramit/tadd.php\"> here... </a>'),
-(7, '2 | two | dalawa | pangalawa', 'Sorry at the moment the database is in progress would you mind go to the ticketing system. So that your problem will be added to our database and increase my knowledge to answer everyone who has a problem with the subject. <a href=\"http://localhost/ramit/tadd.php\"> here... </a>'),
-(8, '3 | three | tatlo | pangatlo', 'Sorry at the moment the database is in progress would you mind go to the ticketing system. So that your problem will be added to our database and increase my knowledge to answer everyone who has a problem with the subject. <a href=\"http://localhost/ramit/tadd.php\"> here... </a>');
+(6, '1 | one | uno | isa', 'Sorry at the moment the database is in working progress would you mind go to the ticketing system. So that your problem will be added to our database and increase my knowledge to answer everyone who has a problem with the subject. <a href=\"http://localhost/ramit/tadd.php\"> here... </a>'),
+(7, '2 | two | dalawa | pangalawa', 'Sorry at the moment the database is in working progress would you mind go to the ticketing system. So that your problem will be added to our database and increase my knowledge to answer everyone who has a problem with the subject. <a href=\"http://localhost/ramit/tadd.php\"> here... </a>'),
+(8, '3 | three | tatlo | pangatlo', 'Sorry at the moment the database is in working progress would you mind go to the ticketing system. So that your problem will be added to our database and increase my knowledge to answer everyone who has a problem with the subject. <a href=\"http://localhost/ramit/tadd.php\"> here... </a>');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `chat`
+--
+
+CREATE TABLE `chat` (
+  `tid` int(255) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `position` varchar(50) NOT NULL,
+  `msg` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `chat`
+--
+
+INSERT INTO `chat` (`tid`, `name`, `position`, `msg`) VALUES
+(1, 'Admin S. Supervisor', 'supervisor', 'hello'),
+(1, 'Marc Espina Zamora', 'student', 'hello');
 
 -- --------------------------------------------------------
 
@@ -95,9 +116,8 @@ CREATE TABLE `ticket` (
 --
 
 INSERT INTO `ticket` (`tid`, `iid`, `inquiry`, `stat`, `assignid`, `afname`, `alname`, `dt`) VALUES
-(1, 2020141361, 'I need help', 'open', 2, 'Example', 'ITRO', '2022-12-12 01:09:41'),
-(2, 2020141242, 'hello I need help', 'open', 2, 'Example', 'ITRO', '2022-12-13 11:54:07'),
-(3, 2020141242, 'i have this thought i often i ought to replace this slot that i was once bought cuz somebody stole my car radio and i just sit here in silence', 'pending', 0, '', '', '2022-12-13 12:25:34');
+(1, 2020141361, 'I need help', 'open', 2, 'ITRO', 'EXAMPLE', '2022-12-20 13:02:55'),
+(2, 2020141361, 'i have a problem with my laptop', 'open', 2, 'ITRO', 'EXAMPLE', '2022-12-20 14:46:58');
 
 --
 -- Indexes for dumped tables
@@ -135,7 +155,7 @@ ALTER TABLE `cbr`
 -- AUTO_INCREMENT for table `ticket`
 --
 ALTER TABLE `ticket`
-  MODIFY `tid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `tid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

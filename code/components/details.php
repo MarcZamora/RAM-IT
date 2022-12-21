@@ -1,7 +1,7 @@
 <?php
             if ($_SESSION['pstion'] == "supervisor") {
             echo  
-        '<form method="POST" action="update.php?id='
+        '<form method="POST" action="code/components/update.php?id='
         .$id 
         .'">'
 		.'<label>Inquirer ID:  </label>' 
@@ -28,7 +28,7 @@
         ."<br> <br>"
 		.'<input type="submit" name="submit">'
         ."          "
-		.'<a href="ticket.php"><button>Back</button></a>'
+		.'<a href="../../ticket.php"><button>Back</button></a>'
 	    .'</form>';}
              elseif ($_SESSION['pstion'] == "it") {
         echo  
@@ -87,12 +87,12 @@
             .'</tr>'
             
             .'</table>'
-        .'</div>'
-    .'</div>';}
+            .'<br>'
+            .'<a href="../../ticket.php"><button>Back</button></a>';
+        }
              else{
         echo  
-        '<form action="update.php" method="post">' 
-        .'<table>'
+        '<table>'
             .'<tr>'    
                 .'<td>'
                 .'inquirer ID: ' 
@@ -145,9 +145,9 @@
                 .$row["dt"]
                 .'</td>'
             .'</tr>'
-
             .'</table>'
-        .'</div>'
-    .'</div>';
+            .'<br>'
+            .'<a href="../../ticket.php"><button>Back</button></a>';
     }
     ?>
+

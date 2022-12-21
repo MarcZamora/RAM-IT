@@ -3,10 +3,10 @@
 session_start();
 // If the user is not logged in redirect to the login page...
 if (!isset($_SESSION['loggedin'])) {
-    header('Location: loggin.html');
+    header('Location: login.html');
     exit;
 }
-require 'isset.php';
+require 'code/components/isset.php';
 date_default_timezone_set('Asia/Singapore');
 $mysqltime = date ('Y-m-d H:i:s', time());
 
@@ -23,7 +23,7 @@ $mysqltime = date ('Y-m-d H:i:s', time());
 	<div class="login">
 	<h1>Add ticket</h1>
 	<!--Form-->
-		<form action="tpost.php" method="post"> 
+		<form action="code/components/tpost.php" method="post"> 
 
             <label for="iid">
 			</label>

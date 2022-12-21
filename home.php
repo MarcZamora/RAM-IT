@@ -3,7 +3,7 @@
 session_start();
 // If the user is not logged in redirect to the login page...
 if (!isset($_SESSION['loggedin'])) {
-	header('Location: loggin.html');
+	header('Location: login.html');
 	exit;
 }
 ?>
@@ -24,7 +24,7 @@ if (!isset($_SESSION['loggedin'])) {
 			<h1><a href="home.php">RAM-IT</a></h1>
 				<a href="ticket.php">Tickets</a>
 				<a href="profile.php">Profile</a>
-				<a href="logout.php">Logout</a>
+				<a href="code/components/logout.php">Logout</a>
 			</div>
 		</nav>
 		<div class="content">
@@ -36,7 +36,7 @@ if (!isset($_SESSION['loggedin'])) {
 		<button class="open-button" onclick="openForm()">Chatbot</button>
 	<div class="chat-popup" id="myForm">
 		<div class="form-container">
-			<?php include "cb.php"?>
+			<?php require "cb.php";?>
 		<button type="button"  class="btn cancel" onclick="closeForm()">Close</button>
 		</div>
 	</div>
