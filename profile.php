@@ -23,7 +23,7 @@ require 'code/components/isset.php';
             <h1><a href="home.php">RAM-IT</a></h1>
             <a href="ticket.php">Tickets</a>
             <a href="profile.php">Profile</a>
-            <a href="../../logout.php">Logout</a>
+            <a href="code/components/logout.php">Logout</a>
         </div>
     </nav>
     <h2>Profile Page</h2>
