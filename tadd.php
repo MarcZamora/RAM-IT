@@ -17,7 +17,7 @@ $mysqltime = date ('Y-m-d H:i:s', time());
 <head>
 <meta charset="utf-8">
 <title>Add ticket</title>
-<link href="code/css/login.css" rel="stylesheet" type="text/css">
+<link href="code/css/tadd.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 	<div class="login">
@@ -29,7 +29,7 @@ $mysqltime = date ('Y-m-d H:i:s', time());
 			</label>
 			<input type="hidden" name="iid" value="<?=$_SESSION['id']?>" id="iid" required>
 
-            <label for="inquiry">
+            <label for="inquiry" class="inquiry">
 			</label>
 			<input type="text" name="inquiry" placeholder="inquiry" id="inquiry">
 
@@ -52,7 +52,7 @@ $mysqltime = date ('Y-m-d H:i:s', time());
 			<?php echo  '<input type="hidden" name="dt" value="'. $mysqltime . '" id="dt" required>'?>
 
             <p></p>
-			<input type="submit" value="post">
+			<input type="submit" value="Post">
 			
 		</form>
 		<a href="ticket.php"><button>Back</button></a>

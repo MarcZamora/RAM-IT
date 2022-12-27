@@ -15,7 +15,8 @@ require 'code/components/isset.php';
 <meta charset="utf-8">
 <title>Profile Page</title>
 <link href="code/css/cbcollapse.css"  rel="stylesheet" type="text/css" >
-<link href="code/css/home.css" rel="stylesheet" type="text/css">
+<link href="code/css/profile.css"  rel="stylesheet" type="text/css" >
+
 </head>
 <body class="loggedin">  
     <nav class="navtop">
@@ -26,7 +27,9 @@ require 'code/components/isset.php';
             <a href="code/components/logout.php">Logout</a>
         </div>
     </nav>
+    <div class="title">
     <h2>Profile Page</h2>
+    </div>
     <div class="content">
         <div>
             <p>Your account details are below:</p>

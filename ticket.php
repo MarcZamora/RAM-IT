@@ -14,8 +14,7 @@ if (!isset($_SESSION['loggedin'])) {
 <meta charset="utf-8">
 <title>Tickets Page</title>
 <link href="code/css/cbcollapse.css" rel="stylesheet">
-<link href="code/css/home.css" rel="stylesheet" type="text/css">
-<link href="code/css/table.css" rel="stylesheet" type="text/css">
+<link href="code/css/table.css" rel="stylesheet">
 </head>
 <body class="loggedin">  
     <nav class="navtop">
@@ -26,13 +25,13 @@ if (!isset($_SESSION['loggedin'])) {
             <a href="code/components/logout.php">Logout</a>
         </div>
     </nav>
+
+
     <div class="content">
         <h2>Ticket Page</h2>
-
-        <?php if ($_SESSION['pstion'] == "student"){echo '<a href="tadd.php"><button id="addt"> Add Ticket </button></a>';} ?>
        
         <div>
-            <p>Your tickets are below:</p>
+            <p id='ticket-direct'>Your tickets are below:</p>
             <!-- info table -->
             <?php 
             if ($_SESSION['pstion'] == "supervisor"){
@@ -48,7 +47,10 @@ if (!isset($_SESSION['loggedin'])) {
             }
 
             ?>
+
+       
         </div>
+        <?php if ($_SESSION['pstion'] == "student"){echo '<a href="tadd.php"><button id="addt"> Add Ticket </button></a>';} ?>
     </div>
 
 
