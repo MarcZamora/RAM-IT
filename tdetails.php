@@ -38,7 +38,14 @@ require 'code/components/connect.php';
             <!-- info table -->
             <?php
             require 'code/components/details.php';
-            require 'code/components/chat.php';
+
+            if($row['stat'] == "open"){
+                require 'code/components/chat.php';
+            } 
+            else {
+             echo "<br>" ."<br>" . "There is no one to talk to because the ticket is still pending";
+            }
+  
             ?>
 </body>
 </html>
