@@ -10,26 +10,26 @@
 		.'<label>Inquiry:  </label> '
         .$row["inquiry"]
         ."<br> <br>"
-		.'<input type="hidden" value="open" name="stat">'
+        .'<input type="hidden" value="open" name="stat">'
 		.'<label>Assign ID:  </label><input type="text" value="'
         .$row["assignid"]
-        .'"name="assignid">'
+        .'"name="assignid" required>'
         ."<br> <br>"
 		.'<label>Assign Firstname:  </label><input type="text" value="'
         .$row["afname"] 
-        .'"name="afname">'
+        .'"name="afname" required>'
         ."<br> <br>"
 		.'<label>Assign Lastname:  </label><input type="text" value="'
         .$row["alname"]
-        .'"name="alname">'
+        .'"name="alname" required>'
         ."<br> <br>"
 		.'<label>Date:  </label>'  
         .$row["dt"]
         ."<br> <br>"
 		.'<input type="submit" name="submit">'
         ."          "
-		.'<a href="../../ticket.php"><button>Back</button></a>'
-	    .'</form>';}
+	    .'</form>'
+        .'<a href="ticket.php"><button>Back</button></a>';}
              elseif ($_SESSION['pstion'] == "it") {
         echo  
         '<table>'
@@ -88,7 +88,7 @@
             
             .'</table>'
             .'<br>'
-            .'<a href="../../ticket.php"><button>Back</button></a>';
+            .'<a href="ticket.php"><button>Back</button></a>';
         }
              else{
         echo  
@@ -147,7 +147,7 @@
             .'</tr>'
             .'</table>'
             .'<br>'
-            .'<a href="../../ticket.php"><button>Back</button></a>';
+            .'<a href="ticket.php"><button>Back</button></a>';
     }
     ?>
 

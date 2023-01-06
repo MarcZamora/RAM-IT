@@ -10,10 +10,11 @@ require 'connect.php';
                 VALUES ('$tid', '$name', '$position', '$msg')";
 
 if ($con->query($sql) === TRUE) {
-header('location:../../ticket.php');
+header('location:../../tdetails.php? id=' .$_POST["tid"]);
 } else {
 echo "Error: " . $sql . "<br>" . $con->error;
 }
 
 $con->close();
 ?>
+
