@@ -41,7 +41,6 @@ require 'code/components/isset.php';
 			</ul>
 		</nav>
     <h2>Profile Page</h2>
-    </div>
     <div class="content">
         <div>
             <p>Your account details are below:</p>

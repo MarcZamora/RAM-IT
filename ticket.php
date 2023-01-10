@@ -42,11 +42,15 @@ if (!isset($_SESSION['loggedin'])) {
 			</ul>
 		</nav>
 
+		
+
     <div class="content">
         <h2>Ticket Page</h2>
+
+        <?php if ($_SESSION['pstion'] == "student"){echo '<a href="tadd.php"><button id="addt"> Add Ticket </button></a>';} ?>
        
         <div>
-            <p id='ticket-direct'>Your tickets are below:</p>
+            <p>Your tickets are below:</p>
             <!-- info table -->
             <?php 
             if ($_SESSION['pstion'] == "supervisor"){
@@ -62,10 +66,7 @@ if (!isset($_SESSION['loggedin'])) {
             }
 
             ?>
-
-       
         </div>
-        <?php if ($_SESSION['pstion'] == "student"){echo '<a href="tadd.php"><button id="addt"> Add Ticket </button></a>';} ?>
     </div>
 
     <footer>
