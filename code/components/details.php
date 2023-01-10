@@ -1,4 +1,7 @@
 <?php
+date_default_timezone_set('Asia/Singapore');
+$mysqltime = date ('Y-m-d H:i:s', time());
+
             if ($_SESSION['pstion'] == "supervisor") {
             echo  
         '<form method="POST" action="code/components/update.php?id='
@@ -10,88 +13,222 @@
 		.'<label>Inquiry:  </label> '
         .$row["inquiry"]
         ."<br> <br>"
-        .'<input type="hidden" value="open" name="stat">'
-		.'<label>Assign ID:  </label><input type="text" value="'
-        .$row["assignid"]
-        .'"name="assignid" required>'
+
+        .'<label for="priority">Type: </label>'
+		.'<select type="select" name="itype" value="'
+        .$row["itype"]
+        .'" id="priority" required>'  
+        .'<option value="'
+        .$row["itype"]
+        .'">'
+        .$row["itype"]
+        .'</option>'
+		.'<option value="hardware">Hardware</option>'  
+		.'<option value="account">Account</option>'  
+		.'<option value="others">others</option>'   
+		.'</select>'   
         ."<br> <br>"
-		.'<label>Assign Firstname:  </label><input type="text" value="'
+
+        .'<label>Full description:  </label> '
+        .$row["fdes"]
+        ."<br> <br>"
+
+        .'<input type="hidden" value="open" name="stat">'
+
+        .'<label for="priority">Priority: </label>'
+		.'<select type="select" name="priority" value="'
+        .$row["priority"]
+        .'" id="priority" required>'  
+        .'<option value="'
+        .$row["priority"]
+        .'">'
+        .$row["priority"]
+        .'</option>'
+		.'<option value="1">1</option>'  
+		.'<option value="2">2</option>'  
+		.'<option value="3">3</option>'  
+		.'<option value="4">4</option>'  
+		.'<option value="5">5</option>'   
+		.'</select>'   
+        ."  min 1 - 5 max"
+        ."<br> <br>"
+
+        .'<label for="severity">Severity: </label>'
+		.'<select type="select" name="severity" value="'
+        .$row["severity"]
+        .'" id="severity" required>' 
+        .'<option value="'
+        .$row["severity"]
+        .'">'
+        .$row["severity"]
+        .'</option>'   
+		.'<option value="1">1</option>'  
+		.'<option value="2">2</option>'  
+		.'<option value="3">3</option>'  
+		.'<option value="4">4</option>'  
+		.'<option value="5">5</option>'   
+		.'</select>'   
+        ."  min 1 - 5 max"
+        ."<br> <br>"
+        .'<label>Date:  </label>'  
+        .$row["dt"]
+        ."<br> <br>"    
+        .'<label>The IT specialist that is Assigned for the Ticket:</label> <br> <br>'
+        .'<label> ID:   </label><input type="text" value="'
+        .$row["assignid"]
+        .'"name="assignid" required>';
+        ?>
+        
+
+
+
+
+
+
+<?php
+        echo
+		'<label> Firstname:   </label><input type="text" value="'
         .$row["afname"] 
         .'"name="afname" required>'
-        ."<br> <br>"
-		.'<label>Assign Lastname:  </label><input type="text" value="'
+		.'<label> Lastname:   </label><input type="text" value="'
         .$row["alname"]
         .'"name="alname" required>'
-        ."<br> <br>"
-		.'<label>Date:  </label>'  
-        .$row["dt"]
-        ."<br> <br>"
+        ."<br> <br>";
+        ?>
+        <?php echo  '<input type="hidden" name="dta" value="'. $mysqltime . '" id="dta" required>'?>
+        <?php
+        echo
+        '<label>Date assigned:  </label>'  
+        .$row["dta"]
+        ."<br> <br>"  
 		.'<input type="submit" name="submit">'
         ."          "
-	    .'</form>'
-        .'<a href="ticket.php"><button>Back</button></a>';}
+	    .'</form>';
+        // if($row['img'] == 0) {
+                
+        // }
+        // else{
+        //     echo
+        //     $row['img'];
+        // }
+        
+        echo
+        '<br> <br>'
+        .'<a href="ticket.php"><button>Back</button></a>';
+        
+}
              elseif ($_SESSION['pstion'] == "it") {
-        echo  
-        '<table>'
-            .'<tr>'    
+                echo  
+                '<table>'
+                    .'<tr>'    
+                        .'<td>'
+                        .'inquirer ID: ' 
+                        . "  "
+                        .$row['iid']
+                        .'</td>'
+                        .'<td>'
+                        .'</td>'
+                    .'</tr>'
+                    .'<tr>'
+                        .'<td>'
+                        .'Inquiry: ' 
+                        . "  "
+                        .$row['inquiry']
+                        .'</td>'
+                        .'<td>'
+                        .'</td>'
+                    .'</tr>'
+                    .'<tr>'
+                        .'<td>'
+                        .'Type: ' 
+                        . "  "
+                        .$row['itype']
+                        .'</td>'
+                        .'<td>'
+                        .'</td>'
+                    .'</tr>'
+                    .'<tr>'
+                        .'<td>'
+                        .'Full description: ' 
+                        . "  "
+                        .$row['fdes']
+                        .'</td>'
+                        .'<td>'
+                        .'</td>'
+                    .'</tr>'
+                    .'<tr>'
+                        .'<td>'
+                        .'Priority: ' 
+                        . "  "
+                        .$row['priority']
+                        .'</td>'
+                        .'<td>'
+                        .'</td>'
+                    .'</tr>'
+                    .'<tr>'
+                        .'<td>'
+                        .'Severity: ' 
+                        . "  "
+                        .$row['severity']
+                        .'</td>'
+                        .'<td>'
+                        .'</td>'
+                    .'</tr>'
+                    .'<tr>'
+                        .'<td>'
+                        . "Date: "
+                        . "  "
+                        .$row["dt"]
+                        .'</td>'
+                    .'</tr>'
+                    .'<tr><td></td></tr>'
+                    .'<tr><td></td></tr>'
+                    .'<tr><td></td></tr>'
+                    .'<tr>'
+                        .'<td>The IT specialist that was Assigned for the Ticket:</td>'
+                    .'</tr>'
+                    .'<tr><td></td></tr>'
+                    .'<tr><td></td></tr>'
+                    .'<tr>'
                 .'<td>'
-                .'inquirer ID: ' 
-                . "  "
-                .$row['iid']
-                .'</td>'
-                .'<td>'
-                .'</td>'
-            .'</tr>'
-            .'<tr>'
-                .'<td>'
-                .'Inquiry: ' 
-                . "  "
-                .$row['inquiry']
-                .'</td>'
-                .'<td>'
-                .'</td>'
-            .'</tr>'
-            .'<tr>'
-                .'<td>'
-                .'Assign ID: ' 
+                .' ID: ' 
                 . "  "
                 .$row["assignid"]
                 .'</td>'
-                .'<td>'
-                .'</td>'
             .'</tr>'
             .'<tr>'
                 .'<td>'
-                .'Assign Firstname: ' 
+                .' Name: ' 
                 . "  "
                 .$row["afname"]
-                .'</td>'
-                .'<td>'
-                .'</td>'
-            .'</tr>'
-            .'<tr>'
-                .'<td>'
-                .'Assign Lastname: ' 
-                . "  "
+                .'    '
                 .$row["alname"]
                 .'</td>'
-                .'<td>'
-                .'</td>'
             .'</tr>'
             .'<tr>'
-                .'<td>'
-                . "Date: "
-                . "  "
-                .$row["dt"]
-                .'</td>'
-            .'</tr>'
-            
+                        .'<td>'
+                        . "Date assigned: "
+                        . "  "
+                        .$row["dta"]
+                        .'</td>'
+                    .'</tr>'
+           
             .'</table>'
-            .'<br>'
+            .'<br>';
+            // if($row['img'] == 0) {
+                
+            // }
+            // else{
+            //     echo
+            //     $row['img'];
+            // }
+            
+            echo
+            '<br> <br>'
             .'<a href="ticket.php"><button>Back</button></a>';
         }
              else{
-        echo  
+                echo  
         '<table>'
             .'<tr>'    
                 .'<td>'
@@ -113,41 +250,85 @@
             .'</tr>'
             .'<tr>'
                 .'<td>'
-                .'Assign ID: ' 
+                .'Priority: ' 
+                . "  "
+                .$row['priority']
+                .'</td>'
+                .'<td>'
+                .'</td>'
+            .'</tr>'
+            .'<tr>'
+            .'<td>'
+            .'Type: ' 
+            . "  "
+            .$row['itype']
+            .'</td>'
+            .'<td>'
+            .'</td>'
+            .'</tr>'
+            .'<tr>'
+            .'<td>'
+            .'Full description: ' 
+            . "  "
+            .$row['fdes']
+            .'</td>'
+            .'<td>'
+            .'</td>'
+            .'</tr>'
+            .'<tr>'
+            .'<td>'
+            . "Date: "
+            . "  "
+            .$row["dt"]
+            .'</td>'
+            .'</tr>'
+            .'<tr><td></td></tr>'
+            .'<tr><td></td></tr>'
+            .'<tr><td></td></tr>'
+            .'<tr>'
+                .'<td>The IT specialist that was Assigned for the Ticket:</td>'
+            .'</tr>'
+            .'<tr><td></td></tr>'
+            .'<tr><td></td></tr>'
+            .'<tr>'
+                .'<td>'
+                .' ID: ' 
                 . "  "
                 .$row["assignid"]
                 .'</td>'
-                .'<td>'
-                .'</td>'
             .'</tr>'
             .'<tr>'
                 .'<td>'
-                .'Assign Firstname: ' 
+                .' Name: ' 
                 . "  "
                 .$row["afname"]
-                .'</td>'
-                .'<td>'
-                .'</td>'
-            .'</tr>'
-            .'<tr>'
-                .'<td>'
-                .'Assign Lastname: ' 
-                . "  "
+                .'    '
                 .$row["alname"]
                 .'</td>'
-                .'<td>'
-                .'</td>'
             .'</tr>'
             .'<tr>'
-                .'<td>'
-                . "Date: "
-                . "  "
-                .$row["dt"]
-                .'</td>'
-            .'</tr>'
+                        .'<td>'
+                        . "Date assigned: "
+                        . "  "
+                        .$row["dta"]
+                        .'</td>'
+                    .'</tr>'
+           
             .'</table>'
-            .'<br>'
+            .'<br>';
+            // if($row['img'] == 0) {
+                
+            // }
+            // else{
+            //     echo
+            //     $row['img'];
+            // }
+            
+            echo
+            '<br> <br>'
             .'<a href="ticket.php"><button>Back</button></a>';
+            
+        
     }
     ?>
 

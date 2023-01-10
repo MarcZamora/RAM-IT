@@ -37,12 +37,12 @@ if ($stmt = $con->prepare('SELECT id, pswd, fname, mname, lname, pstion FROM acc
             header('Location: home.php');
         } else {
             // Incorrect password
-            include('login.html');
+            include('login.php');
             echo"<center><b><font color = 'red'>Invalid Password</b></center>";
         }
     } else {
         // Incorrect username
-            include('login.html');
+            include('login.php');
             echo"<center><b><font color = 'red'>Invalid Username</b></center>";
     }
 

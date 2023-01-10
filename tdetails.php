@@ -3,13 +3,13 @@
 session_start();
 // If the user is not logged in redirect to the login page...
 if (!isset($_SESSION['loggedin'])) {
-    header('Location: login.html');
+    header('Location: login.php');
     exit;
 }
 require 'code/components/connect.php';
 
     $id=$_GET['id'];
-	$query=mysqli_query($con,"SELECT iid, tid, inquiry, stat, assignid, afname, alname, dt FROM ticket where tid = '$id'");
+	$query=mysqli_query($con,"SELECT iid, tid, inquiry, stat, assignid, priority, severity, afname, alname, dt, itype, fdes, dta FROM ticket where tid = '$id'");
 	$row=mysqli_fetch_array($query);
  
 ?>
@@ -45,7 +45,6 @@ require 'code/components/connect.php';
             else {
              echo "<br>" ."<br>" . "There is no one to talk to because the ticket is still pending";
             }
-  
             ?>
 </body>
 </html>

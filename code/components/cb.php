@@ -1,6 +1,12 @@
-<?php
+<!-- chatbot -->
+<button class="open-button" onclick="openForm()">Chatbot</button>
+	<div class="chat-popup" id="myForm">
+		<div class="form-container">
+		
+        <?php
 echo'
 <link rel="stylesheet" href="code/css/cb.css">
+<link href="code/css/cbcollapse.css" rel="stylesheet">
     <div class="wrapper">
         <div class="title">Chatbot</div>
         <div class="form">
@@ -25,3 +31,9 @@ echo'
 
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>'
     ?>
+
+
+		<button type="button"  class="btn cancel" onclick="closeForm()">Close</button>
+		</div>
+	</div>
+

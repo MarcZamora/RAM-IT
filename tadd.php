@@ -3,7 +3,7 @@
 session_start();
 // If the user is not logged in redirect to the login page...
 if (!isset($_SESSION['loggedin'])) {
-    header('Location: login.html');
+    header('Location: login.php');
     exit;
 }
 require 'code/components/isset.php';
@@ -28,29 +28,43 @@ $mysqltime = date ('Y-m-d H:i:s', time());
             <label for="iid">
 			</label>
 			<input type="hidden" name="iid" value="<?=$_SESSION['id']?>" id="iid" required>
+            <label for="inquiry"> Inquiry: 
 
-            <label for="inquiry" class="inquiry">
 			</label>
 			<input type="text" name="inquiry" placeholder="inquiry" id="inquiry">
+			<br>
 
             <label for="stat">
 			</label>
 			<input type="hidden" name="stat" value="pending" id="stat" required>
 
-			<label for="assignid">
+			
+			<label for="itype"> Type: 
 			</label>
-			<input type="hidden" name="assignid" value="" id="assignid" required>
+			<select type="select" name="itype" placeholder="Type" id="itype" required>  
+			<option value=" "> </option>
+			<option value="hardware">Hardware</option>
+			<option value="account">Account</option>  
+			<option value="others">Others</option>   
+			</select>   
+			<br>
 
-			<label for="afname">
+			<label for="fdes"> Full description: 
 			</label>
-			<input type="hidden" name="afname" value="" id="afname" required>
+			<input type="text" name="fdes" placeholder="Full Description" id="fdes">
 
-			<label for="alname">
+			<br>
+			<label for="priority"> Priority: 
 			</label>
-			<input type="hidden" name="alname" value="" id="alname" required>
-
+			<select type="select" name="priority" value="" id="priority" required>  
+			<option value=""></option>
+			<option value="1">1</option>
+			<option value="2">2</option>  
+			<option value="3">3</option>  
+			<option value="4">4</option>  
+			<option value="5">5</option>   
+			</select>   
 			<?php echo  '<input type="hidden" name="dt" value="'. $mysqltime . '" id="dt" required>'?>
-
             <p></p>
 			<input type="submit" value="Post">
 			

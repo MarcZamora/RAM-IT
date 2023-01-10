@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;700&display=swap');
-/*Keep Here to*/
+
 *{
     margin: 0;
     padding: 0;
@@ -23,6 +23,7 @@ nav{
     overflow: hidden;
     transition: width 0.2s linear;
     box-shadow: 0 20px 35px rgba(0,0,0, 0.9);
+    
 }
 .logo{
     text-align: center;
@@ -73,26 +74,6 @@ nav:hover{
 .logout{
     position: absolute;
     bottom: 0;
-}
-
-/*Here*/
-
-.container{
-    background-color: #f6f9fb;
-    width: 88%;
-    border: 10px solid #e7ae41;
-    padding: 100px;
-    margin: 8%;
-  }
-
-.welcome{
-    text-align: center;
-    text-transform: uppercase;
-}
-
-.name{
-    text-align: center;
-    text-size-adjust: 50px;
 }
 
 footer{
