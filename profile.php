@@ -22,7 +22,6 @@ require 'code/components/isset.php';
 <?php require 'code/components/nav.php';?>
 
     <h2>Profile Page</h2>
-    </div>
     <div class="content">
         <div>
             <p>Your account details are below:</p>

@@ -1,6 +1,6 @@
 .tbl {
     position: absolute;
-    top: 110px;
+    top: 100px;
     left: 210px;
     margin-top: 10px;
     margin-bottom: 100px;
@@ -57,5 +57,3 @@
   td.dt {
     width: 200px;
   }
-
- 
