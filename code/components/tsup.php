@@ -1,10 +1,5 @@
-<!DOCTYPE html>
-<html>
-<head>
-<title></title>
-</head>
 <body>
-	<div class="tbl">
+	
 					<table>
 					<th>Ticket ID#</th> 
 					<th>Inquiry ID#</th>
@@ -44,6 +39,4 @@
 					}
 				?>
 						</table>
-	</div>
 </body>
-</html>

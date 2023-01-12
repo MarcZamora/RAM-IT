@@ -1,11 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-<title></title>
-</head>
-<link href="code/css/tstu.css" rel="stylesheet" type="text/css">
+
 <body>
-<div class="tbl">
+
 <table>
 					<th>Ticket ID#</th> 
 					<th>Inquiry ID#</th>
@@ -42,6 +37,5 @@
 					}
 				?>
 						</table>
-				</div>
+
 </body>
-</html>

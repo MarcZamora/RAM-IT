@@ -1,16 +1,9 @@
-.tbl {
-    position: absolute;
-    top: 110px;
-    left: 210px;
-    margin-top: 10px;
-    margin-bottom: 100px;
-   
-  }
   table {
     width: 10px;
     border-collapse: collapse;
     overflow: hidden;
     box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+    
   }
   th,
   td {
