@@ -28,8 +28,7 @@ footer{
 }
 
 #chat{
-position: relative;
-left: 10%;
+    margin-left: 800px;
 
 
 }

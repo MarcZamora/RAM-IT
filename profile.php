@@ -18,10 +18,28 @@ require 'code/components/isset.php';
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"/>
 </head>
 <body >  
-
-<?php require 'code/components/nav.php';?>
-
-<div class="content">
+        <nav>
+			<ul>
+				<li>
+					<a href="home.php" class="logo">
+						<img src="logo.png" alt="">
+						<span class="nav-item">RAM-IT</span>
+					</a>
+				</li>
+				<li><a href="profile.php">
+					<i class="fas fa-user"></i>
+					<span class="nav-item">Profile</span>
+				</a></li>
+				<li><a href="ticket.php">
+					<i class="fas fa-ticket"></i>
+					<span class="nav-item">Tickets</span>
+				</a></li>
+				<li><a href="login.php" class="logout">
+					<i class="fas fa-right-from-bracket"></i>
+					<span class="nav-item">Log Out</span>
+				</a></li>
+			</ul>
+		</nav>
     <h2>Profile Page</h2>
         <div>
             <p>Your account details are below:</p>

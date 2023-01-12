@@ -1,3 +1,4 @@
+
 <h1>CHAT (WORKING IN PROGRESS)</h1>
                     <?php
 					require 'code/components/connect.php';				
@@ -15,7 +16,7 @@
                         ?>
                 </div>
 
-                
+                <div id = "outchat" style = "width: 700px; background-color: grey; ">
                 <form method="POST" action="code/components/chatp.php?id='$id'">
                 <input type="hidden" value="<?php echo $_GET["id"]; ?>" name="tid">
                 <input type="hidden" value="<?php echo $_SESSION['fname']. " " . $_SESSION['mname'] . " " . $_SESSION['lname']; ?>" name="name">
