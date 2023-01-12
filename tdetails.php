@@ -19,32 +19,37 @@ require 'code/components/connect.php';
 <head>
 <meta charset="utf-8">
 <title>Ticket# <?php echo $row['tid']; ?></title>
-<link href="code/css/home.css" rel="stylesheet" type="text/css">
+<link href="code/css/body.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"/>
 </head>
-<body class="loggedin">  
-    <nav class="navtop">
-        <div>
-            <h1><a href="home.php">RAM-IT</a></h1>
-            <a href="ticket.php">Tickets</a>
-            <a href="profile.php">Profile</a>
-            <a href="code/components/logout.php">Logout</a>
-        </div>
-    </nav>
-    <div class="content">
+
+<body>  
+
+<?php require 'code/components/nav.php';?>
+
+        <div class="content">
         <h2>Ticket# <?php echo $row['tid']; ?></h2>
         <h3>Status: <?php echo $row['stat']; ?></h3>
-        <div>
+		
             <p>Your ticket details are below:</p>
             <!-- info table -->
             <?php
             require 'code/components/details.php';
-
+			?>
+			</div>
+			
+			<?php
             if($row['stat'] == "open"){
-                require 'code/components/chat.php';
+                echo '<div id = "chat">';
+				require 'code/components/chat.php';
+				echo '</div>';
             } 
             else {
+			 echo '<div id = "chat">';
              echo "<br>" ."<br>" . "There is no one to talk to because the ticket is still pending";
+			 echo '</div>';
             }
             ?>
+			</div>
 </body>
 </html>
