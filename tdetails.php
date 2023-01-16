@@ -26,7 +26,7 @@ require 'code/components/connect.php';
 <body>  
 
 <?php require 'code/components/nav.php';?>
-<div></div>
+
 
         <div class="content">
         <h2>Ticket# <?php echo $row['tid']; ?></h2>
