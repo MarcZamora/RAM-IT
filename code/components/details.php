@@ -13,7 +13,12 @@ $mysqltime = date ('Y-m-d H:i:s', time());
 		.'<label>Inquiry:  </label> '
         .$row["inquiry"]
         ."<br> <br>"
-
+        .'<label>Email:  </label>' 
+        .$row["email"]
+        ."<br> <br>"
+		.'<label>Picture:  </label> '
+        .'<img src="./img/' . $row['img']. '">'
+        ."<br> <br>"
         .'<label for="priority">Type: </label>'
 		.'<select type="select" name="itype" value="'
         .$row["itype"]
@@ -129,6 +134,24 @@ $mysqltime = date ('Y-m-d H:i:s', time());
                         .'<td>'
                         .'</td>'
                     .'</tr>'
+                    .'<tr>'    
+                        .'<td>'
+                        .'Email:  ' 
+                        . "  "
+                        .$row['email']
+                        .'</td>'
+                        .'<td>'
+                        .'</td>'
+                    .'</tr>'
+                    .'<tr>'    
+                        .'<td>'
+                        .'Picture:  ' 
+                        . "  "
+                        .'<img src="./img/' . $row['img']. '">'
+                        .'</td>'
+                        .'<td>'
+                        .'</td>'
+                    .'</tr>'
                     .'<tr>'
                         .'<td>'
                         .'Inquiry: ' 
@@ -238,6 +261,24 @@ $mysqltime = date ('Y-m-d H:i:s', time());
                 .'</td>'
                 .'<td>'
                 .'</td>'
+            .'</tr>'
+                    .'<tr>'    
+                    .'<td>'
+                    .'Email:  ' 
+                    . "  "
+                    .$row['email']
+                    .'</td>'
+                    .'<td>'
+                    .'</td>'
+            .'</tr>'
+            .'<tr>'    
+                    .'<td>'
+                    .'Picture:  ' 
+                    . "  "
+                    .'<img src="./img/' . $row['img']. '">'
+                    .'</td>'
+                    .'<td>'
+                    .'</td>'
             .'</tr>'
             .'<tr>'
                 .'<td>'

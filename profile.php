@@ -15,6 +15,7 @@ require 'code/components/isset.php';
 <meta charset="utf-8">
 <title>Profile Page</title>
 <link href="code/css/body.css" rel="stylesheet" type="text/css">
+<link href="code/css/nav.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"/>
 </head>
 <body >  
@@ -43,6 +44,7 @@ require 'code/components/isset.php';
     <h2>Profile Page</h2>
         <div>
             <p>Your account details are below:</p>
+            
             <!-- info table -->
             <table>
                 <tr>
@@ -64,11 +66,13 @@ require 'code/components/isset.php';
                 <tr>
                     <td>Position:</td>
                     <td><?=$pstion?></td>
+                    <td><?php require 'code/components/pfpu.php';?></td>
                 </tr>
+                
             </table>
         </div>
     </div>
-
+    <img src="./img/<?php echo $filename; ?>">   
     <?php require "cb.php";?>
     
 </body>

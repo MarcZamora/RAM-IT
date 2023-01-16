@@ -9,7 +9,7 @@ if (!isset($_SESSION['loggedin'])) {
 require 'code/components/connect.php';
 
     $id=$_GET['id'];
-	$query=mysqli_query($con,"SELECT iid, tid, inquiry, stat, assignid, priority, severity, afname, alname, dt, itype, fdes, dta FROM ticket where tid = '$id'");
+	$query=mysqli_query($con,"SELECT iid, email, img, tid, inquiry, stat, assignid, priority, severity, afname, alname, dt, itype, fdes, dta, filename FROM ticket where tid = '$id'");
 	$row=mysqli_fetch_array($query);
  
 ?>
@@ -33,10 +33,10 @@ require 'code/components/connect.php';
 		
             <p>Your ticket details are below:</p>
             <!-- info table -->
-            <?php
-            require 'code/components/details.php';
-			?>
-			</div>
+            <?php require 'code/components/details.php';?>
+            <img src="./img/<?php echo $row['filename']; ?>">
+			<?php require 'code/components/tpicupd.php';?>
+            </div>
 			
 			<?php
             if($row['stat'] == "open"){

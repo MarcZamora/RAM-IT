@@ -10,19 +10,19 @@ body {font-family: Arial, Helvetica, sans-serif;}
                 opacity: 0.8;
                 position: fixed;
                 bottom: 23px;
-                left: 28px;
+                left: 823px;
                 width: 370px;
                 box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-              
+                
               }
 
 /* The popup chat - hidden by default */
 .chat-popup { display: none;
               position: fixed;
               bottom: 0;
-              left: 15px;
+              left: 815px;
               border: 3px solid #f1f1f1;
-             
+              
             }
 
 /* Add styles to the form container */

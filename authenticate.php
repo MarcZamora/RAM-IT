@@ -10,7 +10,7 @@ if ( !isset($_POST['email'], $_POST['pswd']) ) {
 }
 
 // Prepare our SQL, preparing the SQL statement will prevent SQL injection.
-if ($stmt = $con->prepare('SELECT id, pswd, fname, mname, lname, pstion FROM accounts WHERE email = ?')) {
+if ($stmt = $con->prepare('SELECT id, pswd, fname, mname, lname, pstion, filename FROM accounts WHERE email = ?')) {
 	// Bind parameters (s = string, i = int, b = blob, etc), in our case the email is a string so we use "s"
 	$stmt->bind_param('s', $_POST['email']);
 	$stmt->execute();
@@ -18,7 +18,7 @@ if ($stmt = $con->prepare('SELECT id, pswd, fname, mname, lname, pstion FROM acc
 	$stmt->store_result();
     
     if ($stmt->num_rows > 0) {
-        $stmt->bind_result($id, $pswd, $fname, $mname, $lname, $pstion);
+        $stmt->bind_result($id, $pswd, $fname, $mname, $lname, $pstion, $filename);
         $stmt->fetch();
         // Account exists, now we verify the password.
         // Note: remember to use password the OG password (I use the sha1 in the profile info) 
@@ -34,6 +34,7 @@ if ($stmt = $con->prepare('SELECT id, pswd, fname, mname, lname, pstion FROM acc
             $_SESSION['mname'] = $mname;
             $_SESSION['lname'] = $lname;
             $_SESSION['pstion'] = $pstion;
+            $_SESSION['filename'] = $filename;
             header('Location: home.php');
         } else {
             // Incorrect password

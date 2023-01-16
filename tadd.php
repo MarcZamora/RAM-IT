@@ -6,10 +6,10 @@ if (!isset($_SESSION['loggedin'])) {
     header('Location: login.php');
     exit;
 }
-require 'code/components/isset.php';
+
 date_default_timezone_set('Asia/Singapore');
 $mysqltime = date ('Y-m-d H:i:s', time());
-
+ 
 ?>
 
 <!DOCTYPE html>
@@ -31,7 +31,9 @@ $mysqltime = date ('Y-m-d H:i:s', time());
             <label for="inquiry"> Inquiry: 
 
 			</label>
-			<input type="text" name="inquiry" placeholder="inquiry" id="inquiry">
+			<input type="hidden" name="email" placeholder="email" id="txt_field" value="<?=$_SESSION['name']?>">
+
+			<input type="text" name="inquiry" placeholder="inquiry" id="txt_field">
 			<br>
 
             <label for="stat">
@@ -51,7 +53,7 @@ $mysqltime = date ('Y-m-d H:i:s', time());
 
 			<label for="fdes"> Full description: 
 			</label>
-			<input type="text" name="fdes" placeholder="Full Description" id="fdes">
+			<input type="text" name="fdes" placeholder="Full Description" id="txt_field">
 
 			<br>
 			<label for="priority"> Priority: 
@@ -64,6 +66,7 @@ $mysqltime = date ('Y-m-d H:i:s', time());
 			<option value="4">4</option>  
 			<option value="5">5</option>   
 			</select>   
+			<input class="form-control" type="hidden" name="img" id="img" value="<?=$_SESSION['filename']?>" />
 			<?php echo  '<input type="hidden" name="dt" value="'. $mysqltime . '" id="dt" required>'?>
             <p></p>
 			<input type="submit" value="Post">
