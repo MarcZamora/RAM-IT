@@ -13,16 +13,19 @@ if (!isset($_SESSION['loggedin'])) {
 <head>
 <meta charset="utf-8">
 <title>Tickets Page</title>
-<link href="code/css/body.css" rel="stylesheet" type="text/css">
+<link href="code/css/body&nav.css" rel="stylesheet" type="text/css">
 <link href="code/css/table.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"/>
 </head>
 <body>  
-
+    
 <?php require 'code/components/nav.php';?>
 
+    <div>
+    <h2 class="tickettitle">Ticket Page</h2>
+    </div>
     <div class="content">
-        <h2>Ticket Page</h2>
+       
        
         <div>
             <p id='ticket-direct'>Your tickets are below:</p>
@@ -44,7 +47,7 @@ if (!isset($_SESSION['loggedin'])) {
 
        
         </div>
-        <?php if ($_SESSION['pstion'] == "student"){echo '<a href="tadd.php"><button id="addt"> Add Ticket </button></a>';} ?>
+        <?php if ($_SESSION['pstion'] == "student"){echo '<a class="addticketbtn" href="tadd.php"><button id="addt"> Add Ticket </button></a>';} ?>
     </div>
 
     <footer>
@@ -53,7 +56,7 @@ if (!isset($_SESSION['loggedin'])) {
 			</div>
 	</footer>
 
-	<?php require "cb.php";?>
+
 	
 	</body>
 	<script src="code/scripts/cbcollapse.js"></script>

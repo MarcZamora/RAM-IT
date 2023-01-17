@@ -1,12 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;700&display=swap');
+
+/* body */
+*{
+    margin: 0;
+    padding: 0;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+body{
+    background: #cecece;
+}
+.content{
+    width: 800px;
+    height: 1000px;
+    margin-left: 20%;
+    margin-top: 0%;
+
+}
+.profiletitle{
+    margin-left: 20%;
+    margin-top: 3%;
+}
+.tickettitle{
+    margin-left: 20%;
+    margin-top: 3%;
+}
+
+footer{
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    left: 40%;
+    background-color: #1a2b71;
+    color: white;
+}
+
+#chat{
+    margin-left: 800px;
+
+
+}
+
+#outchat{
+    
+    width: 700px; 
+    background-color: grey; 
+}
+
+#innerchat{
+    width: 700px; 
+    background-color: white;
+}
+
+/* nav */
+
 nav{
-    position: absolute;
+    position: fixed;
+    overflow: hidden;
     top: 0;
     bottom: 0;
     height: 100%;
     left: 0;
     background: #e7ae41;
     width: 90px;
-    overflow: hidden;
     transition: width 0.2s linear;
     box-shadow: 0 20px 35px rgba(0,0,0, 0.9);
 }

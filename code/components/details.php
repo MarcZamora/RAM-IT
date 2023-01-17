@@ -4,7 +4,9 @@ $mysqltime = date ('Y-m-d H:i:s', time());
 
             if ($_SESSION['pstion'] == "supervisor") {
             echo  
-        '<form method="POST" action="code/components/update.php?id='
+        '<img src="./img/' . $row['img']. '">'
+        ."<br> <br>"    
+        .'<form method="POST" action="code/components/update.php?id='
         .$id 
         .'">'
 		.'<label>Inquirer ID:  </label>' 
@@ -15,9 +17,6 @@ $mysqltime = date ('Y-m-d H:i:s', time());
         ."<br> <br>"
         .'<label>Email:  </label>' 
         .$row["email"]
-        ."<br> <br>"
-		.'<label>Picture:  </label> '
-        .'<img src="./img/' . $row['img']. '">'
         ."<br> <br>"
         .'<label for="priority">Type: </label>'
 		.'<select type="select" name="itype" value="'
@@ -108,7 +107,8 @@ $mysqltime = date ('Y-m-d H:i:s', time());
         ."<br> <br>"  
 		.'<input type="submit" name="submit">'
         ."          "
-	    .'</form>';
+	    .'</form>'
+        .'<img src="./img/'. $row['filename'] .'">';
         // if($row['img'] == 0) {
                 
         // }
@@ -124,7 +124,8 @@ $mysqltime = date ('Y-m-d H:i:s', time());
 }
              elseif ($_SESSION['pstion'] == "it") {
                 echo  
-                '<table>'
+                '<img src="./img/' . $row['img']. '">'
+                .'<table>'
                     .'<tr>'    
                         .'<td>'
                         .'inquirer ID: ' 
@@ -139,15 +140,6 @@ $mysqltime = date ('Y-m-d H:i:s', time());
                         .'Email:  ' 
                         . "  "
                         .$row['email']
-                        .'</td>'
-                        .'<td>'
-                        .'</td>'
-                    .'</tr>'
-                    .'<tr>'    
-                        .'<td>'
-                        .'Picture:  ' 
-                        . "  "
-                        .'<img src="./img/' . $row['img']. '">'
                         .'</td>'
                         .'<td>'
                         .'</td>'
@@ -237,7 +229,8 @@ $mysqltime = date ('Y-m-d H:i:s', time());
                     .'</tr>'
            
             .'</table>'
-            .'<br>';
+            .'<br>'
+            .'<img src="./img/'. $row['filename'] .'">';
             // if($row['img'] == 0) {
                 
             // }
@@ -251,8 +244,9 @@ $mysqltime = date ('Y-m-d H:i:s', time());
             .'<a href="ticket.php"><button>Back</button></a>';
         }
              else{
-                echo  
-        '<table>'
+                echo
+         '<img src="./img/' . $row['img']. '">'         
+        .'<table>'
             .'<tr>'    
                 .'<td>'
                 .'inquirer ID: ' 
@@ -267,15 +261,6 @@ $mysqltime = date ('Y-m-d H:i:s', time());
                     .'Email:  ' 
                     . "  "
                     .$row['email']
-                    .'</td>'
-                    .'<td>'
-                    .'</td>'
-            .'</tr>'
-            .'<tr>'    
-                    .'<td>'
-                    .'Picture:  ' 
-                    . "  "
-                    .'<img src="./img/' . $row['img']. '">'
                     .'</td>'
                     .'<td>'
                     .'</td>'
@@ -356,7 +341,9 @@ $mysqltime = date ('Y-m-d H:i:s', time());
                     .'</tr>'
            
             .'</table>'
-            .'<br>';
+            .'<br>'
+            .'<img src="./img/'. $row['filename'] .'">';
+            require 'code/components/tpicupd.php';
             // if($row['img'] == 0) {
                 
             // }
@@ -372,4 +359,4 @@ $mysqltime = date ('Y-m-d H:i:s', time());
         
     }
     ?>
-
+   

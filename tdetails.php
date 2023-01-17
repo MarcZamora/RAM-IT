@@ -19,7 +19,7 @@ require 'code/components/connect.php';
 <head>
 <meta charset="utf-8">
 <title>Ticket# <?php echo $row['tid']; ?></title>
-<link href="code/css/body.css" rel="stylesheet" type="text/css">
+<link href="code/css/body&nav.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"/>
 </head>
 
@@ -35,8 +35,6 @@ require 'code/components/connect.php';
             <p>Your ticket details are below:</p>
             <!-- info table -->
             <?php require 'code/components/details.php';?>
-            <img src="./img/<?php echo $row['filename']; ?>">
-			<?php require 'code/components/tpicupd.php';?>
             </div>
 			
 			<?php

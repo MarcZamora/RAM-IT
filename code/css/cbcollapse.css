@@ -10,7 +10,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
                 opacity: 0.8;
                 position: fixed;
                 bottom: 23px;
-                left: 823px;
+                right: 23px;
                 width: 370px;
                 box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
                 
@@ -20,7 +20,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 .chat-popup { display: none;
               position: fixed;
               bottom: 0;
-              left: 815px;
+              right: 23px;
               border: 3px solid #f1f1f1;
               
             }

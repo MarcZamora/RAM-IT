@@ -14,37 +14,20 @@ require 'code/components/isset.php';
 <head>
 <meta charset="utf-8">
 <title>Profile Page</title>
-<link href="code/css/body.css" rel="stylesheet" type="text/css">
-<link href="code/css/nav.css" rel="stylesheet" type="text/css">
+<link href="code/css/body&nav.css" rel="stylesheet" type="text/css">
+<link href="code/css/table.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"/>
 </head>
 <body >  
-        <nav>
-			<ul>
-				<li>
-					<a href="home.php" class="logo">
-						<img src="logo.png" alt="">
-						<span class="nav-item">RAM-IT</span>
-					</a>
-				</li>
-				<li><a href="profile.php">
-					<i class="fas fa-user"></i>
-					<span class="nav-item">Profile</span>
-				</a></li>
-				<li><a href="ticket.php">
-					<i class="fas fa-ticket"></i>
-					<span class="nav-item">Tickets</span>
-				</a></li>
-				<li><a href="login.php" class="logout">
-					<i class="fas fa-right-from-bracket"></i>
-					<span class="nav-item">Log Out</span>
-				</a></li>
-			</ul>
-		</nav>
-    <h2>Profile Page</h2>
+
+<?php require 'code/components/nav.php';?>
+
+    <div>
+    <h2 class='profiletitle'>Profile Page</h2>
+    </div>
+    <div class="content">
         <div>
             <p>Your account details are below:</p>
-            
             <!-- info table -->
             <table>
                 <tr>
@@ -66,14 +49,22 @@ require 'code/components/isset.php';
                 <tr>
                     <td>Position:</td>
                     <td><?=$pstion?></td>
-                    <td><?php require 'code/components/pfpu.php';?></td>
+                </tr>
+                <tr>
+                    <td>PFP:<?php require 'code/components/pfpu.php';?></td>
+                    <td><img src="./img/<?php echo $filename; ?>"></td>  
                 </tr>
                 
             </table>
         </div>
     </div>
-    <img src="./img/<?php echo $filename; ?>">   
     <?php require "cb.php";?>
+    <footer>
+			<div class="footer">
+				<p>Copyright © 2023 Asia Pacific College. All rights reserved.</p>
+			</div>
+	</footer>
+
     
 </body>
     <script src="code/scripts/cbcollapse.js"></script>
