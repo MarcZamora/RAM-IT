@@ -12,7 +12,7 @@ if (!isset($_SESSION['loggedin'])) {
 <html>
 <head>
 <meta charset="utf-8">
-<title>Tickets Page <?=$_GET['pageno']?></title>
+<title>Tickets Page</title>
 <link href="code/css/body&nav.css" rel="stylesheet" type="text/css">
 <link href="code/css/table.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"/>
