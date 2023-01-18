@@ -30,16 +30,16 @@ if (!isset($_SESSION['loggedin'])) {
 				<input type="radio" name="radio-btn" id="radio4">
 	
 				<div class="slide first">
-					<img src="img/1.jpg" alt="">
+					<img src="img/1.png" alt="">
 				</div>
 				<div class="slide">
-					<img src="img/2.jpg" alt="">
+					<img src="img/2.png" alt="">
 				</div>
 				<div class="slide">
-					<img src="img/3.jpg" alt="">
+					<img src="img/3.png" alt="">
 				</div>
 				<div class="slide">
-					<img src="img/4.jpg" alt="">
+					<img src="img/4.png" alt="">
 				</div>
 	
 				<div class="navigation-auto">

@@ -24,12 +24,47 @@
                            $result = mysqli_query($conn,$total_pages_sql);
                            $total_rows = mysqli_fetch_array($result)[0];
                            $total_pages = ceil($total_rows / $no_of_records_per_page);
+                           $condition='';
+
+// if (!empty($valueToSearch)) {
+//     $condition = " `cpi` >= '$valueToSearch'";
+// }
+
+// if (!empty($valueToSearch2)) {
+//     $condition = " `sem` >= '$valueToSearch2'";
+// }
+
+// if (!empty($valueToSearch3)) {
+//     $condition = "  `choice` >= '$valueToSearch3'";
+// }
+
+// if (!empty($valueToSearch) && !empty($valueToSearch2)) {
+//     $condition = " `cpi` >= '$valueToSearch' AND `sem` >= '$valueToSearch2'";
+// }
+
+// if (!empty($valueToSearch2) && !empty($valueToSearch3)) {
+//     $condition = " `sem` >= '$valueToSearch2' AND `choice` >= '$valueToSearch3'";
+// }
+
+// if (!empty($valueToSearch) && !empty($valueToSearch3)) {
+//     $condition = " `cpi` >= '$valueToSearch' && `choice` >= '$valueToSearch3'";
+// }
+
+
+// $query = "SELECT * FROM student WHERE ". $condition ;
+
+                    $condition=$_POST['condition'];
+                    $condition2=$_POST['condition2'];
+                    $condition3=$_POST['condition3'];
+
                               
-                           if ($_SESSION['pstion'] == "supervisor"){
-                            $sql = "SELECT * FROM ticket LIMIT $offset, $no_of_records_per_page";
+                        if ($_SESSION['pstion'] == "supervisor"){
+                            if(empty($condition && $condition2 && $condition3)){$sql = "SELECT * from ticket where  '" .$condition.  ">=". $condition2 ."ORDER BY". $condition3 ."LIMIT $offset, $no_of_records_per_page";}
+                            else{$sql = "SELECT * from ticket LIMIT $offset, $no_of_records_per_page";}
+                            
                         }
                         elseif ($_SESSION['pstion'] == "it"){
-                            $sql = "SELECT * FROM ticket LIMIT $offset, $no_of_records_per_page";
+                            $sql = "SELECT * from ticket where assignid = '".$_SESSION['id']."'LIMIT $offset, $no_of_records_per_page";
                         }
                         elseif ($_SESSION['pstion'] == "student"){
                             $sql = "SELECT * from ticket where iid = '".$_SESSION['id']."'LIMIT $offset, $no_of_records_per_page";
@@ -40,7 +75,27 @@
 
                            $res_data = mysqli_query($conn,$sql);?>
    
-                           
+                        <form method="POST">
+                        <select name="condition" id="condition" value="">
+                        <option value="tid">Ticket ID#</option> 
+                        <option value="iid">Inquiry ID#</option>
+                        <option value="inquiry">Inquiry</option> 
+                        <option value="stat">Status</option>
+                        <option value="priority">Priority</option> 
+                        <option value="severity">Severity</option>  
+                        <option value="assignid">Assigned ID#</option> 
+                        <option value="afname">Name Assigned</option> 
+                        </select>
+                        
+                        <input type="text" id="condition2" name="condition2"></input>
+
+                        <select name="condition3" id="condition3" value="">
+                        <option value="ASC">ASC</option> 
+                        <option value="DESC">DESC</option>
+                        
+                        <input type="submit" value="Post">
+                        
+
                        <table>
                        <th>Ticket ID#</th> 
                        <th>Inquiry ID#</th>
@@ -51,6 +106,8 @@
                        <th class = "assignid">Assigned ID#</th> 
                        <th>Name Assigned</th> 
                        <th class = "dt" >Date</th> 
+                       
+                       
                        <?php while($row = mysqli_fetch_array($res_data)){?>
                            <tbody>
                            <tr>
@@ -73,7 +130,7 @@
                        }
                    ?>
                            </table>
-   
+                           </form>
                            <ul class="pagination">
                            <button><a href="?pageno=1">First</a></button>
                            <button class="<?php if($pageno <= 1){ echo 'disabled'; } ?>">
@@ -83,7 +140,7 @@
                                    
                            for ($i=1; $i<=$total_pages; $i++) {   
                            if ($i == $pageno) {   
-                               echo "<button class = 'disabled'><a class = 'disabled' href='?pageno=".$i."'>".$i." </a></button>";   
+                               echo "<button><a href='?pageno=".$i."'>".$i." </a></button>";   
                                                 }               
                            else  {   
                                echo "<a href='?pageno=".$i."'>".$i." </a>";     
