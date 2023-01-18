@@ -12,7 +12,7 @@ if (!isset($_SESSION['loggedin'])) {
 <html>
 <head>
 <meta charset="utf-8">
-<title>Tickets Page</title>
+<title>Tickets Page <?=$_GET['pageno']?></title>
 <link href="code/css/body&nav.css" rel="stylesheet" type="text/css">
 <link href="code/css/table.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"/>
@@ -29,20 +29,10 @@ if (!isset($_SESSION['loggedin'])) {
        
         <div>
             <p id='ticket-direct'>Your tickets are below:</p>
-            <!-- info table -->
+            
+            <!-- ticket table -->
             <?php 
-            if ($_SESSION['pstion'] == "supervisor"){
-                include "code/components/tsup.php";
-            }
-            elseif ($_SESSION['pstion'] == "it"){
-                include "code/components/tit.php";
-            }
-            elseif ($_SESSION['pstion'] == "student"){
-                include "code/components/tstu.php";
-            } else{
-                echo "ERROR no Position";
-            }
-
+           include "code/components/tticket.php";
             ?>
 
        
