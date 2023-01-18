@@ -59,6 +59,7 @@ else {
         $search_result = filterTable($sql);
     }
 }
+
 // function to connect and execute the query
 function filterTable($sql)
 {
@@ -76,6 +77,14 @@ function filterTable($sql)
     </head>
     <body>
         
+        <!-- <?php 
+        //if($_SESSION['pstion'] == 'it'){
+           // echo '<form action="ticket.php" method="post">
+           // <input type="submit" name="aid" value="Assigned to me"><br><br>
+           // </form>';
+        // }
+        ?>-->
+
         <form action="ticket.php" method="post">
          
 			<Select name="tfil" placeholder="Value To Search">
