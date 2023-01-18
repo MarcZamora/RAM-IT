@@ -1,103 +1,109 @@
-
-    
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<?php
    
-   <body>	
-                           <?php
-   
-                           if (isset($_GET['pageno'])) {
-                               $pageno = $_GET['pageno'];
-                           } else {
-                               $pageno = 1;
-                           }
-                           $no_of_records_per_page = 5;
-                           $offset = ($pageno-1) * $no_of_records_per_page;
-                   
-                           $conn=mysqli_connect("localhost","root","","ramit");
-                           // Check connection
-                           if (mysqli_connect_errno()){
-                               echo "Failed to connect to MySQL: " . mysqli_connect_error();
-                               die();
-                           }
-                   
-                           $total_pages_sql = "SELECT COUNT(*) FROM ticket";
-                           $result = mysqli_query($conn,$total_pages_sql);
-                           $total_rows = mysqli_fetch_array($result)[0];
-                           $total_pages = ceil($total_rows / $no_of_records_per_page);
-                           $condition='';
+if (isset($_GET['pageno'])) {
+    $pageno = $_GET['pageno'];
+} else {
+    $pageno = 1;
+}
+$no_of_records_per_page = 5;
+$offset = ($pageno-1) * $no_of_records_per_page;
 
-// if (!empty($valueToSearch)) {
-//     $condition = " `cpi` >= '$valueToSearch'";
-// }
+$conn=mysqli_connect("localhost","root","","ramit");
+// Check connection
+if (mysqli_connect_errno()){
+    echo "Failed to connect to MySQL: " . mysqli_connect_error();
+    die();
+}
 
-// if (!empty($valueToSearch2)) {
-//     $condition = " `sem` >= '$valueToSearch2'";
-// }
+$total_pages_sql = "SELECT COUNT(*) FROM ticket";
+$result = mysqli_query($conn,$total_pages_sql);
+$total_rows = mysqli_fetch_array($result)[0];
+$total_pages = ceil($total_rows / $no_of_records_per_page);
 
-// if (!empty($valueToSearch3)) {
-//     $condition = "  `choice` >= '$valueToSearch3'";
-// }
+//student
+if ($_SESSION['pstion'] == "student"){
+    if(isset($_POST['search']))
+    {
+        $tfil = $_POST['tfil'];
+        $ob = $_POST['ob'];
+        $valueToSearch = $_POST['valueToSearch'];
+        // search in all table columns
+        // using concat mysql function
+        $sql = "SELECT * FROM `ticket` WHERE iid = ".$_SESSION['id']. "&&". "".$tfil." LIKE '%".$valueToSearch."%' ORDER BY tid ".$ob." LIMIT $offset, $no_of_records_per_page";
+        $search_result = filterTable($sql);
+        
+    }
+     else {
+        $sql = "SELECT * from ticket where iid = '".$_SESSION['id']."'LIMIT $offset, $no_of_records_per_page";
+        $search_result = filterTable($sql);
+    }
 
-// if (!empty($valueToSearch) && !empty($valueToSearch2)) {
-//     $condition = " `cpi` >= '$valueToSearch' AND `sem` >= '$valueToSearch2'";
-// }
+} 
 
-// if (!empty($valueToSearch2) && !empty($valueToSearch3)) {
-//     $condition = " `sem` >= '$valueToSearch2' AND `choice` >= '$valueToSearch3'";
-// }
+// IT/SUP
+else {
+    if(isset($_POST['search']))
+    {
+        $tfil = $_POST['tfil'];
+        $ob = $_POST['ob'];
+        $valueToSearch = $_POST['valueToSearch'];
+        // search in all table columns
+        // using concat mysql function
+        $sql = "SELECT * FROM `ticket` WHERE ".$tfil." LIKE '%".$valueToSearch."%' ORDER BY tid ".$ob." LIMIT $offset, $no_of_records_per_page";
+        $search_result = filterTable($sql);
+        
+    }
+     else {
+        $sql = "SELECT * FROM `ticket` LIMIT $offset, $no_of_records_per_page";
+        $search_result = filterTable($sql);
+    }
+}
+// function to connect and execute the query
+function filterTable($sql)
+{
+    $connect = mysqli_connect("localhost", "root", "", "ramit");
+    $res_data = mysqli_query($connect, $sql);
+    return $res_data;
+}
 
-// if (!empty($valueToSearch) && !empty($valueToSearch3)) {
-//     $condition = " `cpi` >= '$valueToSearch' && `choice` >= '$valueToSearch3'";
-// }
+?>
 
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>PHP <?=$pageno?></title>
+    </head>
+    <body>
+        
+        <form action="ticket.php" method="post">
+         
+			<Select name="tfil" placeholder="Value To Search">
+			<option value="tid">Ticket ID#</option> 
+			<option value="iid">Inquiry ID#</option>
+			<option value="inquiry">Inquiry</option> 
+			<option value="stat">Status</option>
+			<option value="priority">Priority</option> 
+			<option value="severity">Severity</option>  
+			<option value="assignid">Assigned ID#</option> 
+			<option value="afname and alname">Name Assigned</option> 
+			<option value="dt">Date</option> 
+			</Select>
 
-// $query = "SELECT * FROM student WHERE ". $condition ;
+			<input type="text" name="valueToSearch" placeholder="Value To Search">
+			
+			<Select name="ob" placeholder="Value To Search">
+			<option value="ASC">Ascending</option> 
+			<option value="DESC">Descending</option>
+			</Select>
 
-                    $condition=$_POST['condition'];
-                    $condition2=$_POST['condition2'];
-                    $condition3=$_POST['condition3'];
-
-                              
-                        if ($_SESSION['pstion'] == "supervisor"){
-                            if(empty($condition && $condition2 && $condition3)){$sql = "SELECT * from ticket where  '" .$condition.  ">=". $condition2 ."ORDER BY". $condition3 ."LIMIT $offset, $no_of_records_per_page";}
-                            else{$sql = "SELECT * from ticket LIMIT $offset, $no_of_records_per_page";}
-                            
-                        }
-                        elseif ($_SESSION['pstion'] == "it"){
-                            $sql = "SELECT * from ticket where assignid = '".$_SESSION['id']."'LIMIT $offset, $no_of_records_per_page";
-                        }
-                        elseif ($_SESSION['pstion'] == "student"){
-                            $sql = "SELECT * from ticket where iid = '".$_SESSION['id']."'LIMIT $offset, $no_of_records_per_page";
-                        } else{
-                            echo "ERROR no Position";
-                        }
-                           
-
-                           $res_data = mysqli_query($conn,$sql);?>
-   
-                        <form method="POST">
-                        <select name="condition" id="condition" value="">
-                        <option value="tid">Ticket ID#</option> 
-                        <option value="iid">Inquiry ID#</option>
-                        <option value="inquiry">Inquiry</option> 
-                        <option value="stat">Status</option>
-                        <option value="priority">Priority</option> 
-                        <option value="severity">Severity</option>  
-                        <option value="assignid">Assigned ID#</option> 
-                        <option value="afname">Name Assigned</option> 
-                        </select>
-                        
-                        <input type="text" id="condition2" name="condition2"></input>
-
-                        <select name="condition3" id="condition3" value="">
-                        <option value="ASC">ASC</option> 
-                        <option value="DESC">DESC</option>
-                        
-                        <input type="submit" value="Post">
-                        
-
-                       <table>
-                       <th>Ticket ID#</th> 
+            <input type="submit" name="search" value="Filter"><br><br>
+            </form>
+			<a href="ticket.php"><button>reset</button></a>
+            
+            <table>
+                <tr>
+                    	<th>Ticket ID#</th> 
                        <th>Inquiry ID#</th>
                        <th>Inquiry</th> 
                        <th>Status</th>
@@ -106,9 +112,10 @@
                        <th class = "assignid">Assigned ID#</th> 
                        <th>Name Assigned</th> 
                        <th class = "dt" >Date</th> 
-                       
-                       
-                       <?php while($row = mysqli_fetch_array($res_data)){?>
+                </tr>
+            
+      <!-- populate table from mysql database -->
+      <?php while($row = mysqli_fetch_array($search_result)){?>
                            <tbody>
                            <tr>
                                <td><?php echo $row['tid']; ?></td>
@@ -129,9 +136,8 @@
                            <?php
                        }
                    ?>
-                           </table>
-                           </form>
-                           <ul class="pagination">
+            </table>
+                    <ul class="pagination">
                            <button><a href="?pageno=1">First</a></button>
                            <button class="<?php if($pageno <= 1){ echo 'disabled'; } ?>">
                            <a href="<?php if($pageno <= 1){ echo '#'; } else { echo "?pageno=".($pageno - 1); } ?>">Prev</a></button>
@@ -140,7 +146,7 @@
                                    
                            for ($i=1; $i<=$total_pages; $i++) {   
                            if ($i == $pageno) {   
-                               echo "<button><a href='?pageno=".$i."'>".$i." </a></button>";   
+                               echo "<button class = 'disabled'><a class = 'disabled' href='?pageno=".$i."'>".$i." </a></button>";   
                                                 }               
                            else  {   
                                echo "<a href='?pageno=".$i."'>".$i." </a>";     
@@ -152,5 +158,10 @@
                            <a href="<?php if($pageno >= $total_pages){ echo '#'; } else { echo "?pageno=".($pageno + 1); } ?>">Next</a></button>
                            <button><a href="?pageno=<?php echo $total_pages; ?>">Last</a></button>
                    </ul>
-   </body>
-   
+        
+        
+    </body>
+</html>
+
+
+
