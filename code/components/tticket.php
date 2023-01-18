@@ -85,6 +85,8 @@ function filterTable($sql)
         // }
         ?>-->
 
+        <a href="code/components/tcsv.php"><button>Download CSV</button></a>
+
         <form action="ticket.php" method="post">
          
 			<Select name="tfil" placeholder="Value To Search">

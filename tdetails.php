@@ -28,6 +28,7 @@ require 'code/components/connect.php';
 <?php require 'code/components/nav.php';?>
 
 
+
         <div class="content">
         <h2>Ticket# <?php echo $row['tid']; ?></h2>
         <h3>Status: <?php echo $row['stat']; ?></h3>
@@ -49,6 +50,8 @@ require 'code/components/connect.php';
 			 echo '</div>';
             }
             ?>
+
+            
 			</div>
 </body>
 </html>
