@@ -81,15 +81,6 @@ $mysqltime = date ('Y-m-d H:i:s', time());
         .'<label> ID:   </label><input type="text" value="'
         .$row["assignid"]
         .'"name="assignid" required>';
-        ?>
-        
-
-
-
-
-
-
-<?php
         echo
 		'<label> Firstname:   </label><input type="text" value="'
         .$row["afname"] 
@@ -108,17 +99,10 @@ $mysqltime = date ('Y-m-d H:i:s', time());
 		.'<input type="submit" name="submit">'
         ."          "
 	    .'</form>'
-        .'<img src="./img/'. $row['filename'] .'">';
-        // if($row['img'] == 0) {
-                
-        // }
-        // else{
-        //     echo
-        //     $row['img'];
-        // }
-        
+         ."<br> <br>"  
+        .'<img src="./img/'. $row['filename'] .'" style = "width: 500px;">';
         echo
-        '<br> <br>'
+        '<br>'
         .'<a href="ticket.php"><button>Back</button></a>';
         
 }
@@ -229,18 +213,10 @@ $mysqltime = date ('Y-m-d H:i:s', time());
                     .'</tr>'
            
             .'</table>'
-            .'<br>'
-            .'<img src="./img/'. $row['filename'] .'">';
-            // if($row['img'] == 0) {
-                
-            // }
-            // else{
-            //     echo
-            //     $row['img'];
-            // }
-            
+            ."<br> <br>"  
+            .'<img src="./img/'. $row['filename'] .'" style = "width: 500px;">';
             echo
-            '<br> <br>'
+            '<br>'
             .'<a href="ticket.php"><button>Back</button></a>';
         }
              else{
@@ -342,18 +318,11 @@ $mysqltime = date ('Y-m-d H:i:s', time());
            
             .'</table>'
             .'<br>'
-            .'<img src="./img/'. $row['filename'] .'">';
+            ."<br> <br>"  
+            .'<img src="./img/'. $row['filename'] .'" style = "width: 500px;">';
             require 'code/components/tpicupd.php';
-            // if($row['img'] == 0) {
-                
-            // }
-            // else{
-            //     echo
-            //     $row['img'];
-            // }
-            
             echo
-            '<br> <br>'
+            '<br>'
             .'<a href="ticket.php"><button>Back</button></a>';
             
         

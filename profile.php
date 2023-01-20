@@ -57,8 +57,7 @@ require 'code/components/isset.php';
                 
             </table>
         </div>
-    </div>
-    <?php require "cb.php";?>
+    </div><?php require "cb.php";?>
     <footer>
 			<div class="footer">
 				<p>Copyright © 2023 Asia Pacific College. All rights reserved.</p>

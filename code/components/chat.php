@@ -22,7 +22,8 @@
                 <input type="hidden" value="<?php echo $_SESSION['fname']. " " . $_SESSION['mname'] . " " . $_SESSION['lname']; ?>" name="name">
                 <input type="hidden" value="<?php echo $_SESSION['pstion']; ?>" name="position">
                 <div id = "outchat">
-                <input type="text" value="" name="msg" required style = "margin-left: 450px;">
-                <input type="submit" name="submit">
+                <textarea class="textarea" name="msg" placeholder="Type here" id="txt_field" required style = "margin-left: 5px; width:500px; margin-top:10px;"></textarea>
+                
+                <input type="submit" name="submit" style="margin-bottom:10px; margin-left:10px;">
                 </center>
                 </div> 

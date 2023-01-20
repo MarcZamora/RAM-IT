@@ -38,21 +38,19 @@ footer{
     color: white;
 }
 
-#chat{
-    margin-left: 800px;
-
-
-}
 
 #outchat{
     
     width: 700px; 
-    background-color: grey; 
+    background-color: grey;
+    height: 60px; 
 }
 
 #innerchat{
-    width: 700px; 
-    background-color: white;
+    width: 700px;
+    height: 100px; 
+    background-color: white;    
+    
 }
 
 /* nav */

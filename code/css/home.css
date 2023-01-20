@@ -138,23 +138,6 @@ footer{
 }
 
 
-#chat{
-    margin-left: 800px;
-
-
-}
-
-#outchat{
-    
-    width: 700px; 
-    background-color: grey; 
-}
-
-#innerchat{
-    width: 700px; 
-    background-color: white;
-}
-
 /* nav */
 
 nav{

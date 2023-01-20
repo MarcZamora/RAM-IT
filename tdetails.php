@@ -40,12 +40,12 @@ require 'code/components/connect.php';
 			
 			<?php
             if($row['stat'] == "open"){
-                echo '<div id = "chat">';
+                echo '<div id = "chat" style ="margin-left: 150px;">';
 				require 'code/components/chat.php';
 				echo '</div>';
             } 
             else {
-			 echo '<div id = "chat">';
+			 echo '<div id = "chat" style ="margin-left: 150px;">>';
              echo "<br>" ."<br>" . "There is no one to talk to because the ticket is still pending";
 			 echo '</div>';
             }
