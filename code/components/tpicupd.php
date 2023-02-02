@@ -10,7 +10,7 @@ if (isset($_POST['upload'])) {
     $tempname = $_FILES["uploadfile"]["tmp_name"];
     $folder = "./img/" . $filename;
  
-    $db = mysqli_connect("localhost", "root", "", "ramit");
+    $db = mysqli_connect("localhost", "root", "", "ramit", "3308");
  
     // Get all the submitted data from the form
     $sql = "update ticket set filename='$filename' where tid='$id'";

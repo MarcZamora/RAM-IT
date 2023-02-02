@@ -9,7 +9,7 @@ if (isset($_GET['pageno'])) {
 $no_of_records_per_page = 5;
 $offset = ($pageno-1) * $no_of_records_per_page;
 
-$conn=mysqli_connect("localhost","root","","ramit");
+$conn=mysqli_connect("localhost","root","","ramit","3308");
 // Check connection
 if (mysqli_connect_errno()){
     echo "Failed to connect to MySQL: " . mysqli_connect_error();
@@ -63,7 +63,7 @@ else {
 // function to connect and execute the query
 function filterTable($sql)
 {
-    $connect = mysqli_connect("localhost", "root", "", "ramit");
+    $connect = mysqli_connect("localhost","root","","ramit","3308");
     $res_data = mysqli_query($connect, $sql);
     return $res_data;
 }

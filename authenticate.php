@@ -23,7 +23,7 @@ if ($stmt = $con->prepare('SELECT id, pswd, fname, mname, lname, pstion, filenam
         // Account exists, now we verify the password.
         // Note: remember to use password the OG password (I use the sha1 in the profile info) 
         // in your registration file to the passwords.
-        if (sha1($_POST['pswd']) === $pswd) {
+        if ($_POST['pswd'] === $pswd) {
             // Verification success! User has logged-in!
             // Create sessions, so we know the user is logged in, they basically act like cookies but remember the data on the server.
             session_regenerate_id();

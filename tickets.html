@@ -23,8 +23,8 @@
                 <script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
                                 
                 <!-- Local CSS-->
-                <link href="res/res-tickets/tickets.css" rel="stylesheet" type="text/css">
-                <link href="res/res-chatbot/chatbot.css" rel="stylesheet" type="text/css">
+                <link href="res-tickets/tickets.css" rel="stylesheet" type="text/css">
+                <link href="res-chatbot/chatbot.css" rel="stylesheet" type="text/css">
             </head>
 
     <body className='snippet-body'>
@@ -32,7 +32,7 @@
         <header class="header" id="header">
             <!--Toogle Sidebar Navigation-->
             <div class="header_toggle"> <i class='bx bx-menu' id="header-toggle"></i> </div>
-            <div class="header_img"> <img src="res/res-home/profile.png" alt=""> </div>
+            <div class="header_img"> <img src="res-home/profile.png" alt=""> </div>
         </header>
 
             <!--Sidebar Navigatioon-->
@@ -40,10 +40,10 @@
                 <nav class="nav">
                     <div> <a href="#" class="nav_logo"> <i class='bx bx-layer nav_logo-icon'></i> <span class="nav_logo-name">RAM-IT</span> </a>
                         <div class="nav_list">
-                            <a href="home.php" class="nav_link"> <i class='bx bx-home nav_icon'></i> <span class="nav_name">Home</span> </a>
-                            <a href="profile.php" class="nav_link"> <i class='bx bx-user nav_icon'></i> <span class="nav_name">Profile</span> </a>
-                            <a href="ticket.php" class="nav_link active"> <i class='bx bx-envelope nav_icon'></i> <span class="nav_name">Tickets</span> </a> </div>
-                    </div> <a href="code/components/logout.php" class="nav_link"> <i class='bx bx-log-out nav_icon'></i> <span class="nav_name">Sign Out</span> </a>
+                            <a href="home.html" class="nav_link"> <i class='bx bx-home nav_icon'></i> <span class="nav_name">Home</span> </a>
+                            <a href="profile.html" class="nav_link"> <i class='bx bx-user nav_icon'></i> <span class="nav_name">Profile</span> </a>
+                            <a href="tickets.html" class="nav_link active"> <i class='bx bx-envelope nav_icon'></i> <span class="nav_name">Tickets</span> </a> </div>
+                    </div> <a href="login.html" class="nav_link"> <i class='bx bx-log-out nav_icon'></i> <span class="nav_name">Sign Out</span> </a>
                 </nav>
             </div>
 
@@ -236,14 +236,217 @@
 
                 <!--Space Division-->
             <div style="height:5%;"></div>
-            <!--Chatbot -->
-            <?php require 'cb.php';?>
 
+                <!--Chat Bot-->
+            <div class="container">
+                <div class="row">
+                    <div class="wrapper">
+                        <div class="contact-form-page">
+                            <div class="header-btn">
+                                <a class="top-btn" href="#"></a>
+                            </div>
+
+                            <!--Space Division-->
+                            <div style="height:10%;"></div>
+
+                            <!--
+                            Note: Due to the overlapping problem
+                            custom styles were added for the classes in the Profile.
+                            1. card-header
+                            2. card-body
+                            3. card-text
+                            -->
+                            <div class="container-chat mt-4">
+                                <div class="card mx-auto" style="max-width:100%">
+                                    <div class="card-header" style="background-color: #f7f7f7;">
+                                        <div class="navbar navbar-expand p-0">
+                                            <ul class="navbar-nav me-auto align-items-center">
+                                                <li class="nav-item">
+                                                    <a href="#!" class="nav-link">
+                                                        <div class="position-relative"
+                                                            style="width:50px; height: 50px; border-radius: 50%; border: 2px solid #071acc; padding: 2px">
+                                                            <img src="res-chatbot/itro.png"
+                                                                class="img-fluid rounded-circle" alt="">
+                                                            <span
+                                                                class="position-absolute bottom-0 start-100 translate-middle p-1 ">
+                                                                <span class="visually-hidden">New alerts</span>
+                                                            </span>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <h1 class="chatbot-name">RAM-IT</h1>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="card-body p-4" style="height: 500px; overflow: auto; background-color: #fff;">
+                
+                                        <!--Sender-->
+                                        <div class="d-flex align-items-baseline text-end justify-content-end mb-4">
+                                            <!--Message-->
+                                            <div class="pe-2">
+                                                <div>
+                                                    <div class="card card-text d-inline-block p-2 px-3 m-1" style="background-color: #fff">HELP ME!</div>
+                                                </div>
+                                                <div>
+                                                    <div class="small">01:09 PM</div>
+                                                </div>
+                                            </div>
+                                            <!--Avatar-->
+                                            <div class="position-relative avatar">
+                                                <img src="res-chatbot/profile.png"
+                                                    class="img-fluid rounded-circle" alt="">
+                                                <span
+                                                    class="position-absolute bottom-0 start-100 translate-middle p-1 ">
+                                                    <span class="visually-hidden">New alerts</span>
+                                                </span>
+                                            </div>
+                                        </div>
+                
+                                        <!--Reciever-->
+                                        <div class="d-flex align-items-baseline mb-4">
+                                            <!--Avatar-->
+                                            <div class="position-relative avatar">
+                                                <img src="res-chatbot/itro.png"
+                                                    class="img-fluid rounded-circle" alt="">
+                                                <span
+                                                    class="position-absolute bottom-0 start-100 translate-middle p-1 ">
+                                                    <span class="visually-hidden">New alerts</span>
+                                                </span>
+                                            </div>
+                                            <!--Message-->
+                                            <div class="pe-2">
+                                                <div>
+                                                    <div class="card card-text d-inline-block p-2 px-3 m-1" style="background-color: #fff">Hi, I am RAM-IT</div>
+                                                </div>
+                                                <div>
+                                                    <div class="small">01:10 PM</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!--Sender-->
+                                        <div class="d-flex align-items-baseline text-end justify-content-end mb-4">
+                                            <!--Message-->
+                                            <div class="pe-2">
+                                                <div>
+                                                    <div class="card card-text d-inline-block p-2 px-3 m-1" style="background-color: #fff">Sure</div>
+                                                </div>
+                                                <div>
+                                                    <div class="card card-text d-inline-block p-2 px-3 m-1" style="background-color: #fff">Let me know when you're available?
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <div class="small">01:13 PM</div>
+                                                </div>
+                                            </div>
+                                            <!--Avatar-->
+                                            <div class="position-relative avatar">
+                                                <img src="res-chatbot/profile.png"
+                                                    class="img-fluid rounded-circle" alt="">
+                                                <span
+                                                    class="position-absolute bottom-0 start-100 translate-middle p-1 ">
+                                                    <span class="visually-hidden">New alerts</span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        
+                                        <!--Reciever-->
+                                        <div class="d-flex align-items-baseline mb-4">
+                                            <!--Avatar-->
+                                            <div class="position-relative avatar">
+                                                <img src="res-chatbot/itro.png"
+                                                    class="img-fluid rounded-circle" alt="">
+                                                <span
+                                                    class="position-absolute bottom-0 start-100 translate-middle p-1 ">
+                                                    <span class="visually-hidden">New alerts</span>
+                                                </span>
+                                            </div>
+                                            <!--Message-->
+                                            <div class="pe-2">
+                                                <div>
+                                                    <div class="card card-text d-inline-block p-2 px-3 m-1" style="background-color: #fff">RAM-IT is not available.</div>
+                                                </div>
+                                                <div>
+                                                    <div class="small">01:14 PM</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!--Sender-->
+                                        <div class="d-flex align-items-baseline text-end justify-content-end mb-4">
+                                            <!--Message-->
+                                            <div class="pe-2">
+                                                <div>
+                                                    <div class="card card-text d-inline-block p-2 px-3 m-1" style="background-color: #fff">Cool</div>
+                                                </div>
+                                                <div>
+                                                    <div class="card card-text d-inline-block p-2 px-3 m-1" style="background-color: #fff">Coz' my PC is Burning</div>
+                                                </div>
+                                                <div>
+                                                    <div class="card card-text d-inline-block p-2 px-3 m-1" style="background-color: #fff"><img src="res-tdetails/burn.jpg" width="300"></div>
+                                                </div>
+                                                <div>
+                                                    <div class="small">01:15 PM</div>
+                                                </div>
+                                            </div>
+                                            <!--Avatar-->
+                                            <div class="position-relative avatar">
+                                                <img src="res-chatbot/profile.png"
+                                                    class="img-fluid rounded-circle" alt="">
+                                                <span
+                                                    class="position-absolute bottom-0 start-100 translate-middle p-1 ">
+                                                    <span class="visually-hidden">New alerts</span>
+                                                </span>
+                                            </div>
+                                        </div>
+                        
+                                    <!-- (Code Lines)
+                                    Sender = Avatar then Message
+                                    Reciever = Message then Avatar
+                                    -->
+                
+                                        <!--Space Division-->
+                                        <div style="height:5%;"></div>
+                
+                                    </div>
+                                    <div class="card-footer bg-white position-absolute w-100 bottom-0 m-0 p-1">
+                                        <div class="input-group">
+                                            <input type="text" class="form-control border-0" placeholder="Please write a message...">
+                                            <div class="input-group-text bg-transparent border-0">
+                                                <button class="btn btn-light text-secondary">
+                                                    <i id="button" class="fas fa-paper-plane"></i>
+                                                </button>
+                                            </div>
+                                           
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    
+                        <!--Space Division-->
+                        <div style="height:7%;"></div>
+    
+                        </div>
+                            <a class="buttom-btn" href="#"></a>
+                    </div>
+                </div>
+            </div>
+            
+            <!--Space Division-->
+            <div style="height:5%;"></div>
+
+            </div><!--Container Main End-->
+
+            <!--Local Chatbot Script-->
+            <script src='res-chatbot/chatbot.js'></script>
             <!--Table Scripts-->
             <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
             <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
             <script src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap5.min.js"></script>
-            <script src="res/res-tickets/table.js"></script>
+            <script src="res-tickets/table.js"></script>
 
              <!--Container Main end (Nav and Page)-->
             <script type='text/javascript' src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js'></script>
