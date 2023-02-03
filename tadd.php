@@ -6,7 +6,7 @@ if (!isset($_SESSION['loggedin'])) {
     header('Location: login.php');
     exit;
 }
-require 'code/components/isset.php';
+require 'code/components/pf.php';
 date_default_timezone_set('Asia/Singapore');
 $mysqltime = date ('Y-m-d H:i:s', time());
 
@@ -44,7 +44,7 @@ $mysqltime = date ('Y-m-d H:i:s', time());
                         <div class="nav_list">
                             <a href="home.php" class="nav_link"> <i class='bx bx-home nav_icon'></i> <span class="nav_name">Home</span> </a>
                             <a href="profile.php" class="nav_link"> <i class='bx bx-user nav_icon'></i> <span class="nav_name">Profile</span> </a>
-                            <a href="tickets.php" class="nav_link active"> <i class='bx bx-envelope nav_icon'></i> <span class="nav_name">Tickets</span> </a> </div>
+                            <a href="ticket.php" class="nav_link active"> <i class='bx bx-envelope nav_icon'></i> <span class="nav_name">Tickets</span> </a> </div>
                     </div> <a href="login.php" class="nav_link"> <i class='bx bx-log-out nav_icon'></i> <span class="nav_name">Sign Out</span> </a>
                 </nav>
             </div>
@@ -62,8 +62,9 @@ $mysqltime = date ('Y-m-d H:i:s', time());
                     
                         
                     
-                    <form action="code/components/tpost.php" method="post"> 
+                    <form method="POST" action="code/components/tpost.php" enctype="multipart/form-data"> 
                       <!--Hidden-->
+                            <input type="hidden" name="iname" value="<?=$_SESSION['fname']?> <?=$_SESSION['mname']?> <?=$_SESSION['lname']?>" id="iname" required>
                             <input type="hidden" name="iid" value="<?=$_SESSION['id']?>" id="iid" required>
                             <input type="hidden" name="email" placeholder="email" id="txt_field" value="<?=$_SESSION['name']?>">
                             <input type="hidden" name="stat" value="pending" id="stat" required>
@@ -73,7 +74,7 @@ $mysqltime = date ('Y-m-d H:i:s', time());
                         <div class="form">
                         <div class="inputfield">
                           <label>Inquiry:</label>
-                          <textarea class="textarea" name="inquiry" placeholder="Inquiry" id="txt_field"></textarea>
+                          <textarea class="textarea" name="inquiry" placeholder="Inquiry" id="txt_field" required></textarea>
                            </div> 
                     
                            <!--Type-->
@@ -92,7 +93,7 @@ $mysqltime = date ('Y-m-d H:i:s', time());
                         <div class="form">
                         <div class="inputfield">
                           <label>Description:</label>
-                          <textarea class="textarea" name="fdes" placeholder="Full Description" id="txt_field"></textarea>
+                          <textarea class="textarea" name="fdes" placeholder="Full Description" id="txt_field" required></textarea>
                        </div> 
                 
                         <!--Priority-->
@@ -111,10 +112,10 @@ $mysqltime = date ('Y-m-d H:i:s', time());
                             
                       
                       
-                         <input class="inputfield" type="file">
+                           <input class="inputfield" type="file" name="uploadfile" value="" />
 
                           <div class="inputfield">
-                            <input type="submit" value="Add Ticket" class="btn" value="Post">
+                            <button type="submit" class="btn" value="Post">Add Ticket</button>
                           </div>
                     </form>
                           <div class="inputfield">

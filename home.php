@@ -107,7 +107,7 @@ if (!isset($_SESSION['loggedin'])) {
                 </div>
 
                  <!--Chatbot -->
-                 <?php require 'cb.php';?>
+                 <?php require 'code/components/cb.php';?>
 
                 <!--Space Division-->
                 <div style="height:5%;"></div>

@@ -6,7 +6,7 @@ if (!isset($_SESSION['loggedin'])) {
     header('Location: login.php');
     exit;
 }
-require 'code/components/isset.php';
+require 'code/components/pf.php';
 ?>
 <!DOCTYPE html>
         <html>
@@ -121,8 +121,8 @@ require 'code/components/isset.php';
                 </div>
             </div>
 
-            <!--Chatbot -->
-            <?php require 'cb.php';?>
+             <!--Chatbot -->
+             <?php require 'code/components/cb.php';?>
             
            
             <!--Container Main end (Nav and Page)-->

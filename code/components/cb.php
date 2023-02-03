@@ -1,6 +1,6 @@
 <?php
 date_default_timezone_set('Asia/Singapore');
-$mysqltime = date ('h:i:a', time());
+$mysqltime = date ('h:i a', time());
 ?>
   <!--Chat Bot-->
    <div class="container">
@@ -17,7 +17,7 @@ $mysqltime = date ('h:i:a', time());
                                 
                                 <div class="container-chat mt-4">
                                     <div class="card mx-auto" style="max-width:100%">
-                                        <div class="card-header">
+                                        <div class="card-header" style="background-color: white;">
                                             <div class="navbar navbar-expand p-0">
                                                 <ul class="navbar-nav me-auto align-items-center">
                                                     <li class="nav-item">
@@ -34,13 +34,13 @@ $mysqltime = date ('h:i:a', time());
                                                         </a>
                                                     </li>
                                                     <li class="nav-item">
-                                                        <h1 class="chatbot-name">RAM-IT</h1>
+                                                        <h1 class="chatbot-name" >RAM-IT</h1>
                                                     </li>
                                                 </ul>
                                             </div>
                                         </div>
                                         
-                                        <div class="card-body p-4" style="height: 500px; overflow: auto;">
+                                        <div id="chatbody" class="card-body p-4" style="height: 500px; overflow: auto; background-color: white;">
                                         
                                             <!--CB-->
                                             <div class="d-flex align-items-baseline mb-4">

@@ -1,6 +1,6 @@
 <?php
 date_default_timezone_set('Asia/Singapore');
-$mysqltime = date ('h:i:a', time());
+$mysqltime = date ('h:i a', time());
 ?>
 <script>
 $(document).ready(function(){
@@ -21,12 +21,12 @@ $(document).ready(function(){
         '<span class="position-absolute bottom-0 start-100 translate-middle p-1 "> <span class="visually-hidden">New alerts</span></span>'+
         '</div>'+
         '</div>';
-        $(".card-body").append($msg);
+        $("#chatbody").append($msg);
         $("#data").val('');
         
         // start ajax code
         $.ajax({
-            url: 'code/components/message.php',
+            url: 'code/components/cbmp.php',
             type: 'POST',
             data: 'text='+$value,
             success: function(result){
@@ -39,14 +39,14 @@ $(document).ready(function(){
                 '<div class="card card-text d-inline-block p-2 px-3 m-1">' + result +
                 '</div>'+
                 '<div>'+
-                '<div class="small">'+'<?php echo $mysqltime ?>'+'</div>'+
+                '<div class="small" style="margin-bottom: 10px;">'+'<?php echo $mysqltime ?>'+'</div>'+
                 '</div>'+
                 '</div>'+
-                '</div>'
+                '</div>'+
                 '<div style="height:10%;"></div>';
-                $(".card-body").append($replay);
+                $("#chatbody").append($replay);
                 // when chat goes down the scroll bar automatically comes to the bottom
-                $(".card-body").scrollTop($(".card-body")[0].scrollHeight);
+                $("#chatbody").scrollTop($("#chatbody")[0].scrollHeight);
             }
         });
     });

@@ -4,27 +4,24 @@ error_reporting(0);
 $msg = "";
 
 // If upload button is clicked ...
-if (isset($_POST['upload'])) {
+
  
     $filename = $_FILES["uploadfile"]["name"];
     $tempname = $_FILES["uploadfile"]["tmp_name"];
-    $folder = "./img/" . $filename;
+    $folder = "./res/img/" . $filename;
  
     $db = mysqli_connect("localhost", "root", "", "ramit", "3308");
  
     // Get all the submitted data from the form
-    $sql = "update accounts set filename='$filename' where id=" . $_SESSION['id'];
+    $sql = "update ticket set filename='$filename' where tid='$id'";
  
     // Execute query
     mysqli_query($db, $sql);
  
     // Now let's move the uploaded image into the folder: image
-    if (move_uploaded_file($tempname, $folder)) {
-        header("refresh: 1");
-    } else {
-        echo "<h3>  Failed to upload image!</h3>";
-    }
-}
+    move_uploaded_file($tempname, $folder);
+      
+
 ?>
  
 <!DOCTYPE html>

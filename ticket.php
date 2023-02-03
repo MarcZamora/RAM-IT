@@ -89,6 +89,7 @@ $result = mysqli_query($conn, $sql);
                             <tr>
                                 <th>Ticket ID:</th>
                                 <th>Inquirer ID:</th>
+                                <th>Inquirer's Name:</th>
                                 <th>Inquiry:</th>
                                 <th>Type:</th>
                                 <th>Status:</th>
@@ -103,19 +104,20 @@ $result = mysqli_query($conn, $sql);
                         <tbody>
                         <?php while($row = mysqli_fetch_array($result)){?>
                             <tr>
-                               <td><?php echo $row['tid']; ?></td>
-                               <td><?php echo $row['iid']; ?></td>
-                               <td><?php echo $row['inquiry']; ?></td>
-                               <td><?php echo $row['itype']; ?></td>
-                               <td><?php echo $row['stat']; ?></td>
-                               <td><?php echo $row['priority']; ?></td>
-                               <td><?php echo $row['severity']; ?></td>
-                               <td class = "assignid"><?php echo $row['assignid']; ?></td>
-                               <td><?php echo $row['afname']. " ". $row['alname']; ?></td>
-                               <td class = "dt"> <?php echo $row['dt'] ?></td>
+                               <td><?=$row['tid']; ?></td>
+                               <td><?=$row['iid']; ?></td>
+                               <td><?=$row['iname']?></td>
+                               <td><?=$row['inquiry']; ?></td>
+                               <td><?=$row['itype']; ?></td>
+                               <td><?=$row['stat']; ?></td>
+                               <td><?=$row['priority']; ?></td>
+                               <td><?=$row['severity']; ?></td>
+                               <td class = "assignid"><?=$row['assignid']; ?></td>
+                               <td><?=$row['aname']?></td>
+                               <td class = "dt"> <?=$row['dt'] ?></td>
                                <td>
-                                   <a  class = "links" href="tdetails.php? id=<?php echo $row['tid']; ?>"><button type="button" class="btn btn-inverse btn-roundedOT waves-effect waves-light m-b-5">Open</button></a>
-                                   <a  class = "links" href="code/components/delete.php? id=<?php echo $row['tid']; ?>"><button type="button" class="btn btn-inverse btn-roundedOT waves-effect waves-light m-b-5">Delete</button></a>
+                                   <a  class = "links" href="tdetails.php? id=<?=$row['tid']; ?>"><button type="button" class="btn btn-inverse btn-roundedOT waves-effect waves-light m-b-5">Open</button></a>
+                                   <a  class = "links" href="code/components/delete.php? id=<?=$row['tid']; ?>"><button type="button" class="btn btn-inverse btn-roundedOT waves-effect waves-light m-b-5">Delete</button></a>
                                </td>
                            </tr>
 
@@ -128,6 +130,7 @@ $result = mysqli_query($conn, $sql);
                             <tr>
                                 <th>Ticket ID:</th>
                                 <th>Inquirer ID:</th>
+                                <th>Inquirer's Name:</th>
                                 <th>Inquiry:</th>
                                 <th>Type:</th>
                                 <th>Status:</th>
@@ -153,8 +156,9 @@ $result = mysqli_query($conn, $sql);
 
                 <!--Space Division-->
             <div style="height:5%;"></div>
-            <!--Chatbot -->
-            <?php require 'cb.php';?>
+            
+             <!--Chatbot -->
+             <?php require 'code/components/cb.php';?>
 
             <!--Table Scripts-->
             <script src="https://code.jquery.com/jquery-3.5.1.js"></script>

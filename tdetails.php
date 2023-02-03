@@ -9,7 +9,7 @@ if (!isset($_SESSION['loggedin'])) {
 require 'code/components/connect.php';
 
     $id=$_GET['id'];
-	$query=mysqli_query($con,"SELECT iid, email, img, tid, inquiry, stat, assignid, priority, severity, afname, alname, dt, itype, fdes, dta, filename FROM ticket where tid = '$id'");
+	$query=mysqli_query($con,"SELECT * FROM ticket where tid = '$id'");
 	$row=mysqli_fetch_array($query);
  
 ?>
@@ -57,24 +57,18 @@ require 'code/components/connect.php';
 
 
 
-        <div class="content">
-        <h2>Ticket# <?php echo $row['tid']; ?></h2>
-        <h3>Status: <?php echo $row['stat']; ?></h3>
-		
-            <p>Your ticket details are below:</p>
-            <!-- info table -->
+        
             <?php require 'code/components/details.php';?>
         </div>
 			
 			<?php
             if($row['stat'] == "open"){
                 echo '<div id = "chat" style ="margin-left: 150px;">';
-				require 'code/components/chat.php';
+				require 'code/components/chb.php';
 				echo '</div>';
             } 
             else {
 			 echo '<div id = "chat" style ="margin-left: 150px;">';
-             echo "<br>" ."<br>" . "There is no one to talk to because the ticket is still pending";
 			 echo '</div>';
             }
             ?>
