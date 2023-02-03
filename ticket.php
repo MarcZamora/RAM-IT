@@ -1,3 +1,28 @@
+<?php
+// We need to use sessions, so you should always start sessions using the below code.
+session_start();
+// If the user is not logged in redirect to the login page...
+if (!isset($_SESSION['loggedin'])) {
+	header('Location: login.php');
+	exit;
+}
+
+$conn=mysqli_connect("localhost","root","","ramit","3308");
+
+// Check connection
+if (mysqli_connect_errno()){
+    echo "Failed to connect to MySQL: " . mysqli_connect_error();
+    die();
+}
+if ($_SESSION['pstion'] == "student"){
+$sql = "SELECT * from ticket where iid = ".$_SESSION['id'];
+
+} else
+{
+    $sql = "SELECT * from ticket";
+}
+$result = mysqli_query($conn, $sql);
+?>
 <!DOCTYPE html>
         <html>
             <head>
@@ -65,6 +90,7 @@
                                 <th>Ticket ID:</th>
                                 <th>Inquirer ID:</th>
                                 <th>Inquiry:</th>
+                                <th>Type:</th>
                                 <th>Status:</th>
                                 <th>Priority:</th>
                                 <th>Severity:</th>
@@ -75,144 +101,35 @@
                             </tr>
                         </thead>
                         <tbody>
+                        <?php while($row = mysqli_fetch_array($result)){?>
                             <tr>
-                                <td>1</td>
-                                <td>Marc Julian Sajul</td>
-                                <td>Hardware</td>
-                                <td>Pending</td>
-                                <td>5</td>
-                                <td>1</td>
-                                <td>03691215</td>
-                                <td>Marc Zamora</td>
-                                <td>Jan 26, 2023</td>
-                                <td><a href="tdetails.html"><button type="button" class="btn btn-inverse btn-roundedOT waves-effect waves-light m-b-5">Open Ticket</button></a></td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>Marc Julian Sajul</td>
-                                <td>Hardware</td>
-                                <td>Pending</td>
-                                <td>5</td>
-                                <td>1</td>
-                                <td>03691215</td>
-                                <td>Marc Zamora</td>
-                                <td>Jan 26, 2023</td>
-                                <td><a href="tdetails.html"><button type="button" class="btn btn-inverse btn-roundedOT waves-effect waves-light m-b-5">Open Ticket</button></a></td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>Marc Julian Sajul</td>
-                                <td>Hardware</td>
-                                <td>Pending</td>
-                                <td>5</td>
-                                <td>1</td>
-                                <td>03691215</td>
-                                <td>Marc Zamora</td>
-                                <td>Jan 26, 2023</td>
-                                <td><a href="tdetails.html"><button type="button" class="btn btn-inverse btn-roundedOT waves-effect waves-light m-b-5">Open Ticket</button></a></td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>Marc Julian Sajul</td>
-                                <td>Hardware</td>
-                                <td>Pending</td>
-                                <td>5</td>
-                                <td>1</td>
-                                <td>03691215</td>
-                                <td>Marc Zamora</td>
-                                <td>Jan 26, 2023</td>
-                                <td><a href="tdetails.html"><button type="button" class="btn btn-inverse btn-roundedOT waves-effect waves-light m-b-5">Open Ticket</button></a></td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>Marc Julian Sajul</td>
-                                <td>Hardware</td>
-                                <td>Pending</td>
-                                <td>5</td>
-                                <td>1</td>
-                                <td>03691215</td>
-                                <td>Marc Zamora</td>
-                                <td>Jan 26, 2023</td>
-                                <td><a href="tdetails.html"><button type="button" class="btn btn-inverse btn-roundedOT waves-effect waves-light m-b-5">Open Ticket</button></a></td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>Marc Julian Sajul</td>
-                                <td>Hardware</td>
-                                <td>Pending</td>
-                                <td>5</td>
-                                <td>1</td>
-                                <td>03691215</td>
-                                <td>Marc Zamora</td>
-                                <td>Jan 26, 2023</td>
-                                <td><a href="tdetails.html"><button type="button" class="btn btn-inverse btn-roundedOT waves-effect waves-light m-b-5">Open Ticket</button></a></td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>Marc Julian Sajul</td>
-                                <td>Hardware</td>
-                                <td>Pending</td>
-                                <td>5</td>
-                                <td>1</td>
-                                <td>03691215</td>
-                                <td>Marc Zamora</td>
-                                <td>Jan 26, 2023</td>
-                                <td><a href="tdetails.html"><button type="button" class="btn btn-inverse btn-roundedOT waves-effect waves-light m-b-5">Open Ticket</button></a></td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>Marc Julian Sajul</td>
-                                <td>Hardware</td>
-                                <td>Pending</td>
-                                <td>5</td>
-                                <td>1</td>
-                                <td>03691215</td>
-                                <td>Marc Zamora</td>
-                                <td>Jan 26, 2023</td>
-                                <td><a href="tdetails.html"><button type="button" class="btn btn-inverse btn-roundedOT waves-effect waves-light m-b-5">Open Ticket</button></a></td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>Marc Julian Sajul</td>
-                                <td>Hardware</td>
-                                <td>Pending</td>
-                                <td>5</td>
-                                <td>1</td>
-                                <td>03691215</td>
-                                <td>Marc Zamora</td>
-                                <td>Jan 26, 2023</td>
-                                <td><a href="tdetails.html"><button type="button" class="btn btn-inverse btn-roundedOT waves-effect waves-light m-b-5">Open Ticket</button></a></td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>Marc Julian Sajul</td>
-                                <td>Hardware</td>
-                                <td>Pending</td>
-                                <td>5</td>
-                                <td>1</td>
-                                <td>03691215</td>
-                                <td>Marc Zamora</td>
-                                <td>Jan 26, 2023</td>
-                                <td><a href="tdetails.html"><button type="button" class="btn btn-inverse btn-roundedOT waves-effect waves-light m-b-5">Open Ticket</button></a></td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>Jayson Aloya</td>
-                                <td>Software</td>
-                                <td>Open</td>
-                                <td>5</td>
-                                <td>1</td>
-                                <td>03691215</td>
-                                <td>John Christopher Langcauon</td>
-                                <td>Jan 25, 2023</td>
-                                <td><a href="tdetails.html"><button type="button" class="btn btn-inverse btn-roundedOT waves-effect waves-light m-b-5">Open Ticket</button></a></td>
-                            </tr>
+                               <td><?php echo $row['tid']; ?></td>
+                               <td><?php echo $row['iid']; ?></td>
+                               <td><?php echo $row['inquiry']; ?></td>
+                               <td><?php echo $row['itype']; ?></td>
+                               <td><?php echo $row['stat']; ?></td>
+                               <td><?php echo $row['priority']; ?></td>
+                               <td><?php echo $row['severity']; ?></td>
+                               <td class = "assignid"><?php echo $row['assignid']; ?></td>
+                               <td><?php echo $row['afname']. " ". $row['alname']; ?></td>
+                               <td class = "dt"> <?php echo $row['dt'] ?></td>
+                               <td>
+                                   <a  class = "links" href="tdetails.php? id=<?php echo $row['tid']; ?>"><button type="button" class="btn btn-inverse btn-roundedOT waves-effect waves-light m-b-5">Open</button></a>
+                                   <a  class = "links" href="code/components/delete.php? id=<?php echo $row['tid']; ?>"><button type="button" class="btn btn-inverse btn-roundedOT waves-effect waves-light m-b-5">Delete</button></a>
+                               </td>
+                           </tr>
+
+                            <?php
+                       }
+                   ?>
+                            
                         </tbody>
                         <tfoot>
                             <tr>
                                 <th>Ticket ID:</th>
                                 <th>Inquirer ID:</th>
                                 <th>Inquiry:</th>
+                                <th>Type:</th>
                                 <th>Status:</th>
                                 <th>Priority:</th>
                                 <th>Severity:</th>
@@ -229,10 +146,10 @@
                 <div style="height:5%;"></div>
 
                 <!--Add Ticket-->
-                <a href="tadd.html"><button type="button" class="btn btn-primary btn-rounded waves-effect waves-light m-b-5">Add Ticket</button></a>
+                <a href="tadd.php"><button type="button" class="btn btn-primary btn-rounded waves-effect waves-light m-b-5">Add Ticket</button></a>
 
                 <!--Download CV-->
-                <a href=""><button type="button" class="btn btn-primary btn-rounded waves-effect waves-light m-b-5">Download Data</button></a>
+                <a href="code/components/tcsv.php"><button type="button" class="btn btn-primary btn-rounded waves-effect waves-light m-b-5">Download Data</button></a>
 
                 <!--Space Division-->
             <div style="height:5%;"></div>

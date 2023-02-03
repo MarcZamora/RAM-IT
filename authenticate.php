@@ -38,13 +38,15 @@ if ($stmt = $con->prepare('SELECT id, pswd, fname, mname, lname, pstion, filenam
             header('Location: home.php');
         } else {
             // Incorrect password
-            include('login.php');
             echo"<center><b><font color = 'red'>Invalid Password</b></center>";
+            include('login.php');
+            
         }
     } else {
         // Incorrect username
+             echo"<center><b><font color = 'red'>Invalid Username</b></center>";
             include('login.php');
-            echo"<center><b><font color = 'red'>Invalid Username</b></center>";
+            
     }
 
 

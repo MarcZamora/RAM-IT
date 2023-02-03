@@ -1,3 +1,8 @@
+<?php
+date_default_timezone_set('Asia/Singapore');
+$mysqltime = date ('h:i:a', time());
+?>
+<script>
 $(document).ready(function(){
 //click button
     $("#send-btn").on("click", function(){
@@ -8,7 +13,7 @@ $(document).ready(function(){
         '<div class="card card-text d-inline-block p-2 px-3 m-1">'+ $value + '</div>'+
         '</div>'+
         '<div>'+
-        '<div class="small">'+'01:09 PM'+'</div>'+
+        '<div class="small">'+'<?php echo $mysqltime ?>'+'</div>'+
         '</div>'+
         '</div>'+
         '<div class="position-relative avatar">'+
@@ -34,7 +39,7 @@ $(document).ready(function(){
                 '<div class="card card-text d-inline-block p-2 px-3 m-1">' + result +
                 '</div>'+
                 '<div>'+
-                '<div class="small">'+'01:10 PM'+'</div>'+
+                '<div class="small">'+'<?php echo $mysqltime ?>'+'</div>'+
                 '</div>'+
                 '</div>'+
                 '</div>'
@@ -53,3 +58,4 @@ $(document).ready(function(){
         }
     });
 });
+</script>

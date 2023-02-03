@@ -8,7 +8,7 @@ if (isset($_POST['upload'])) {
  
     $filename = $_FILES["uploadfile"]["name"];
     $tempname = $_FILES["uploadfile"]["tmp_name"];
-    $folder = "./img/" . $filename;
+    $folder = "./res/img/" . $filename;
  
     $db = mysqli_connect("localhost", "root", "", "ramit", "3308");
  

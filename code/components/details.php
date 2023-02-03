@@ -221,7 +221,7 @@ $mysqltime = date ('Y-m-d H:i:s', time());
         }
              else{
                 echo
-         '<img src="./img/' . $row['img']. '">'         
+         '<img src="./res/img/' . $row['img']. '">'         
         .'<table>'
             .'<tr>'    
                 .'<td>'
@@ -319,7 +319,7 @@ $mysqltime = date ('Y-m-d H:i:s', time());
             .'</table>'
             .'<br>'
             ."<br> <br>"  
-            .'<img src="./img/'. $row['filename'] .'" style = "width: 500px;">';
+            .'<img src="./res/img/'. $row['filename'] .'" style = "width: 500px;">';
             require 'code/components/tpicupd.php';
             echo
             '<br>'

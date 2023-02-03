@@ -1,4 +1,8 @@
-   <!--Chat Bot-->
+<?php
+date_default_timezone_set('Asia/Singapore');
+$mysqltime = date ('h:i:a', time());
+?>
+  <!--Chat Bot-->
    <div class="container">
                     <div class="row">
                         <div class="wrapper">
@@ -55,7 +59,7 @@
                                                         <div class="card card-text d-inline-block p-2 px-3 m-1">Hello there, how can I help you? Input the numbers below if your problem is fit within this catergory: 1. hardware, 2. account, 3. others</div>
                                                     </div>
                                                     <div>
-                                                        <div class="small">01:10 PM</div>
+                                                        <div class="small"><?php echo $mysqltime ?></div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -98,9 +102,9 @@
 
             </div>
 
+            <?php require 'cbm.php';?>
     <!--Container Main end-->
             <!--Local Chatbot Script-->
             <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-            <script src="cb.js"></script>
             <script src='res/res-chatbot/chatbot.js'></script>
         
