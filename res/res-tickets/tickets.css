@@ -716,3 +716,9 @@ a {
   color: #000;
 } /*# sourceMappingURL=tickets.css.map *//*# sourceMappingURL=tickets.css.map */
 
+/*TAble Inquiry Limit*/
+.tbl-of{
+  width: 200px;
+  height: 65px;
+  overflow-y: auto;
+}

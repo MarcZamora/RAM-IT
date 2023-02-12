@@ -8,18 +8,18 @@ $query = $con->query("SELECT * FROM ticket ORDER BY tid ASC");
  
 if($query->num_rows > 0){ 
     $delimiter = ","; 
-    $filename = "Ticket" . date('Y-m-d') . ".csv"; 
+    $filename = "Ticket " . date('Y-m-d') . ".csv"; 
      
     // Create a file pointer 
     $f = fopen('php://memory', 'w'); 
      
     // Set column headers 
-    $fields = array('tid', 'iid', 'email', 'img', 'inquiry', 'itype', 'fdes', 'stat', 'priority', 'severity', 'filename', 'assignid', 'afname', 'alname', 'dt'); 
+    $fields = array('tid', 'iid', 'iname', 'email', 'img', 'inquiry', 'itype', 'fdes', 'stat', 'priority', 'severity', 'filename', 'assignid', 'aname', 'dt'); 
     fputcsv($f, $fields, $delimiter); 
      
     // Output each row of the data, format line as csv and write to file pointer 
     while($row = $query->fetch_assoc()){ 
-        $lineData = array($row['tid'], $row['iid'], $row['email'], $row['img'], $row['inquiry'], $row['itype'], $row['fdes'], $row['stat'], $row['priority'], $row['severity'], $row['filename'], $row['assignid'], $row['afname'], $row['alname'], $row['dt']); 
+        $lineData = array($row['tid'], $row['iid'], $row['iname'], $row['email'], $row['img'], $row['inquiry'], $row['itype'], $row['fdes'], $row['stat'], $row['priority'], $row['severity'], $row['filename'], $row['assignid'], $row['aname'],  $row['dt']); 
         fputcsv($f, $lineData, $delimiter); 
     } 
      

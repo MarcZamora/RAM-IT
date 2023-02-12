@@ -50,15 +50,16 @@ $mysqltime = date ('Y-m-d H:i:s', time());
             </div>
 
 
-
             <!--General Container-->
             <div class="height-100 bg-light">
                
                 <div class="wrapper">
                     <div class="title">
-                      Add Ticket
+                      Add Ticket <div class="help-tip" style="top: 18px; right: 500px;">
+                              <p>This is the inline help tip! It can contain all kinds of HTML. Style it as you please.</p>
+                          </div>
                     </div>
-                    
+                   
                     
                         
                     
@@ -104,11 +105,11 @@ $mysqltime = date ('Y-m-d H:i:s', time());
                               <option value="1">1</option>
                               <option value="2">2</option>
                               <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
+                              <option value="4">4</option>
+                              <option value="5">5</option>
                             </select>
-                          </div>
-                           </div> 
+                            </div>
+                            </div> 
                             
                       
                       

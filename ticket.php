@@ -107,7 +107,7 @@ $result = mysqli_query($conn, $sql);
                                <td><?=$row['tid']; ?></td>
                                <td><?=$row['iid']; ?></td>
                                <td><?=$row['iname']?></td>
-                               <td><?=$row['inquiry']; ?></td>
+                               <td><div class="tbl-of"><?=$row['inquiry']; ?></div></td>
                                <td><?=$row['itype']; ?></td>
                                <td><?=$row['stat']; ?></td>
                                <td><?=$row['priority']; ?></td>

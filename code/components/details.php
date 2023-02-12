@@ -1,8 +1,4 @@
-<?php
-date_default_timezone_set('Asia/Singapore');
-$mysqltime = date ('Y-m-d H:i:s', time());
-
-?>
+<?php date_default_timezone_set('Asia/Singapore'); $mysqltime = date ('Y-m-d H:i:s', time()); ?>
    
 <!--General Container-->
 <div class="height-100 bg-light">
@@ -72,6 +68,35 @@ $mysqltime = date ('Y-m-d H:i:s', time());
                                 <?=$row['inquiry'];?>
                                 </div>
                                 </div>
+                                <?php if ($_SESSION['pstion'] == "supervisor"){?>
+                                <!-- Supervisor -->
+                                <hr>
+                                <div class="row">
+                                <div class="col-sm-3">
+                                <h6 class="mb-0">Priority:</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                <select name="priority" value="" id="priority" required>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                 </select>
+                                </div>
+                                </div>
+                                
+                                <?php } else { ?>
+                            <hr>
+                                <div class="row">
+                                <div class="col-sm-3">
+                                <h6 class="mb-0">Priority:</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                <?=$row['priority'];?>
+                                </div>
+                                </div>
+                                <?php }?>
                             <hr>
                                 <div class="row">
                                 <div class="col-sm-3">
@@ -188,3 +213,6 @@ $mysqltime = date ('Y-m-d H:i:s', time());
             <!--Space Division-->
             <div style="height:5%;"></div>
     
+
+
+                                 
