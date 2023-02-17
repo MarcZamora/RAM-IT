@@ -35,6 +35,9 @@ require 'code/components/pf.php';
                 <!-- Local CSS-->
                 <link href="res/res-profile/profile.css" rel="stylesheet" type="text/css">
                 <link href="res/res-chatbot/chatbot.css" rel="stylesheet" type="text/css">
+
+                <!--Font Awsome-->
+                <script src="https://kit.fontawesome.com/828216c770.js" crossorigin="anonymous"></script>
             </head>
 
     <body className='snippet-body'>
@@ -53,6 +56,12 @@ require 'code/components/pf.php';
                             <a href="home.php" class="nav_link"> <i class='bx bx-home nav_icon'></i> <span class="nav_name">Home</span> </a>
                             <a href="profile.php" class="nav_link active"> <i class='bx bx-user nav_icon'></i> <span class="nav_name">Profile</span> </a>
                             <a href="ticket.php" class="nav_link"> <i class='bx bx-envelope nav_icon'></i> <span class="nav_name">Tickets</span> </a> </div>
+                            <?php if ($_SESSION['pstion'] = 'it') {?>
+                            <a href="ticketo.php" class="nav_link"> <i class="fa-solid fa-lock-open 2px"></i> <span class="nav_name">Assigned Tickets</span> </a> 
+                            <?php } else {?>
+                            <a href="ticketo.php" class="nav_link"> <i class="fa-solid fa-lock-open 2px"></i> <span class="nav_name">Open Tickets</span> </a> 
+                             <?php }   ?>
+                            <a href="ticketc.php" class="nav_link"> <i class="fa-solid fa-lock"></i> <span class="nav_name">Closed Tickets</span> </a>     
                     </div> <a href="code/components/logout.php" class="nav_link"> <i class='bx bx-log-out nav_icon'></i> <span class="nav_name">Sign Out</span> </a>
                 </nav>
             </div>

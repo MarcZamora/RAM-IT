@@ -28,6 +28,9 @@ if (!isset($_SESSION['loggedin'])) {
                 <!-- Local CSS-->
                 <link href="res/res-chatbot/chatbot.css" rel="stylesheet" type="text/css">
                 <link href="res/res-home/home.css" rel="stylesheet" type="text/css">
+
+                <!--Font Awsome-->
+                <script src="https://kit.fontawesome.com/828216c770.js" crossorigin="anonymous"></script>
             </head>
 
 
@@ -47,6 +50,8 @@ if (!isset($_SESSION['loggedin'])) {
                             <a href="home.php" class="nav_link active"> <i class='bx bx-home nav_icon'></i> <span class="nav_name">Home</span> </a>
                             <a href="profile.php" class="nav_link"> <i class='bx bx-user nav_icon'></i> <span class="nav_name">Profile</span> </a>
                             <a href="ticket.php" class="nav_link"> <i class='bx bx-envelope nav_icon'></i> <span class="nav_name">Tickets</span> </a> </div>
+                            <a href="ticketo.php" class="nav_link"> <i class="fa-solid fa-lock-open 2px"></i> <span class="nav_name">Open Tickets</span> </a> 
+                            <a href="ticketc.php" class="nav_link"> <i class="fa-solid fa-lock"></i> <span class="nav_name">Closed Tickets</span> </a>     
                     </div> <a href="code/components/logout.php" class="nav_link"> <i class='bx bx-log-out nav_icon'></i> <span class="nav_name">Sign Out</span> </a>
                 </nav>
             </div>

@@ -27,6 +27,9 @@ $mysqltime = date ('Y-m-d H:i:s', time());
 
                 <!-- Local CSS-->
                 <link href="res/res-tadd/tadd.css" rel="stylesheet" type="text/css">
+
+                <!--Font Awsome-->
+                <script src="https://kit.fontawesome.com/828216c770.js" crossorigin="anonymous"></script>
             </head>
 
     <body className='snippet-body'>
@@ -45,6 +48,8 @@ $mysqltime = date ('Y-m-d H:i:s', time());
                             <a href="home.php" class="nav_link"> <i class='bx bx-home nav_icon'></i> <span class="nav_name">Home</span> </a>
                             <a href="profile.php" class="nav_link"> <i class='bx bx-user nav_icon'></i> <span class="nav_name">Profile</span> </a>
                             <a href="ticket.php" class="nav_link active"> <i class='bx bx-envelope nav_icon'></i> <span class="nav_name">Tickets</span> </a> </div>
+                            <a href="ticketo.php" class="nav_link"> <i class="fa-solid fa-lock-open 2px"></i> <span class="nav_name">Open Tickets</span> </a> 
+                            <a href="ticketc.php" class="nav_link"> <i class="fa-solid fa-lock"></i> <span class="nav_name">Closed Tickets</span> </a>      
                     </div> <a href="login.php" class="nav_link"> <i class='bx bx-log-out nav_icon'></i> <span class="nav_name">Sign Out</span> </a>
                 </nav>
             </div>
@@ -55,7 +60,8 @@ $mysqltime = date ('Y-m-d H:i:s', time());
                
                 <div class="wrapper">
                     <div class="title">
-                      Add Ticket <div class="help-tip" style="top: 18px; right: 500px;">
+                      Add Ticket 
+                      <div class="help-tip" style="top: 18px; right: 500px;">
                               <p>This is the inline help tip! It can contain all kinds of HTML. Style it as you please.</p>
                           </div>
                     </div>
@@ -120,7 +126,7 @@ $mysqltime = date ('Y-m-d H:i:s', time());
                           </div>
                     </form>
                           <div class="inputfield">
-                            <a href="tickets.html" value="Back" class="btn" style="text-decoration: none;" ><center>Back</center></a>
+                            <a href="ticket.php" value="Back" class="btn" style="text-decoration: none;" ><center>Back</center></a>
                           </div>
                     </div>
                 </div>	

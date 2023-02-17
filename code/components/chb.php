@@ -1,27 +1,10 @@
-<?php 
-	$servername = "localhost";
-    $username  = "root";
-    $password = "";
-    $dbname = "test";
-    $port = "3308";
-    
-    $db = mysqli_connect($servername, $username, $password, $dbname, $port);
-    
-    if (!$db) {
-        die("Connection Failed". mysqli_connect_error());
-        
-    }
- ?>
- <?php 
-date_default_timezone_set('Asia/Singapore');
-$mysqltime = date ('h:i a', time()); 
-?>
 <html>
 <head>
 	<title>
 	</title>
 	<!-- CSS only -->
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="res/res-chatitro/chatitro.css" >
 
 <!-- JS, Popper.js, and jQuery -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
@@ -30,58 +13,43 @@ $mysqltime = date ('h:i a', time());
 </head>
 <body>
 
-  <!--Chat Bot-->
+ <!--Chat Bot-->
 
-   <div class="container">
-                    <div class="row">
-                        <div class="wrapper">
-                            <div class="contact-form-page">
-                                <div class="header-btn">
-                                    <a class="top-btn" href="#"></a>
-                                </div>
-
-                                <!--Space Division-->
-                                <div style="height:10%;"></div>
-
-                                
-                                <div class="container-chat mt-4">
-                                    <div class="card mx-auto" style="max-width:100%">
-                                        <div class="card-header" style="background-color: white;">
-                                            <div class="navbar navbar-expand p-0">
-                                                <ul class="navbar-nav me-auto align-items-center">
-                                                    <li class="nav-item">
-                                                        <a href="#!" class="nav-link">
-                                                            <div class="position-relative"
-                                                                style="width:50px; height: 50px; border-radius: 50%; border: 2px solid #071acc; padding: 2px">
-                                                                <img src="chat/res-chatbot/itro.png"
-                                                                    class="img-fluid rounded-circle" alt="">
-                                                                <span
-                                                                    class="position-absolute bottom-0 start-100 translate-middle p-1 ">
-                                                                    <span class="visually-hidden">New alerts</span>
-                                                                </span>
-                                                            </div>
-                                                        </a>
-                                                    </li>
-                                                    <li class="nav-item">
-                                                        <h1 class="chatbot-name" >RAM-IT</h1>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
+ <div class="container mt-4">
+                <div class="card mx-auto" style="max-width:100%">
+                    <div class="card-header">
+                        <div class="navbar navbar-expand p-0">
+                            <ul class="navbar-nav me-auto align-items-center">
+                                <li class="nav-item">
+                                    <a href="#!" class="nav-link">
+                                    </a>
+                                </li>
+                                <li class="nav-item"> <b> Ticket# 
+                                <?=$row['tid'];?> Chat </b>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
                                         
-                                        <div id="chatbody" class="card-body p-4" style="height: 500px; overflow: auto; background-color: white;">
+                                        <div id="chatbody" class="card-body p-4" style="height: 600px; overflow: auto; margin-bottom: 3%;">
                                         
-                                        <?php require "code/components/chl.php";?>
+                                        
+                                        <?php 
+                                        require "code/components/chl.php";
+                                        
+                                        ?>
+                                        
+                                       
 										<!--Space Division-->
-						<div style="height:5%;"></div>
+						<div style="height:50%;"></div>
                     
 					</div>
 					<div class="card-footer bg-white position-absolute w-100 bottom-0 m-0 p-1">
 						<div class="input-group">
-                        <input type="hidden" name="tid" id="tid" value="<?php echo $_GET["id"]; ?>" required>
-                        <input type="hidden" name="name" id="name" value="<?php echo $_SESSION['fname']. " " . $_SESSION['mname'] . " " . $_SESSION['lname']; ?>" required>
-                        <input type="hidden" name="position" id="position" value="position" value="<?php echo $_SESSION['pstion']; ?>" required>
-                        <input type="hidden" name="dtm"  id="dtm"value="<?=$mysqltime?>" required>
+                        <input type="hidden" name="tid" id="tid" value="<?=$_GET["id"]; ?>" required>
+                        <input type="hidden" name="id" id="id" value="<?=$_SESSION['id'];?>" required>
+                        <input type="hidden" name="name" id="name" value="<?=$_SESSION['fname']. " " . $_SESSION['lname']; ?>" required>
+                        <input type="hidden" name="position" id="position" value="<?=$_SESSION['pstion']; ?>" required>
 							<input type="text" name="msg" id="msg" class="form-control border-0" placeholder="Please write a message..." required>
 							<div class="input-group-text bg-transparent border-0">
 								<button id="send-btn" class="btn btn-light text-secondary"> Send
@@ -94,9 +62,29 @@ $mysqltime = date ('h:i a', time());
 				</div>
 			</div>
 
+<!-- reload chat whenever theres an update -->
+<script>    
+function loadXMLDoc() {
+var xhttp = new XMLHttpRequest();
+xhttp.onreadystatechange = function() {
+if (this.readyState == 4 && this.status == 200) {
+document.getElementById("chatbody").innerHTML =
+this.responseText;}
+                                                        
+};
+xhttp.open("GET", "code/components/chl.php?id=<?=$row['tid']; ?>", true);
+xhttp.send();
+}
+setInterval(function(){
+loadXMLDoc();
+// 1sec
+},1000);
+window.onload = loadXMLDoc;
+$("#chatbody").scrollTop($("#chatbody")[0].scrollHeight);
+</script>
 
 
-<!-- sending -->
+<!-- sending of msg-->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script> 
  $(document).ready(function() {
@@ -109,14 +97,15 @@ $mysqltime = date ('h:i a', time());
     });
 
  $("#send-btn").click(function() {
-
+    
      var tid = $("#tid").val();
+     var id = $("#id").val();
      var name = $("#name").val();
      var position = $("#position").val();
      var msg = $("#msg").val();
      var dtm = $("#dtm").val();
 
-     if(tid==''||name==''||position==''||msg=='' ||dtm=='') {
+     if(tid=='' || id==''||name==''||position==''||msg=='' ||dtm=='') {
          alert("Please fill all fields.");
          return false;
      }
@@ -126,6 +115,7 @@ $mysqltime = date ('h:i a', time());
          url: "code/components/chbmp.php",
          data: {
             tid: tid,
+            id: id,
             name: name,
             position: position,
             msg: msg,
@@ -150,20 +140,55 @@ $mysqltime = date ('h:i a', time());
 });
 </script>
 
-		<!--Space Division-->
-		<div style="height:7%;"></div>
+            
+        </div> <!--End Div Main Content Template-->
 
-		</div>
-			<a class="buttom-btn" href="#"></a>
-	</div>
-</div>
-</div>
+            <!--Container Main end (Nav and Page)-->
+            <script type='text/javascript' src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js'></script>
+            <script type='text/javascript' src='#'></script>
+            <script type='text/javascript' src='#'></script>
+            <script type='text/javascript' src='#'></script>
+            <script type='text/javascript'>document.addEventListener("DOMContentLoaded", function(event) {
+   
+                const showNavbar = (toggleId, navId, bodyId, headerId) =>{
+                const toggle = document.getElementById(toggleId),
+                nav = document.getElementById(navId),
+                bodypd = document.getElementById(bodyId),
+                headerpd = document.getElementById(headerId)
 
-<!--Space Division-->
-<div style="height:5%;"></div>
+                // Validate that all variables exist
+                if(toggle && nav && bodypd && headerpd){
+                toggle.addEventListener('click', ()=>{
+                // show navbar
+                nav.classList.toggle('show')
+                // change icon
+                toggle.classList.toggle('bx-x')
+                // add padding to body
+                bodypd.classList.toggle('body-pd')
+                // add padding to header
+                headerpd.classList.toggle('body-pd')
+                })
+                }
+                }
 
-</div>
-                                        
+                showNavbar('header-toggle','nav-bar','body-pd','header')
 
-</body>
+                /*===== LINK ACTIVE =====*/
+                const linkColor = document.querySelectorAll('.nav_link')
+
+                function colorLink(){
+                if(linkColor){
+                linkColor.forEach(l=> l.classList.remove('active'))
+                this.classList.add('active')
+                }
+                }
+                linkColor.forEach(l=> l.addEventListener('click', colorLink))
+
+                // Your code to run since DOM is loaded and ready
+                });</script>
+
+                <script type='text/javascript'>var myLink = document.querySelector('a[href="#"]');
+                myLink.addEventListener('click', function(e) {e.preventDefault();});</script>
+                            
+    </body>
 </html>
