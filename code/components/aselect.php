@@ -7,7 +7,7 @@ if (!$con) {
   die('Could not connect: ' . mysqli_error($con));
 }
 
-mysqli_select_db($con," ");
+
 $sql="SELECT * FROM accounts WHERE id = '".$q."'";
 $result = mysqli_query($con,$sql);
 

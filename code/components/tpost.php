@@ -1,5 +1,16 @@
 
 <?php
+//Import PHPMailer classes into the global namespace
+//These must be at the top of your script, not inside a function
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+
+//Load Composer's autoloader
+require('../../composer/vendor/phpmailer/phpmailer/src/Exception.php');
+require('../../composer/vendor/phpmailer/phpmailer/src/SMTP.php');
+require('../../composer/vendor/phpmailer/phpmailer/src/PHPMailer.php');
+
 require 'connect.php';
 
 $iid = $_POST["iid"];
@@ -18,11 +29,53 @@ $folder = "../../res/img/" . $filename;
 
 move_uploaded_file($tempname, $folder);
 
+$mail = new PHPMailer(true);
+
+    //Server settings
+    $mail->SMTPDebug = SMTP::DEBUG_SERVER;                    //Enable verbose debug output
+    $mail->isSMTP();                                          //Send using SMTP
+    $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
+    $mail->SMTPAuth   = true;                                 //Enable SMTP authentication
+    $mail->Username   = 'ramitnoreply@gmail.com';             //SMTP username
+    $mail->Password   = 'wtwibgdwpxuypfoc';                   //SMTP password
+    $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;          //Enable implicit TLS encryption
+    $mail->Port       = 465;                                  //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+
+    //Recipients
+    $mail->setFrom('ramitnoreply@gmail.com', 'RAM-IT');
+    $mail->addAddress($_POST["email"], $_POST["iname"]);     //Add a recipient           //Name is optional
+
+    // $mail->AddEmbeddedImage($folder, $filename, $folder); //Attachments
+    //Add attachments
+    //Optional name
+
+    //Content
+    $mail->isHTML(true);                                  //Set email format to HTML
+    $mail->Subject = 'Ticket added';
+    $mail->Body    = 
+    " Inquirer's Info:
+    <hr>
+    <br>  ID: ". $_POST["iid"] ."
+    <br>  Name: ". $_POST["iname"] ."
+    <br>  Inquiry: ". $_POST["inquiry"] ."
+    <br>  Priority: ". $_POST["priority"] ."
+    <br>  Inquiry Type: ". $_POST["itype"] ."
+    <br>  Full Description: ". $_POST["fdes"] ."
+    <br>  Date Created: ". $_POST["dt"] ."
+    <br>
+    <br> 
+    <br>
+    <br>  The current state of the ticket is Pending go to the RAM-IT website to assign an ITRO specialist for the ticket.
+    <br>
+    <br> Thank You
+    <br> RAM-IT System";
+
 $sql = "INSERT INTO ticket (iid, iname, email , img, inquiry, stat, priority, dt, itype, fdes, filename)
 VALUES ('$iid', '$iname', '$email' , '$img' ,'$inquiry', '$stat', '$priority', '$dt', '$itype','$fdes', '$filename')";
 
 if ($con->query($sql) === TRUE) {
 echo "New record created successfully";
+$mail->send();
 header('location: ../../ticket.php');
 } else {
 echo "Error: " . $sql . "<br>" . $con->error;

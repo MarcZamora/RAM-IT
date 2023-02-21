@@ -121,8 +121,8 @@ $result = mysqli_query($conn, $sql);
                                <td><?=$row['aname']?></td>
                                <td class = "dt"> <?=$row['dt'] ?></td>
                                <td>
-                                   <a  class = "links" href="tdetails.php? id=<?=$row['tid']; ?>"><button type="button" class="btn btn-inverse btn-roundedOT waves-effect waves-light m-b-5">Open</button></a>
-                                   <a  class = "links" href="code/components/delete.php? id=<?=$row['tid']; ?>"><button type="button" class="btn btn-inverse btn-roundedOT waves-effect waves-light m-b-5">Delete</button></a>
+                                   <a  class = "links" href="tdetails.php? id=<?=$row['tid']; ?>"><button type="button" class="btn btn-inverse btn-roundedOT waves-effect waves-light m-b-5">View</button></a>
+                                   <!-- <a  class = "links" href="code/components/delete.php? id=$row['tid'];"><button type="button" class="btn btn-inverse btn-roundedOT waves-effect waves-light m-b-5">Delete</button></a> -->
                                </td>
                            </tr>
 

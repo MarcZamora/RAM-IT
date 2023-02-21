@@ -62,7 +62,7 @@ else{
                                                         <div class="card card-text d-inline-block p-2 px-3 m-1"><?=$rw['msg']?></div>
                                                     </div>
                                                     <div>
-                                                        <div class="small"><?php $input = $rw["dtm"]; $date = strtotime($input); echo date('d/m/Y h:i A', $date);?></div>
+                                                        <div class="small"><?php $input = $rw["dtm"]; $date = strtotime($input); echo date('M d Y h:i A', $date);?></div>
                                                     </div>
                                                 </div>
                                                </div>

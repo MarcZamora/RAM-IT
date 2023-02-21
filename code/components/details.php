@@ -299,8 +299,8 @@ $aquery=mysqli_query($con,"SELECT * FROM accounts");
                     <?=date('M d Y h:i A', $date1);?>
                     </div>
                     </div>
-                <?php }
-                }
+                <?php } }
+                
                 ?>
                            
                             </div>
@@ -311,6 +311,7 @@ $aquery=mysqli_query($con,"SELECT * FROM accounts");
             <!--Space Division-->
             <div style="height:5%;"></div>
     
+            
 
 
                                  

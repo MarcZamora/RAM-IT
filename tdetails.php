@@ -65,8 +65,14 @@ require 'code/components/connect.php';
 
 
         
-            <?php require 'code/components/details.php';?>
-            <?php require 'code/components/chb.php';?>
+            <?php require 'code/components/details.php'; 
+            if ($row['stat'] == 'pending') {
+                
+                
+            }else{
+                require 'code/components/chb.php';
+            }
+            ?>
         </div>
 
         

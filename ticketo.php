@@ -18,7 +18,7 @@ if ($_SESSION['pstion'] == "student"){
 $sql = "SELECT * from ticket where iid = ". $_SESSION['id'] . " AND stat = 'open'";
 
 } elseif ($_SESSION['pstion'] == "it") {
-    $sql = "SELECT * from ticket where  stat = 'open' AND assignedid =". $_SESSION['id'];
+    $sql = "SELECT * from ticket where  stat = 'open' AND assignid =". $_SESSION['id'];
 } else
 {
     $sql = "SELECT * from ticket where  stat = 'open'";
