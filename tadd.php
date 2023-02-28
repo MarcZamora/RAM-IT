@@ -6,9 +6,24 @@ if (!isset($_SESSION['loggedin'])) {
     header('Location: login.php');
     exit;
 }
+$page = $_GET['link'];
+
 require 'code/components/pf.php';
 date_default_timezone_set('Asia/Singapore');
 $mysqltime = date ('Y-m-d H:i:s', time());
+
+if ($_SESSION['pstion'] == "student"){
+  $sql = "SELECT * from ticket where stat = 'open' AND notifstus = 0 AND iid = " .$_SESSION['id']. " ORDER BY notifdti desc";
+  } 
+  elseif ($_SESSION['pstion'] == "it")
+  {
+  $sql = "SELECT * from ticket where  stat = 'open' AND notifits = 0 AND assignid = " .$_SESSION['id']. " ORDER BY notifdts desc";
+  }
+  else{
+      $sql = "SELECT * from ticket where stat='pending' ORDER BY tid  desc";
+  }
+                            $result = mysqli_query($con, $sql);
+                            $i = 0;
 
 ?>
 
@@ -16,6 +31,9 @@ $mysqltime = date ('Y-m-d H:i:s', time());
 <!DOCTYPE html>
         <html>
             <head>
+            <style>
+                .nav_link .badge { position: absolute; top: 5px; left: 2px; padding: 5px 10px; border-radius: 50%; background-color: red; color: white; z-index: -1;}
+                </style>
                 <meta charset='utf-8'>
                 <meta name='viewport' content='width=device-width, initial-scale=1'>
                 <title>Home</title>
@@ -37,22 +55,11 @@ $mysqltime = date ('Y-m-d H:i:s', time());
         <header class="header" id="header">
             <!--Toogle Sidebar Navigation-->
             <div class="header_toggle"> <i class='bx bx-menu' id="header-toggle"></i> </div>
-            <div class="header_img"> <img src="res/res-home/profile.png" alt=""> </div>
+            <div class="header_img"> <img src="res/img/logo.png" alt=""> </div>
         </header>
 
             <!--Sidebar Navigatioon-->
-            <div class="l-navbar" id="nav-bar">
-                <nav class="nav">
-                    <div> <a href="#" class="nav_logo"> <i class='bx bx-layer nav_logo-icon'></i> <span class="nav_logo-name">RAM-IT</span> </a>
-                        <div class="nav_list">
-                            <a href="home.php" class="nav_link"> <i class='bx bx-home nav_icon'></i> <span class="nav_name">Home</span> </a>
-                            <a href="profile.php" class="nav_link"> <i class='bx bx-user nav_icon'></i> <span class="nav_name">Profile</span> </a>
-                            <a href="ticket.php" class="nav_link active"> <i class='bx bx-envelope nav_icon'></i> <span class="nav_name">Tickets</span> </a> </div>
-                            <a href="ticketo.php" class="nav_link"> <i class="fa-solid fa-lock-open 2px"></i> <span class="nav_name">Open Tickets</span> </a> 
-                            <a href="ticketc.php" class="nav_link"> <i class="fa-solid fa-lock"></i> <span class="nav_name">Closed Tickets</span> </a>      
-                    </div> <a href="login.php" class="nav_link"> <i class='bx bx-log-out nav_icon'></i> <span class="nav_name">Sign Out</span> </a>
-                </nav>
-            </div>
+            <?php require 'code/components/nav.php'; ?>
 
 
             <!--General Container-->
@@ -75,6 +82,7 @@ $mysqltime = date ('Y-m-d H:i:s', time());
                             <input type="hidden" name="iid" value="<?=$_SESSION['id']?>" id="iid" required>
                             <input type="hidden" name="email" placeholder="email" id="txt_field" value="<?=$_SESSION['name']?>">
                             <input type="hidden" name="stat" value="pending" id="stat" required>
+                            <input class="form-control" type="hidden" name="ipstion" id="ipstion" value="<?=$_SESSION['pstion']?>" />
                             <input class="form-control" type="hidden" name="img" id="img" value="<?=$_SESSION['filename']?>" />
                             <?php echo  '<input type="hidden" name="dt" value="'. $mysqltime . '" id="dt" required>'?>
                       <!--Inquiry-->

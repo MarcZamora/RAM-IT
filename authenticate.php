@@ -35,7 +35,7 @@ if ($stmt = $con->prepare('SELECT id, pswd, fname, mname, lname, pstion, filenam
             $_SESSION['lname'] = $lname;
             $_SESSION['pstion'] = $pstion;
             $_SESSION['filename'] = $filename;
-            header('Location: home.php');
+            header('Location: home.php?link=home');
         } else {
             // Incorrect password
             echo"<center><b><font color = 'red'>Invalid Password</b></center>";

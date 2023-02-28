@@ -25,12 +25,11 @@ $mysqltime = date ('Y-m-d H:i:s', time());
 $mail = new PHPMailer(true);
 
 //Server settings
-$mail->SMTPDebug = SMTP::DEBUG_SERVER;                    //Enable verbose debug output
 $mail->isSMTP();                                          //Send using SMTP
 $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
 $mail->SMTPAuth   = true;                                 //Enable SMTP authentication
-$mail->Username   = 'ramitnoreply@gmail.com';             //SMTP username
-$mail->Password   = 'wtwibgdwpxuypfoc';                   //SMTP password
+$mail->Username   = 'shido2111@gmail.com';             //SMTP username    shido2111         ramitnoreply      marczamora143
+$mail->Password   = 'djmcbhljqqztfgdg';                  //SMTP password    djmcbhljqqztfgdg  wtwibgdwpxuypfoc  dbzxakuqekgbulhi
 $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;          //Enable implicit TLS encryption
 $mail->Port       = 465;                                  //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
@@ -72,7 +71,8 @@ $mail->Body    =
 <br> RAM-IT System";
 
 $mail->send();
-mysqli_query($con,"update `ticket` set stat='closed' where tid=". $id);
+mysqli_query($con,"update `ticket` set stat='closed', notifits='0', notifitm='The ticket# ". $id ." is now closed the inquirer is satisfied with the ticket.',  notifdti='". $mysqltime. "' where tid=". $id);
 
-	header('location:../../ticket.php');
+
+	header('location:../../ticket.php?link=ticket');
 ?>

@@ -56,7 +56,7 @@ $mysqltime = date ('h:i a', time());
                                                 <!--Message-->
                                                 <div class="pe-2">
                                                     <div>
-                                                        <div class="card card-text d-inline-block p-2 px-3 m-1">Hello there, how can I help you? Input the numbers below if your problem is fit within this catergory: 1. hardware, 2. account, 3. others</div>
+                                                        <div class="card card-text d-inline-block p-2 px-3 m-1">Hello there, how can I help you? Input the numbers below if your problem is fit within this catergory: 1. Hardware 2. Software 3. Account 4. Computer Laboratory 5. WiFi Connection 6. Borrowing Equipment</div>
                                                     </div>
                                                     <div>
                                                         <div class="small"><?php echo $mysqltime ?></div>

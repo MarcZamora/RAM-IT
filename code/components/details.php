@@ -6,6 +6,20 @@ $input1 = $row['dta'];
 $date1 = strtotime($input1);
 $con = mysqli_connect('localhost','root','', 'ramit','3308');
 $aquery=mysqli_query($con,"SELECT * FROM accounts");
+date_default_timezone_set('Asia/Singapore');
+$mysqltime = date ('Y-m-d H:i:s', time());
+
+// student
+if ($_SESSION['pstion'] == $row['ipstion'] && $_SESSION['id'] == $row['iid']){
+    mysqli_query($con,"update `ticket` set notifstus='1',  notifdts='". $mysqltime. "' where tid=". $id);
+
+// itro
+}elseif (($_SESSION['pstion'] == $row['apstion'] && $_SESSION['id'] == $row['assignid'])) {
+    mysqli_query($con,"update `ticket` set notifits='1',  notifdti='". $mysqltime. "' where tid=". $id);
+
+} else{
+
+}
 ?>
 
 
@@ -13,13 +27,21 @@ $aquery=mysqli_query($con,"SELECT * FROM accounts");
 <!--General Container-->
 <div class="height-100 bg-light">
                 
-                <!--Header-->
-                <div class="welhead">
-                    <div class="mainhead">
-                    <h1>Ticket Details</h1>
-                    </div>
-                </div>
+                <!--Landon Welcome-->
+            <div>
+                <section id="headerwel">
+                   <div class="containerwel">
+                           <div class="container-fluidwel"></div>                
+                       <div class="middlewel">
+                           <h1 class="text-white display-3 fw-bold">
+                               <span class="theme-text">Ticket Details</span></h1>
+                       </div>
+                   </div>
+                   </section>
+               </div>
     
+               <br>
+               
                 <!--Profile-->
                 <div class="row gutters-sm">
                         <div class="col-md-4 mb-3">
@@ -46,8 +68,12 @@ $aquery=mysqli_query($con,"SELECT * FROM accounts");
                                     <h6 class="mb-0"><i class="fa-solid fa-signal"></i> Status</h6>
                                     <span class="text-secondary"><?=$row['stat'];?></span>
                                 </li>
-                                <?php 
-                                if ($_SESSION['id'] == $row['iid']){?>
+                                
+                                
+                                <?php if ($_SESSION['id'] == $row['iid']){?>
+                                
+                                <?php if ($row['stat'] != 'closed'){?>
+
                                 <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
                                 <div class="inputfield">
                                 <a href='code/components/tclosep.php?id=<?=$row['tid'];?>'>
@@ -55,6 +81,7 @@ $aquery=mysqli_query($con,"SELECT * FROM accounts");
                                 </a>
                                 </div>
                                 </li>
+                                <?php }?>
                                 <?php if ($_SESSION['pstion'] == 'supervisor') {?>
                                 <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
                                 <div class="inputfield">
@@ -146,6 +173,8 @@ $aquery=mysqli_query($con,"SELECT * FROM accounts");
                                 <?=$row['fdes'];?>
                                 </div>
                                 </div>
+
+                                <?php if ($row['filename'] != ""){?>
                             <hr>
                                 <div class="row">
                                 <div class="col-sm-3">
@@ -155,6 +184,7 @@ $aquery=mysqli_query($con,"SELECT * FROM accounts");
                                 <img src="./res/img/<?=$row['filename']?>" style = "width: 350px;">
                                 </div>
                                 </div>
+                            <?php }?>
                             <hr>
                                 <div class="row">
                                 <div class="col-sm-3">

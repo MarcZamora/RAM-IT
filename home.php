@@ -5,13 +5,18 @@ session_start();
 if (!isset($_SESSION['loggedin'])) {
     header('Location: login.php');
     exit;
-}
 
+   
+}
+$page = $_GET['link'];
 ?>
 
 <!DOCTYPE html>
         <html>
             <head>
+                <style>
+                .nav_link .badge { position: absolute; top: 5px; left: 2px; padding: 5px 10px; border-radius: 50%; background-color: red; color: white; z-index: -1;}
+                </style>
                 <meta charset='utf-8'>
                 <meta name='viewport' content='width=device-width, initial-scale=1'>
                 <title>Home</title>
@@ -31,7 +36,7 @@ if (!isset($_SESSION['loggedin'])) {
 
                 <!--Font Awsome-->
                 <script src="https://kit.fontawesome.com/828216c770.js" crossorigin="anonymous"></script>
-            </head>
+                </head>
 
 
     <body className='snippet-body'>
@@ -39,22 +44,13 @@ if (!isset($_SESSION['loggedin'])) {
         <header class="header" id="header">
             <!--Toogle Sidebar Navigation-->
             <div class="header_toggle"> <i class='bx bx-menu' id="header-toggle"></i> </div>
-            <div class="header_img"> <img src="res/res-home/profile.png" alt=""> </div>
+            <div class="header_img"> <img src="res/img/logo.png" alt=""> </div>
         </header>
 
+             
+                
             <!--Sidebar Navigatioon-->
-            <div class="l-navbar" id="nav-bar">
-                <nav class="nav">
-                    <div> <a href="#" class="nav_logo"> <i class='bx bx-layer nav_logo-icon'></i> <span class="nav_logo-name">RAM-IT</span> </a>
-                        <div class="nav_list">
-                            <a href="home.php" class="nav_link active"> <i class='bx bx-home nav_icon'></i> <span class="nav_name">Home</span> </a>
-                            <a href="profile.php" class="nav_link"> <i class='bx bx-user nav_icon'></i> <span class="nav_name">Profile</span> </a>
-                            <a href="ticket.php" class="nav_link"> <i class='bx bx-envelope nav_icon'></i> <span class="nav_name">Tickets</span> </a> </div>
-                            <a href="ticketo.php" class="nav_link"> <i class="fa-solid fa-lock-open 2px"></i> <span class="nav_name">Open Tickets</span> </a> 
-                            <a href="ticketc.php" class="nav_link"> <i class="fa-solid fa-lock"></i> <span class="nav_name">Closed Tickets</span> </a>     
-                    </div> <a href="code/components/logout.php" class="nav_link"> <i class='bx bx-log-out nav_icon'></i> <span class="nav_name">Sign Out</span> </a>
-                </nav>
-            </div>
+            <?php require 'code/components/nav.php'; ?>
 
             <!--General Container-->
             <div class="height-100 bg-light">
@@ -65,14 +61,14 @@ if (!isset($_SESSION['loggedin'])) {
                     <div class="containerwel">
                             <div class="container-fluidwel"></div>                
                         <div class="middlewel">
-                            <h1 class="text-white display-3 fw-bold">Welcome to RAM-IT,<br><span class="theme-text"><?=$_SESSION['fname']?> <?=$_SESSION['mname']?> <?=$_SESSION['lname']?></span></h1>
+                            <h1 class="text-white display-3 fw-bold">Welcome to RAM-IT:<br>
+                                ITRO's ChatBot & Ticketing System,<br><span class="theme-text"><?=$_SESSION['fname']?> <?=$_SESSION['mname']?> <?=$_SESSION['lname']?></span></h1>
                         </div>
                     </div>
                     </section>
                 </div>
 
-                <!--Space Division-->
-                <div style="height:5%;"></div>
+               <br>
 
                 <!--Content Slider-->
                 <div class="slider">

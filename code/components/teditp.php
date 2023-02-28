@@ -26,6 +26,7 @@ require 'connect.php';
 	$assignid=$_POST["assignid"];
 	$aemail=$_POST["aemail"];
 	$aname=$_POST["aname"];
+    $apstion=$_POST["apstion"];
 	
 	if ($assignid == "" && $aemail == "" && $aname == "") {
 
@@ -39,8 +40,8 @@ $mail = new PHPMailer(true);
     $mail->isSMTP();                                          //Send using SMTP
     $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
     $mail->SMTPAuth   = true;                                 //Enable SMTP authentication
-    $mail->Username   = 'ramitnoreply@gmail.com';             //SMTP username
-    $mail->Password   = 'wtwibgdwpxuypfoc';                   //SMTP password
+    $mail->Username   = 'shido2111@gmail.com';             //SMTP username    shido2111         ramitnoreply      marczamora143
+    $mail->Password   = 'djmcbhljqqztfgdg';                   //SMTP password    djmcbhljqqztfgdg  wtwibgdwpxuypfoc  dbzxakuqekgbulhi
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;          //Enable implicit TLS encryption
     $mail->Port       = 465;                                  //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
@@ -75,7 +76,7 @@ $mail = new PHPMailer(true);
     <br> Thank You
     <br> RAM-IT System";
 
-	$mail->send();
+	 $mail->send();
 	
 
 		mysqli_query($con,"update `ticket` set stat='open' , priority='$priority' , severity='$severity' , itype='$itype'  where tid=". $id);
@@ -90,8 +91,8 @@ $mail = new PHPMailer(true);
 $mail->isSMTP();                                          //Send using SMTP
 $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
 $mail->SMTPAuth   = true;                                 //Enable SMTP authentication
-$mail->Username   = 'ramitnoreply@gmail.com';             //SMTP username
-$mail->Password   = 'wtwibgdwpxuypfoc';                   //SMTP password
+$mail->Username   = 'shido2111@gmail.com';                //SMTP username    shido2111         ramitnoreply      marczamora143
+$mail->Password   = 'djmcbhljqqztfgdg';                   //SMTP password    djmcbhljqqztfgdg  wtwibgdwpxuypfoc  dbzxakuqekgbulhi
 $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;          //Enable implicit TLS encryption
 $mail->Port       = 465;                                  //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
@@ -131,8 +132,8 @@ $mail1 = new PHPMailer(true);
 $mail1->isSMTP();                                          //Send using SMTP
 $mail1->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
 $mail1->SMTPAuth   = true;                                 //Enable SMTP authentication
-$mail1->Username   = 'ramitnoreply@gmail.com';             //SMTP username
-$mail1->Password   = 'wtwibgdwpxuypfoc';                   //SMTP password
+$mail1->Username   = 'shido2111@gmail.com';             //SMTP username    shido2111         ramitnoreply      marczamora143
+$mail1->Password   = 'djmcbhljqqztfgdg';                   //SMTP password    djmcbhljqqztfgdg  wtwibgdwpxuypfoc  dbzxakuqekgbulhi
 $mail1->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;          //Enable implicit TLS encryption
 $mail1->Port       = 465;                                  //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
@@ -169,13 +170,15 @@ $mail1->Body    =
 <br> Thank You
 <br> RAM-IT System";
 
-$mail->send();
-$mail1->send();
+ $mail->send();
+ $mail1->send();
 
-		mysqli_query($con,"update `ticket` set stat='open' , priority='$priority' , severity='$severity' , itype='$itype' , assignid='$assignid', aemail='$aemail', aname='$aname' where tid=". $id);
+		mysqli_query($con,"update `ticket` set priority='$priority' , severity='$severity' , itype='$itype' , 
+        assignid='".$assignid."', aemail='".$aemail."', apstion='".$apstion."', aname='".$aname."', dta='".$mysqltime."', 
+        notifstus='0', notifstum='The ticket# ".$id." has a new ITRO specialist assigned', notifits='0', 
+        notifitm='You are assigned to the ticket# ".$id."', notifdts='".$mysqltime."', notifdti='".$mysqltime."'   where tid=". $id);
 	}
 
-	
 
-	header('location: ../../ticket.php');
+	header('location: ../../ticket.php?link=ticket');
 ?>

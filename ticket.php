@@ -7,8 +7,7 @@ if (!isset($_SESSION['loggedin'])) {
 	exit;
 }
 
-$conn=mysqli_connect("localhost","root","","ramit","3308");
-
+require 'code/components/connect.php';
 // Check connection
 if (mysqli_connect_errno()){
     echo "Failed to connect to MySQL: " . mysqli_connect_error();
@@ -21,11 +20,19 @@ $sql = "SELECT * from ticket where iid = ".$_SESSION['id'];
 {
     $sql = "SELECT * from ticket";
 }
-$result = mysqli_query($conn, $sql);
+
+$page = $_GET['link'];
+
+$result = mysqli_query($con, $sql);
+$i = 0;
+
 ?>
 <!DOCTYPE html>
         <html>
             <head>
+            <style>
+                .nav_link .badge { position: absolute; top: 5px; left: 2px; padding: 5px 10px; border-radius: 50%; background-color: red; color: white; z-index: -1;}
+                </style>
                 <meta charset='utf-8'>
                 <meta name='viewport' content='width=device-width, initial-scale=1'>
                 <title>Home</title>
@@ -60,36 +67,33 @@ $result = mysqli_query($conn, $sql);
         <header class="header" id="header">
             <!--Toogle Sidebar Navigation-->
             <div class="header_toggle"> <i class='bx bx-menu' id="header-toggle"></i> </div>
-            <div class="header_img"> <img src="res/res-home/profile.png" alt=""> </div>
+            <div class="header_img"> <img src="res/img/logo.png" alt=""> </div>
         </header>
 
             <!--Sidebar Navigatioon-->
-            <div class="l-navbar" id="nav-bar">
-                <nav class="nav">
-                    <div> <a href="#" class="nav_logo"> <i class='bx bx-layer nav_logo-icon'></i> <span class="nav_logo-name">RAM-IT</span> </a>
-                        <div class="nav_list">
-                            <a href="home.php" class="nav_link"> <i class='bx bx-home nav_icon'></i> <span class="nav_name">Home</span> </a>
-                            <a href="profile.php" class="nav_link"> <i class='bx bx-user nav_icon'></i> <span class="nav_name">Profile</span> </a>
-                            <a href="ticket.php" class="nav_link active"> <i class='bx bx-envelope nav_icon'></i> <span class="nav_name">Tickets</span> </a> </div>
-                            <a href="ticketo.php" class="nav_link"> <i class="fa-solid fa-lock-open 2px"></i> <span class="nav_name">Open Tickets</span> </a> 
-                            <a href="ticketc.php" class="nav_link"> <i class="fa-solid fa-lock"></i> <span class="nav_name">Closed Tickets</span> </a>     
-                    </div> <a href="code/components/logout.php" class="nav_link"> <i class='bx bx-log-out nav_icon'></i> <span class="nav_name">Sign Out</span> </a>
-                </nav>
-            </div>
+            <?php require 'code/components/nav.php'; ?>
 
             <!--General Container-->
             <div class="height-100 bg-light">
 
-                <!--Header-->
-                <div class="welhead">
-                    <div class="mainhead">
-                        <h1>Tickets</h1>
-                    </div>
-                </div>
+                <!--Landon Welcome-->
+            <div>
+                <section id="headerwel">
+                   <div class="containerwel">
+                           <div class="container-fluidwel"></div>                
+                       <div class="middlewel">
+                           <h1 class="text-white display-3 fw-bold">
+                               <span class="theme-text">Tickets</span></h1>
+                       </div>
+                   </div>
+                   </section>
+               </div>
+
+               <br>
 
                 <!--Table-->
                 <div>
-                    <table id="example" class="table table-striped" style="width:100%">
+                    <table id="example" class="table table-striped" style="width:80%;">
                         <thead>
                             <tr>
                                 <th>Ticket ID:</th>
@@ -107,8 +111,10 @@ $result = mysqli_query($conn, $sql);
                             </tr>
                         </thead>
                         <tbody>
-                        <?php while($row = mysqli_fetch_array($result)){?>
+                        <?php while($row = mysqli_fetch_array($result)){ 
+                            ?>
                             <tr>
+                                
                                <td><?=$row['tid']; ?></td>
                                <td><?=$row['iid']; ?></td>
                                <td><?=$row['iname']?></td>
@@ -154,16 +160,14 @@ $result = mysqli_query($conn, $sql);
                 <div style="height:5%;"></div>
 
                 <!--Add Ticket-->
-                <a href="tadd.php"><button type="button" class="btn btn-primary btn-rounded waves-effect waves-light m-b-5">Add Ticket</button></a>
+                <a href="tadd.php?link=ticketc"><button type="button" class="btn btn-primary btn-rounded waves-effect waves-light m-b-5">Add Ticket</button></a>
 
                 <!--Download CV-->
                 <a href="code/components/tcsv.php"><button type="button" class="btn btn-primary btn-rounded waves-effect waves-light m-b-5">Download Data</button></a>
-
-                <!--Space Division-->
-            <div style="height:5%;"></div>
             
              <!--Chatbot -->
              <?php require 'code/components/cb.php';?>
+             
 
             <!--Table Scripts-->
             <script src="https://code.jquery.com/jquery-3.5.1.js"></script>

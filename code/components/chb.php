@@ -50,13 +50,15 @@
                         <input type="hidden" name="id" id="id" value="<?=$_SESSION['id'];?>" required>
                         <input type="hidden" name="name" id="name" value="<?=$_SESSION['fname']. " " . $_SESSION['lname']; ?>" required>
                         <input type="hidden" name="position" id="position" value="<?=$_SESSION['pstion']; ?>" required>
+                        <?php if ($row['iid'] == $_SESSION['id'] || $row['assignid'] == $_SESSION['id'] || $_SESSION['pstion'] == 'supervisor') { ?>
+                        <?php if ($row['stat'] == "open") { ?>
 							<input type="text" name="msg" id="msg" class="form-control border-0" placeholder="Please write a message..." required>
 							<div class="input-group-text bg-transparent border-0">
 								<button id="send-btn" class="btn btn-light text-secondary"> Send
 									<i id="button" class="fas fa-paper-plane"></i>
 								</button>
 							</div>
-						   
+						<?php } } ?>   
 						</div>
 					</div>
 				</div>

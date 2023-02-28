@@ -8,7 +8,7 @@ $query = $con->query("SELECT * FROM ticket ORDER BY tid ASC");
  
 if($query->num_rows > 0){ 
     $delimiter = ","; 
-    $filename = "Ticket " . date('Y-m-d') . ".csv"; 
+    $filename = "Tickets " . date('Y-m-d') . ".csv"; 
      
     // Create a file pointer 
     $f = fopen('php://memory', 'w'); 

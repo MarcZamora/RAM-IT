@@ -66,12 +66,6 @@ $date1 = strtotime($input1);
                                 </div>
                                 </li>
 
-                                <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-                                <div class="inputfield">
-                                <button onclick="history.back()">Back</button>
-                                </div>
-                                </li>
-
                             </ul>
                         </div>
                         </div>

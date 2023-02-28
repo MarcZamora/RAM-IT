@@ -41,9 +41,22 @@ while($asrow = mysqli_fetch_array($result)) {
                     </div>
                     </div>
 
+                <hr>
+                    <div class="row">
+                    <div class="col-sm-3">
+                    <h6 class="mb-0">Position:</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                    <?=$asrow['pstion']?>
+                    </div>
+                    </div>
+                    
+
 <input type="hidden" id="aname" name="aname" value="<?=$asrow['fname']. " " . $asrow['mname'] . " " . $asrow['lname']?>">
 <input type="hidden" id="assignid" name="assignid" value="<?=$asrow['id']?>">
 <input type="hidden" id="aemail" name="aemail" value="<?=$asrow['email']?>">
+<input type="hidden" id="apstion" name="apstion" value="<?=$asrow['pstion']?>">
+
 <div class="inputfield">
 <button type="submit" class="btn" value="Post" style="background-color:cyan;">Assign</button>
 </div>
