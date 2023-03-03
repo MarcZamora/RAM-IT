@@ -6,11 +6,12 @@ if (!isset($_SESSION['loggedin'])) {
     header('Location: login.php');
     exit;
 }
-$page = $_GET['link'];
+  require 'code/components/connect.php';
+  $page = $_GET['id'];
+  $id=$_GET['id'];
+	$query=mysqli_query($con,"SELECT * FROM cbr where id = '$id'");
+	$row=mysqli_fetch_array($query);
 
-require 'code/components/pf.php';
-date_default_timezone_set('Asia/Singapore');
-$mysqltime = date ('Y-m-d H:i:s', time());
 ?>
 
 
@@ -53,7 +54,7 @@ $mysqltime = date ('Y-m-d H:i:s', time());
                
                 <div class="wrapper">
                     <div class="title">
-                      Add Ticket 
+                      Edit Chatbot Entry# <?=$row['id']?> 
                       <div class="help-tip" style="top: 18px; right: 500px;">
                               <p>This is the inline help tip! It can contain all kinds of HTML. Style it as you please.</p>
                           </div>
@@ -62,65 +63,27 @@ $mysqltime = date ('Y-m-d H:i:s', time());
                     
                         
                     
-                    <form method="POST" action="code/components/tpost.php" enctype="multipart/form-data"> 
-                      <!--Hidden-->
-                            <input type="hidden" name="iname" value="<?=$_SESSION['fname']?> <?=$_SESSION['mname']?> <?=$_SESSION['lname']?>" id="iname" required>
-                            <input type="hidden" name="iid" value="<?=$_SESSION['id']?>" id="iid" required>
-                            <input type="hidden" name="email" placeholder="email" id="txt_field" value="<?=$_SESSION['name']?>">
-                            <input type="hidden" name="stat" value="pending" id="stat" required>
-                            <input class="form-control" type="hidden" name="ipstion" id="ipstion" value="<?=$_SESSION['pstion']?>" />
-                            <input class="form-control" type="hidden" name="img" id="img" value="<?=$_SESSION['filename']?>" />
-                            <?php echo  '<input type="hidden" name="dt" value="'. $mysqltime . '" id="dt" required>'?>
+                    <form method="POST" action="code/components/tcbep.php?id=<?=$id?>" enctype="multipart/form-data"> 
                       <!--Inquiry-->
                         <div class="form">
                         <div class="inputfield">
-                          <label>Inquiry:</label>
-                          <textarea class="textarea" name="inquiry" placeholder="Inquiry" id="txt_field" required></textarea>
+                          <label>Query:</label>
+                          <textarea class="textarea" name="queries" placeholder="" id="txt_field" required><?=$row['queries']?></textarea>
                            </div> 
-                    
-                           <!--Type-->
-                           <div class="inputfield" >
-                          <label>Type:</label>
-                          <div class="custom_select">
-                          <select type="select" name="itype" placeholder="Type" id="itype" required>
-                            <option value="hardware">Hardware</option>
-                            <option value="account">Account</option>  
-                            <option value="others">Others</option>  
-                            </select>
-                          </div>
-                           </div> 
-                
-                        <!--Description-->
+                  
+                        <!--Replies-->
                         <div class="form">
                         <div class="inputfield">
-                          <label>Description:</label>
-                          <textarea class="textarea" name="fdes" placeholder="Full Description" id="txt_field" required></textarea>
+                          <label>Reply:</label>
+                          <textarea class="textarea" name="replies" placeholder="" id="txt_field" required><?=$row['replies']?></textarea>
                        </div> 
-                
-                        <!--Priority-->
-                           <div class="inputfield">
-                          <label>Priority:</label>
-                          <div class="custom_select">
-                            <select name="priority" value="" id="priority" required>
-                              <option value="1">1</option>
-                              <option value="2">2</option>
-                              <option value="3">3</option>
-                              <option value="4">4</option>
-                              <option value="5">5</option>
-                            </select>
-                            </div>
-                            </div> 
-                            
-                      
-                      
-                           <input class="inputfield" type="file" name="uploadfile" value="" />
-
+                       
                           <div class="inputfield">
-                            <button type="submit" class="btn" value="Post">Add Ticket</button>
+                            <button type="submit" class="btn" value="Post">Edit</button>
                           </div>
                     </form>
                           <div class="inputfield">
-                            <a href="ticket.php" value="Back" class="btn" style="text-decoration: none;" ><center>Back</center></a>
+                            <a href="tcb.php?link=tcb" value="Back" class="btn" style="text-decoration: none;" ><center>Back</center></a>
                           </div>
                     </div>
                 </div>	

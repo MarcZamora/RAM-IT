@@ -84,7 +84,7 @@ $page = $_GET['link'];
                     <div class="card">
                         <div class="card-body">
                             <div class="d-flex flex-column align-items-center text-center">
-                            <img src="res/res-profile/profile.png" alt="Admin" class="rounded-circle" width="150">
+                            <img src="res/accountimg/<?=$_SESSION['filename']?>" alt="Admin" class="rounded-circle" width="150">
                                 <div class="mt-3">
                                     <h4><?=$_SESSION['fname']?> <?=$_SESSION['mname']?> <?=$_SESSION['lname']?></h4>
                                     <hr>
@@ -134,6 +134,67 @@ $page = $_GET['link'];
 
              <!--Chatbot -->
              <?php require 'code/components/cb.php';?>
+
+             <!-- charts -->
+             <?php
+             if ($_SESSION['pstion'] == 'it') {
+                    
+                    $sqlopen = "SELECT * FROM ticket where stat='open' AND assignid = ".$_SESSION['id']." ORDER BY tid";
+                    $sqlclosed = "SELECT * FROM ticket where stat='closed' AND assignid = ".$_SESSION['id']." ORDER BY tid";
+
+                    $o = 0;
+                    $c = 0;
+
+                    $oresult = mysqli_query($con,$sqlopen);
+                    $cresult = mysqli_query($con,$sqlclosed);
+
+                    while($orow = mysqli_fetch_array($oresult)){ $o++; } 
+                    while($crow = mysqli_fetch_array($cresult)){ $c++; } 
+
+                    ?>
+                    
+                    <div style="width: 180px; position: relative; left: 710px; bottom: 190px;">
+                    <input id="open" type="hidden" value="<?=$o?>"></input>
+                    <input id="close" type="hidden" value="<?=$c?>"></input>
+                    <canvas id="tickets"></canvas>
+                    </div>
+                    
+                    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                    <script>
+
+                        var open = $("#open").val(); 
+                        var close = $("#close").val();
+                        
+                    const ctx = document.getElementById('tickets');
+                   
+                    
+                    
+                    new Chart(ctx, {
+                        type: 'doughnut',
+                        data: {
+                        labels: ['Open = <?=$o?>', 'Closed = <?=$c?>'],
+                        datasets: [
+                            {  
+                            data: [open, close],
+                            borderWidth: 1
+                        }
+                        ]
+                        },
+                        options: {
+                        // scales: {
+                        //     y: {
+                        //     beginAtZero: true
+                        //     }
+                        // }
+                        }
+                    });
+                    </script>
+                    
+                    
+                    
+
+             <?php }
+             ?>
             
            
             <!--Container Main end (Nav and Page)-->

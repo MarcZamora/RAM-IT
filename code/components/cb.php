@@ -24,7 +24,7 @@ $mysqltime = date ('h:i a', time());
                                                         <a href="#!" class="nav-link">
                                                             <div class="position-relative"
                                                                 style="width:50px; height: 50px; border-radius: 50%; border: 2px solid #071acc; padding: 2px">
-                                                                <img src="res/res-chatbot/itro.png"
+                                                                <img src="res/img/bot.png"
                                                                     class="img-fluid rounded-circle" alt="">
                                                                 <span
                                                                     class="position-absolute bottom-0 start-100 translate-middle p-1 ">
@@ -46,7 +46,7 @@ $mysqltime = date ('h:i a', time());
                                             <div class="d-flex align-items-baseline mb-4">
                                                 <!--Avatar-->
                                                 <div class="position-relative avatar">
-                                                    <img src="res/res-chatbot/itro.png"
+                                                    <img src="res/img/bot.png"
                                                         class="img-fluid rounded-circle" alt="">
                                                     <span
                                                         class="position-absolute bottom-0 start-100 translate-middle p-1 ">

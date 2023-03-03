@@ -146,8 +146,9 @@ if ($_SESSION['pstion'] == "student"){
                             <a href="notification.php?link=notif" class="nav_link <?php if ($page == 'notif') {echo 'active';} else {echo '';}?>" > <span class="badge"><?php while($nrow = mysqli_fetch_array($nresult)){ $i++; } if( $i == 0) { } else{echo $i;} ?></span><i class='fas fa-bell nav_icon'></i> <span class="nav_name">Notification</span> </a>
                             <a href="ticketo.php?link=ticketo" class="nav_link <?php if ($page == 'ticketo') {echo 'active';} else {echo '';}?>"> <i class="fa-solid fa-lock-open 2px"></i> <span class="nav_name"><?php if ($_SESSION['pstion'] == 'it' ){?>Assigned Tickets<?php } else {echo "Open Tickets";}?></span> </a> 
                             <a href="ticketc.php?link=ticketc" class="nav_link <?php if ($page == 'ticketc') {echo 'active';} else {echo '';}?>"> <i class="fa-solid fa-lock"></i> <span class="nav_name">Closed Tickets</span> </a> 
-                            <a href="ittadd.php" class="nav_link"> <i class="fa-solid fa-plus"></i> <span class="nav_name">Add Ticket</span></a>
-                        
+                            <?php if ($_SESSION['pstion'] == 'student'){}else{?>
+							<a href="tcb.php?link=tcb" class="nav_link <?php if ($page == 'tcb') {echo 'active';} else {echo '';}?>"> <i class="fa-solid fa-plus"></i> <span class="nav_name">Add Ticket</span></a>	
+							<?php } ?>
                         
                         </div>
                     </div> <a href="code/components/logout.php" class="nav_link"> <i class='bx bx-log-out nav_icon'></i> <span class="nav_name">Sign Out</span> </a>

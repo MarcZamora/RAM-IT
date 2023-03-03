@@ -26,7 +26,7 @@ $id = $_GET['id'];
                             </div>
                             <!--Avatar-->
                             <div class="position-relative avatar">
-                                <img src="res-chatitro/profile.png"
+                                <img src="res/accountimg/<?=$rw['id']?>.png"
                                     class="img-fluid rounded-circle" alt="">
                                 <span
                                     class="position-absolute bottom-0 start-100 translate-middle p-1 ">
@@ -45,7 +45,7 @@ else{
                                                 <!--Avatar-->
                                                 
                                                 <div class="position-relative avatar">
-                                                    <img src="res-chatbot/itro.png"
+                                                    <img src="res/accountimg/<?=$rw['id']?>.png"
                                                         class="img-fluid rounded-circle" alt="">
                                                     <span
                                                         class="position-absolute bottom-0 start-100 translate-middle p-1 ">
