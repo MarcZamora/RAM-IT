@@ -139,7 +139,7 @@ require 'code/components/connect.php';
                                                 </a>   
                                             </div>
                                         </div>
-                       <?php } } else { echo ' <center> <h1>There is no notifications at this time. </h1> </center>';} }?>
+                       <?php } } else { echo ' <center> <h1>There is no notifications at this time. </h1> </center>';} } ?>
                     
                        
 

@@ -17,7 +17,7 @@ $(document).ready(function(){
         '</div>'+
         '</div>'+
         '<div class="position-relative avatar">'+
-        '<img src="res/accountimg/<?=$_SESSION['filename']?>" class="img-fluid rounded-circle" alt="">'+
+        '<img src="res/accountimg/<?=$_SESSION['id']?>.png" class="img-fluid rounded-circle" alt="">'+
         '<span class="position-absolute bottom-0 start-100 translate-middle p-1 "> <span class="visually-hidden">New alerts</span></span>'+
         '</div>'+
         '</div>';
