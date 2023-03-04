@@ -1,7 +1,7 @@
 <!--General Container-->
 <?php 
 session_start();
-$con=mysqli_connect("localhost","root","","ramit","3308");
+require 'connect.php';
 $id=$_GET['id'];
 $aquery=mysqli_query($con,"SELECT * FROM accounts");
 $query=mysqli_query($con,"SELECT * FROM ticket where tid = '$id'");
@@ -40,7 +40,7 @@ $date1 = strtotime($input1);
                             <div class="card">
                                 <div class="card-body">
                                     <div class="d-flex flex-column align-items-center text-center">
-                                        <img src="../../res/res-tdetails/profile.png" alt="" class="rounded-circle" width="150">
+                                        <img src="../../res/accountimg/<?=$row['iid']?>.png" alt="" class="rounded-circle" width="150">
                                             <div class="mt-3">
                                                 <h4><?=$row['iname'];?></h4>
                                                 <hr>

@@ -31,7 +31,7 @@ $(document).ready(function(){
             data: 'text='+$value,
             success: function(result){
                 $replay = '<div class="d-flex align-items-baseline mb-4">'+
-                '<div class="position-relative avatar"><img src="res/img/bot.png" class="img-fluid rounded-circle" alt="">'+
+                '<div class="position-relative avatar"><img src="res/accountimg/bot.png" class="img-fluid rounded-circle" alt="">'+
                 ' <span class="position-absolute bottom-0 start-100 translate-middle p-1 "><span class="visually-hidden">New alerts</span></span>'+
                 '</div>'+
                 '<div class="pe-2">'+

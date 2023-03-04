@@ -2,7 +2,7 @@
 
 $q = intval($_GET['q']);
 
-$con = mysqli_connect('localhost','root','', 'ramit','3308');
+require 'connect.php';
 if (!$con) {
   die('Could not connect: ' . mysqli_error($con));
 }

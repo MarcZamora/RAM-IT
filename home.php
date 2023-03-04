@@ -129,7 +129,7 @@ $page = $_GET['link'];
                     if (counter > 4){
                         counter = 1;
                     }
-                }, 5000);
+                }, 12000);
             </script>
 
              <!--Container Main end (Nav and Page)-->
