@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3308
--- Generation Time: Feb 28, 2023 at 03:32 PM
+-- Generation Time: Mar 04, 2023 at 04:09 PM
 -- Server version: 8.0.31
 -- PHP Version: 8.2.0
 
@@ -45,10 +45,11 @@ CREATE TABLE IF NOT EXISTS `accounts` (
 --
 
 INSERT INTO `accounts` (`id`, `email`, `pswd`, `fname`, `mname`, `lname`, `pstion`, `filename`) VALUES
-(1, 'Supervisor@supervisor.apc.edu.ph', '123', 'Admin', 'S.', 'Supervisor', 'supervisor', 'download.png\r\n'),
-(2, 'itroexample@itro.apc.edu.ph', '321', 'Example', 'E.', 'ITRO', 'it', 'download.png\r\n'),
-(2020141242, 'ilflores@student.apc.edu.ph', 'wew', 'Ivan', 'L.', 'Flores', 'student', 'download.png\r\n'),
-(2020141361, 'mezamora@student.apc.edu.ph', 'wews', 'Marc', 'Espina', 'Zamora', 'student', 'download.png');
+(1, 'Supervisor@supervisor.apc.edu.ph', '123', 'Admin', 'S.', 'Supervisor', 'supervisor', '1.png\r\n'),
+(2, 'itroexample1@itro.apc.edu.ph', '321', 'Example', 'E.', 'ITRO', 'it', '2.png\r\n'),
+(3, 'itroexample2@itro.apc.edu.ph', '321', 'ITRO2', 'E.', 'EXAMPLE', 'it', '3.png'),
+(2020141242, 'ilflores@student.apc.edu.ph', 'wew', 'Ivan', 'L.', 'Flores', 'student', '2020141242.png\r\n'),
+(2020141361, 'mezamora@student.apc.edu.ph', 'wews', 'Marc', 'Espina', 'Zamora', 'student', '2020141361.png');
 
 -- --------------------------------------------------------
 
@@ -62,7 +63,7 @@ CREATE TABLE IF NOT EXISTS `cbr` (
   `queries` varchar(500) NOT NULL,
   `replies` varchar(500) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `cbr`
@@ -76,7 +77,9 @@ INSERT INTO `cbr` (`id`, `queries`, `replies`) VALUES
 (5, 'scissors | Scissors | SCISSORS | scissor | Scissor | SCISSOR | gunting | GUNTING | Gunting', 'Rock'),
 (6, '1 | one | uno | isa', 'Sorry at the moment the database is in working progress would you mind go to the ticketing system. So that your problem will be added to our database and increase my knowledge to answer everyone who has a problem with the subject. <a class = \"link\" href=\"http://localhost/ram-it/tadd.php\"> here... </a>'),
 (7, '2 | two | dalawa | pangalawa', 'Sorry at the moment the database is in working progress would you mind go to the ticketing system. So that your problem will be added to our database and increase my knowledge to answer everyone who has a problem with the subject. <a class = \"link\" href=\"http://localhost/ramit/tadd.php\"> here... </a>'),
-(8, '3 | three | tatlo | pangatlo', 'Sorry at the moment the database is in working progress would you mind go to the ticketing system. So that your problem will be added to our database and increase my knowledge to answer everyone who has a problem with the subject. <a class = \"link\" href=\"http://localhost/ramit/tadd.php\"> here... </a>');
+(8, '3 | three | tatlo | pangatlo', 'Sorry at the moment the database is in working progress would you mind go to the ticketing system. So that your problem will be added to our database and increase my knowledge to answer everyone who has a problem with the subject. <a class = \"link\" href=\"http://localhost/ramit/tadd.php\"> here... </a>'),
+(9, '4 | apat | pangapat | pang-apat', 'Sorry at the moment the database is in working progress would you mind go to the ticketing system. So that your problem will be added to our database and increase my knowledge to answer everyone who has a problem with the subject. <a class = \"link\" href=\"http://localhost/ramit/tadd.php\"> here... </a>'),
+(10, 'goodbye | bye bye | bye', 'Goodbye and Thank you.\r\nHave a nice day!');
 
 -- --------------------------------------------------------
 
@@ -99,7 +102,7 @@ CREATE TABLE IF NOT EXISTS `chat` (
 --
 
 INSERT INTO `chat` (`tid`, `id`, `name`, `position`, `msg`, `dtm`) VALUES
-(2, 2, 'Example ITRO', 'it', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis non elit sit amet velit blandit sodales. Etiam laoreet volutpat metus, eu egestas felis interdum et. Donec luctus lorem non mauris tempor, vel ultricies massa luctus. Nullam iaculis sagittis nisl non posuere. Nunc mollis consequat ex hendrerit dapibus. Donec sed magna venenatis, porta eros eget, commodo neque. Vivamus ut placerat lacus. Donec pellentesque diam sit amet libero convallis, et sollicitudin dui pretium.  Duis aliquam tortor sed dolor commodo cursus. Duis quis dapibus metus. Morbi at elementum turpis. Curabitur nibh urna, venenatis a eleifend scelerisque, viverra in nibh. Curabitur aliquet justo leo, quis viverra ipsum efficitur sit amet. In sed efficitur magna. Sed dictum ante at convallis pharetra. In viverra at justo vitae pulvinar. Integer rutrum elementum sem, non auctor ipsum scelerisque vel. Vestibulum pharetra fermentum lobortis. Sed non condimentum diam, ac fermentum nisi. Nullam fringilla quam vitae erat pulvinar facilisis. Fus', '2023-02-28 23:21:42');
+(1, 1, 'Admin Supervisor', 'supervisor', 'hello', '2023-03-05 00:06:16');
 
 -- --------------------------------------------------------
 
@@ -142,8 +145,8 @@ CREATE TABLE IF NOT EXISTS `ticket` (
 --
 
 INSERT INTO `ticket` (`tid`, `iid`, `iname`, `ipstion`, `email`, `img`, `inquiry`, `itype`, `fdes`, `stat`, `priority`, `severity`, `filename`, `assignid`, `aemail`, `aname`, `apstion`, `dt`, `dta`, `notifstus`, `notifstum`, `notifits`, `notifitm`, `notifdts`, `notifdti`) VALUES
-(1, 2020141361, 'Marc Espina Zamora', 'student', 'mezamora@student.apc.edu.ph', 'download.png', 'wew', 'others', 'wewew', 'open', 2, 0, 'received_567813555149542.jpg', 2, 'itroexample@itro.apc.edu.ph', 'Example E. ITRO', 'it', '2023-02-28 23:16:07', '2023-02-28 23:16:57', 0, 'The ticket# 1 has a new ITRO specialist assigned', 0, 'You are assigned to the ticket# 1', '2023-02-28 23:16:57', '2023-02-28 23:16:57'),
-(2, 1, 'Admin S. Supervisor', 'supervisor', 'supervisor@supervisor.apc.edu.ph', 'download.png\r\n', 'wewe', 'hardware', 'wewewew', 'open', 1, 0, '', 2, 'itroexample@itro.apc.edu.ph', 'Example E. ITRO', 'it', '2023-02-28 23:19:03', '2023-02-28 23:19:23', 0, 'New message in ticket# 2', 1, 'You are assigned to the ticket# 2', '2023-02-28 23:21:42', '2023-02-28 23:21:32');
+(1, 2, 'Example E. ITRO', 'it', 'itroexample@itro.apc.edu.ph', '2.png\r\n', 'I have with a problem with the camera i borrowed.', 'hardware', 'The camera has a broken led', 'open', 1, 0, '', 3, 'itroexample2@itro.apc.edu.ph', 'ITRO2 E. EXAMPLE', 'it', '2023-03-04 23:51:33', '2023-03-04 23:54:58', 0, 'Admin messaged in ticket# 1', 0, 'You are assigned to the ticket# 1', '2023-03-05 00:06:16', '2023-03-05 00:06:16'),
+(2, 1, 'Admin S. Supervisor', 'supervisor', 'supervisor@supervisor.apc.edu.ph', '1.png\r\n', 'Laptop room 214', 'hardware', 'Projector not working', 'open', 5, 0, '', 2, 'itroexample1@itro.apc.edu.ph', 'Example E. ITRO', 'it', '2023-03-04 23:59:23', '2023-03-05 00:00:16', 0, 'The ticket# 2 has a new ITRO specialist assigned', 0, 'You are assigned to the ticket# 2', '2023-03-05 00:00:16', '2023-03-05 00:00:16');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
