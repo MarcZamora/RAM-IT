@@ -1,9 +1,15 @@
 <!--General Container-->
 <?php 
+// We need to use sessions, so you should always start sessions using the below code.
 session_start();
+// If the user is not logged in redirect to the login page...
+if (!isset($_SESSION['loggedin'])) {
+    header('Location: ../../login.php');
+    exit;
+}
 require 'connect.php';
 $id=$_GET['id'];
-$aquery=mysqli_query($con,"SELECT * FROM accounts");
+$aquery=mysqli_query($con,"SELECT * FROM accounts where pstion = 'it'");
 $query=mysqli_query($con,"SELECT * FROM ticket where tid = '$id'");
 $row=mysqli_fetch_array($query);
 $input = $row['dt'];
@@ -23,6 +29,71 @@ $date1 = strtotime($input1);
                 
                 <!-- Local CSS-->
                 <link href="res/res-tdetails/tdetails.css" rel="stylesheet" type="text/css">
+
+                <style>
+                    .help-tip{
+                    position:absolute;
+                    text-align: center;
+                    background-color: #BCDBEA;
+                    border-radius: 50%;
+                    width: 24px;
+                    height: 24px;
+                    font-size: 14px;
+                    line-height: 26px;
+                    cursor: default;
+                    }
+
+                    .help-tip:before{
+                    content:'?';
+                    font-weight: bold;
+                    color:#fff;
+                    }
+
+                    .help-tip:hover p{
+                    display:block;
+                    transform-origin: 100% 0%;
+
+                    -webkit-animation: fadeIn 0.3s ease-in-out;
+                    animation: fadeIn 0.3s ease-in-out;
+
+                    }
+
+                    .help-tip p{    /* The tooltip */
+                    display: none;
+                    text-align: left;
+                    background-color: #1E2021;
+                    padding: 20px;
+                    width: 300px;
+                    position: absolute;
+                    border-radius: 3px;
+                    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+                    right: -4px;
+                    color: #FFF;
+                    font-size: 13px;
+                    line-height: 1.4;
+                    z-index: 1;
+                    }
+
+                    .help-tip p:before{ /* The pointer of the tooltip */
+                    position: absolute;
+                    content: '';
+                    width:0;
+                    height: 0;
+                    border:6px solid transparent;
+                    border-bottom-color:#1E2021;
+                    right:10px;
+                    top:-12px;
+                    }
+
+                    .help-tip p:after{ /* Prevents the tooltip from being hidden */
+                    width:100%;
+                    height:40px;
+                    content:'';
+                    position: absolute;
+                    top:-40px;
+                    left:0;
+                    }
+                </style>
 
 <div class="height-100 bg-light">
                 
@@ -100,6 +171,16 @@ $date1 = strtotime($input1);
                                 </div>
 
                             <hr>
+                            <!--Priority ht-->
+                            <div class="help-tip" style="margin-left: 70px; margin-bottom: 10px; width: 25px; height: 25px; ">
+                              <p>Priority Level: <br>
+                              -------------------
+                              <br>5 - 1 to 2 Day/s
+                              <br>4 - 3 to 4 Days
+                              <br>3 - 5 to 6 Days
+                              <br>2 - 7 to 8 Days
+                              <br>1 - 9 to 10 Days</p>
+                            </div>
                                 <div class="row">
                                 <div class="col-sm-3">
                                 <h6 class="mb-0">Priority:</h6>
@@ -120,6 +201,16 @@ $date1 = strtotime($input1);
                                 </div>
 
                                 <hr>
+                            <!--Severity ht-->
+                                <div class="help-tip" style="margin-left: 70px; margin-bottom: 10px; width: 25px; height: 25px; ">
+                              <p>Severity: <br>
+                              -------------------
+                              <br>5: Multiple departments or classes are affected
+                              <br>4: A department or a class is affected
+                              <br>3: A medium sized group is affected
+                              <br>2: A small sized group is affected
+                              <br>1: One Person Affected</p>
+                            </div>
                                 <div class="row">
                                 <div class="col-sm-3">
                                 <h6 class="mb-0">Severity:</h6>
@@ -149,9 +240,13 @@ $date1 = strtotime($input1);
                                 <select type="select" name="itype" placeholder="" id="itype" required>
                                 <option value="<?=$row['itype'];?>"><?=$row['itype'];?></option>
                                 <option value="">////////</option>
-                                <option value="hardware">Hardware</option>
-                                <option value="account">Account</option>  
-                                <option value="others">Others</option>  
+                                <option value="Hardware">Hardware</option>
+                                <option value="Software">Software</option> 
+                                <option value="Account">Account</option>  
+                                <option value="Hyflex Equipment">Hyflex Equipment</option>  
+                                <option value="Borrowed Equipment">Borrowed Equipment</option>
+                                <option value="WiFi Connection">WiFi Connection</option>
+                                <option value="Others">Others</option>   
                                 </select>
                                 </div>
                                 </div>

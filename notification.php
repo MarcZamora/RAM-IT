@@ -131,7 +131,7 @@ require 'code/components/connect.php';
                             <div class="notify_item">
                             <a href="tdetails.php? id=<?=$row['tid']?>">  
                                             <div class="notify_img">
-                                                <img src="res/accountimg/<?=$row['iid']?>.png" alt="profile_pic" style="width: 50px">
+                                                <img src="res/accountimg/<?=$row['assignid']?>.png" alt="profile_pic" style="width: 50px">
                                             </div>
                                             <div class="notify_info">
                                                 <p><?=$row['notifstum']?></span></p>
@@ -139,7 +139,7 @@ require 'code/components/connect.php';
                                                 </a>   
                                             </div>
                                         </div>
-                       <?php } } else { echo ' <center> <h1>There is no notifications at this time. </h1> </center>';} } ?>
+                       <?php } } } if ($i <= 0 ){ echo ' <center> <h1>There is no notifications at this time. </h1> </center>';} ?>
                     
                        
 

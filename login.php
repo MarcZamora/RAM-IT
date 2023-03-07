@@ -8,6 +8,8 @@ if (isset($_SESSION['loggedin'])) {
 	header('Location: home.php?link=home');
 	exit;
 }
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -60,6 +62,12 @@ if (isset($_SESSION['loggedin'])) {
                             </div>
                             <div class="row mb-3">             
                          </div>
+
+                         <div class="toc">
+                         <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" required>
+                         <label for="tocs"> <p class="agree" style="color: white;">Do you agree with RAM-IT's <a href="https://www.privacy.gov.ph/data-privacy-act/">Privacy Policy</a>?</p></label>
+                        </div>
+
                          <!-- Login Button -->
                       <div class="mb-3"> 
                                 <button type="submit" class="btn btn-block" value="Login">Login</button>

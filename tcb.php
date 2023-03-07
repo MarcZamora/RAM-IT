@@ -108,8 +108,8 @@ $i = 0;
                             <tr>
                                 
                                <td><?=$row['id']; ?></td>
-                               <td><?=$row['queries']; ?></td>
-                               <td><?=$row['replies']?></td>
+                               <td><div class="tbl-of"><?=$row['queries']; ?></div></td>
+                               <td><div class="tbl-of" style="height: 80px; width: 500px;"><?=$row['replies']?></div></td>
                                <td>
                                    <a  class = "links" href="tcbedit.php? id=<?=$row['id']; ?>"><button type="button" class="btn btn-inverse btn-roundedOT waves-effect waves-light m-b-5">Edit</button></a>
                                    <!-- <a  class = "links" href="code/components/delete.php? id=$row['tid'];"><button type="button" class="btn btn-inverse btn-roundedOT waves-effect waves-light m-b-5">Delete</button></a> -->

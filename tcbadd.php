@@ -52,27 +52,42 @@ require 'code/components/pf.php';
                 <div class="wrapper">
                     <div class="title">
                       Add Chatbot Entry 
-                      <div class="help-tip" style="top: 18px; right: 500px;">
-                              <p>This is the inline help tip! It can contain all kinds of HTML. Style it as you please.</p>
-                          </div>
                     </div>
                    
                     
                         
                     
                     <form method="POST" action="code/components/tcbpost.php" enctype="multipart/form-data"> 
-                      <!--Inquiry-->
+                      <!--Query ht-->
+                      <div class="help-tip" style="margin-left: 60px; margin-top: 50px; width: 25px; height: 25px;">
+                              <p style = "width: 180px;" > If theres many possible queries use " | " sign example: <br>  hey | hello | hellow  
+                          </div>
+                      <!--Query-->
                         <div class="form">
                         <div class="inputfield">
                           <label>Query:</label>
-                          <textarea class="textarea" name="queries" placeholder="Inquiry" id="txt_field" required></textarea>
+                          <textarea class="textarea" name="queries" placeholder="Query" id="txt_field" required></textarea>
                            </div> 
                   
                         <!--Replies-->
                         <div class="form">
                         <div class="inputfield">
                           <label>Reply:</label>
-                          <textarea class="textarea" name="replies" placeholder="Full Description" id="txt_field" required></textarea>
+                          <textarea class="textarea" name="replies" placeholder="Reply" id="txt_field" required></textarea>
+                       </div> 
+
+                       <!--link-->
+                       <div class="form">
+                        <div class="inputfield">
+                          <label>Link:</label>
+                          <textarea class="textarea" name="link" placeholder="Link" id="txt_field" ></textarea>
+                       </div> 
+
+                       <!--Message-->
+                       <div class="form">
+                        <div class="inputfield">
+                          <label>Message of link:</label>
+                          <textarea class="textarea" name="msg" placeholder="Message of link" id="txt_field" ></textarea>
                        </div> 
                        
                           <div class="inputfield">
@@ -80,7 +95,7 @@ require 'code/components/pf.php';
                           </div>
                     </form>
                           <div class="inputfield">
-                            <a href="tcb.php?link=tcb" value="Back" class="btn" style="text-decoration: none;" ><center>Back</center></a>
+                            <a href="javascript:history.back()" value="Back" class="btn" style="text-decoration: none;" ><center>Back</center></a>
                           </div>
                     </div>
                 </div>	

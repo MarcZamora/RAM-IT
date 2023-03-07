@@ -8,7 +8,7 @@ if (!$con) {
 }
 
 
-$sql="SELECT * FROM accounts WHERE id = '".$q."'";
+$sql="SELECT * FROM accounts WHERE  id = '".$q."'";
 $result = mysqli_query($con,$sql);
 
 while($asrow = mysqli_fetch_array($result)) {

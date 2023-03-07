@@ -5,7 +5,7 @@ $date = strtotime($input);
 $input1 = $row['dta'];
 $date1 = strtotime($input1);
 $con = mysqli_connect('localhost','root','', 'ramit','3308');
-$aquery=mysqli_query($con,"SELECT * FROM accounts");
+$aquery=mysqli_query($con,"SELECT * FROM accounts where pstion='it'");
 date_default_timezone_set('Asia/Singapore');
 $mysqltime = date ('Y-m-d H:i:s', time());
 
@@ -66,7 +66,7 @@ if ($_SESSION['pstion'] == $row['ipstion'] && $_SESSION['id'] == $row['iid']){
                                 </li>
                                 <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
                                     <h6 class="mb-0"><i class="fa-solid fa-signal"></i> Status</h6>
-                                    <span class="text-secondary"><?=$row['stat'];?></span>
+                                    <span class="text-secondary" style="text-transform: uppercase;"><?=$row['stat'];?></span>
                                 </li>
                                 
                                 
@@ -159,7 +159,7 @@ if ($_SESSION['pstion'] == $row['ipstion'] && $_SESSION['id'] == $row['iid']){
                                 <div class="col-sm-3">
                                 <h6 class="mb-0">Type:</h6>
                                 </div>
-                                <div class="col-sm-9 text-secondary">
+                                <div class="col-sm-9 text-secondary" style="text-transform: capitalize;">
                                 <?=$row['itype'];?>
                                 </div>
                                 </div>

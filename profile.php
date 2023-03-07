@@ -124,7 +124,7 @@ $page = $_GET['link'];
                             <h6 class="mb-0">Position:</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
-                            <h6 class="mb-0"><?=$pstion?></h6>
+                            <h6 class="mb-0" style="text-transform: uppercase;"><?=$pstion?></h6>
                             </div>
                             </div>
                         </div>

@@ -39,8 +39,7 @@ require 'code/components/connect.php';
                 <!-- Local CSS-->
                 <link href="res/res-tdetails/tdetails.css" rel="stylesheet" type="text/css">
 
-                <!--Font Awsome-->
-                <script src="https://kit.fontawesome.com/828216c770.js" crossorigin="anonymous"></script>
+                
 
             </head>
 

@@ -55,16 +55,18 @@ if (!isset($_SESSION['loggedin'])) {
                 <div class="wrapper">
                     <div class="title">
                       Edit Chatbot Entry# <?=$row['id']?> 
-                      <div class="help-tip" style="top: 18px; right: 500px;">
-                              <p>This is the inline help tip! It can contain all kinds of HTML. Style it as you please.</p>
-                          </div>
                     </div>
                    
                     
                         
                     
                     <form method="POST" action="code/components/tcbep.php?id=<?=$id?>" enctype="multipart/form-data"> 
-                      <!--Inquiry-->
+
+                    <!--Query ht-->
+                    <div class="help-tip" style="margin-left: 60px; margin-top: 50px; width: 25px; height: 25px;">
+                              <p style = "width: 180px;" > If theres many possible queries use " | " sign example: <br>  hey | hello | hellow  
+                          </div>
+                      <!--queries-->
                         <div class="form">
                         <div class="inputfield">
                           <label>Query:</label>

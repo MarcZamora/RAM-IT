@@ -24,6 +24,7 @@ $sql = "SELECT * from ticket where iid = ". $_SESSION['id'] . " AND stat = 'open
     $sql = "SELECT * from ticket where  stat = 'open'";
 }
 $result = mysqli_query($con, $sql);
+$t = 0;
 
 $page = $_GET['link'];
 ?>
@@ -111,14 +112,14 @@ $page = $_GET['link'];
                             </tr>
                         </thead>
                         <tbody>
-                        <?php while($row = mysqli_fetch_array($result)){?>
+                        <?php while($row = mysqli_fetch_array($result)){ $t++;?>
                             <tr>
                                <td><?=$row['tid']; ?></td>
                                <td><?=$row['iid']; ?></td>
                                <td><?=$row['iname']?></td>
                                <td><div class="tbl-of"><?=$row['inquiry']; ?></div></td>
-                               <td><?=$row['itype']; ?></td>
-                               <td><?=$row['stat']; ?></td>
+                               <td style="text-transform: capitalize;"><?=$row['itype']; ?></td>
+                               <td style="text-transform: uppercase;"><?=$row['stat']; ?></td>
                                <td><?=$row['priority']; ?></td>
                                <td><?=$row['severity']; ?></td>
                                <td class = "assignid"><?=$row['assignid']; ?></td>
@@ -135,20 +136,28 @@ $page = $_GET['link'];
                             
                         </tbody>
                         <tfoot>
+                           <?php
+                           if ($t >= 6) {?>
+                            
                             <tr>
-                                <th>Ticket ID:</th>
-                                <th>Inquirer ID:</th>
-                                <th>Inquirer's Name:</th>
-                                <th>Inquiry:</th>
-                                <th>Type:</th>
-                                <th>Status:</th>
-                                <th>Priority:</th>
-                                <th>Severity:</th>
-                                <th>Assigned Staff ID:</th>
-                                <th>Name Assigned:</th>
-                                <th>Date:</th>
-                                <th></th>
+                            <th>Ticket ID:</th>
+                            <th>Inquirer ID:</th>
+                            <th>Inquirer's Name:</th>
+                            <th>Inquiry:</th>
+                            <th>Type:</th>
+                            <th>Status:</th>
+                            <th>Priority:</th>
+                            <th>Severity:</th>
+                            <th>Assigned Staff ID:</th>
+                            <th>Name Assigned:</th>
+                            <th>Date:</th>
+                            <th></th>
                             </tr>
+                            
+                           <?php }else{
+                           ?>
+
+                           <?php } ?>
                         </tfoot>
                     </table>
                 </div>
@@ -159,9 +168,11 @@ $page = $_GET['link'];
                 <!--Add Ticket-->
                 <a href="tadd.php?link=ticketc"><button type="button" class="btn btn-primary btn-rounded waves-effect waves-light m-b-5">Add Ticket</button></a>
 
+                <?php if ($_SESSION['pstion'] == 'it'){?>
                 <!--Download CV-->
-                <a href="code/components/tcsv.php"><button type="button" class="btn btn-primary btn-rounded waves-effect waves-light m-b-5">Download Data</button></a>
-
+                <a href="code/components/tcsvo.php?id=<?=$_SESSION['id']?>"><button type="button" class="btn btn-primary btn-rounded waves-effect waves-light m-b-5">Download Data</button></a>
+                <?php }?>
+                
                 <!--Space Division-->
             <div style="height:5%;"></div>
             

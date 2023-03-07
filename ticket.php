@@ -24,7 +24,7 @@ $sql = "SELECT * from ticket where iid = ".$_SESSION['id'];
 $page = $_GET['link'];
 
 $result = mysqli_query($con, $sql);
-$i = 0;
+$t = 0;
 
 ?>
 <!DOCTYPE html>
@@ -93,7 +93,7 @@ $i = 0;
 
                 <!--Table-->
                 <div>
-                    <table id="example" class="table table-striped" style="width:80%;">
+                    <table id="example" class="table table-striped" style="width:100%;">
                         <thead>
                             <tr>
                                 <th>Ticket ID:</th>
@@ -111,7 +111,7 @@ $i = 0;
                             </tr>
                         </thead>
                         <tbody>
-                        <?php while($row = mysqli_fetch_array($result)){ 
+                        <?php while($row = mysqli_fetch_array($result)){ $t++;
                             ?>
                             <tr>
                                 
@@ -119,8 +119,8 @@ $i = 0;
                                <td><?=$row['iid']; ?></td>
                                <td><?=$row['iname']?></td>
                                <td><div class="tbl-of"><?=$row['inquiry']; ?></div></td>
-                               <td><?=$row['itype']; ?></td>
-                               <td><?=$row['stat']; ?></td>
+                               <td style="text-transform: capitalize;"><?=$row['itype']; ?></td>
+                               <td style="text-transform: uppercase;"><?=$row['stat']; ?></td>
                                <td><?=$row['priority']; ?></td>
                                <td><?=$row['severity']; ?></td>
                                <td class = "assignid"><?=$row['assignid']; ?></td>
@@ -138,20 +138,28 @@ $i = 0;
                             
                         </tbody>
                         <tfoot>
+                           <?php
+                           if ($t >= 5) {?>
+                            
                             <tr>
-                                <th>Ticket ID:</th>
-                                <th>Inquirer ID:</th>
-                                <th>Inquirer's Name:</th>
-                                <th>Inquiry:</th>
-                                <th>Type:</th>
-                                <th>Status:</th>
-                                <th>Priority:</th>
-                                <th>Severity:</th>
-                                <th>Assigned Staff ID:</th>
-                                <th>Name Assigned:</th>
-                                <th>Date:</th>
-                                <th></th>
+                            <th>Ticket ID:</th>
+                            <th>Inquirer ID:</th>
+                            <th>Inquirer's Name:</th>
+                            <th>Inquiry:</th>
+                            <th>Type:</th>
+                            <th>Status:</th>
+                            <th>Priority:</th>
+                            <th>Severity:</th>
+                            <th>Assigned Staff ID:</th>
+                            <th>Name Assigned:</th>
+                            <th>Date:</th>
+                            <th></th>
                             </tr>
+                            
+                           <?php }else{
+                           ?>
+
+                           <?php } ?>
                         </tfoot>
                     </table>
                 </div>
@@ -161,10 +169,11 @@ $i = 0;
 
                 <!--Add Ticket-->
                 <a href="tadd.php?link=ticketc"><button type="button" class="btn btn-primary btn-rounded waves-effect waves-light m-b-5">Add Ticket</button></a>
-
+                
+                <?php if ($_SESSION['pstion'] == 'it' || $_SESSION['pstion'] == 'supervisor'){?>
                 <!--Download CV-->
                 <a href="code/components/tcsv.php"><button type="button" class="btn btn-primary btn-rounded waves-effect waves-light m-b-5">Download Data</button></a>
-            
+                <?php }?>
              <!--Chatbot -->
              <?php require 'code/components/cb.php';?>
              

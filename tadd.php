@@ -54,9 +54,7 @@ $mysqltime = date ('Y-m-d H:i:s', time());
                 <div class="wrapper">
                     <div class="title">
                       Add Ticket 
-                      <div class="help-tip" style="top: 18px; right: 500px;">
-                              <p>This is the inline help tip! It can contain all kinds of HTML. Style it as you please.</p>
-                          </div>
+                      
                     </div>
                    
                     
@@ -77,15 +75,19 @@ $mysqltime = date ('Y-m-d H:i:s', time());
                           <label>Inquiry:</label>
                           <textarea class="textarea" name="inquiry" placeholder="Inquiry" id="txt_field" required></textarea>
                            </div> 
-                    
+                          
                            <!--Type-->
                            <div class="inputfield" >
                           <label>Type:</label>
                           <div class="custom_select">
-                          <select type="select" name="itype" placeholder="Type" id="itype" required>
-                            <option value="hardware">Hardware</option>
-                            <option value="account">Account</option>  
-                            <option value="others">Others</option>  
+                          <select type="select" name="itype" placeholder="Type" id="itype" style="text-transform: capitalize;" required>
+                            <option value="Hardware">Hardware</option>
+                            <option value="Software">Software</option> 
+                            <option value="Account">Account</option>  
+                            <option value="Hyflex Equipment">Hyflex Equipment</option>  
+                            <option value="Borrowed Equipment">Borrowed Equipment</option>
+                            <option value="WiFi Connection">WiFi Connection</option>
+                            <option value="Others">Others</option>  
                             </select>
                           </div>
                            </div> 
@@ -97,7 +99,18 @@ $mysqltime = date ('Y-m-d H:i:s', time());
                           <textarea class="textarea" name="fdes" placeholder="Full Description" id="txt_field" required></textarea>
                        </div> 
                 
-                        <!--Priority-->
+                        <!--Priority ht-->
+                        <div class="help-tip" style="margin-left: 60px; margin-top: 5px; width: 25px; height: 25px;">
+                              <p style = "width: 140px;" >Priority Level: min 1 - 5 max <br>
+                              -------------------
+                              <br>5 - 1 to 2 Day/s
+                              <br>4 - 3 to 4 Days
+                              <br>3 - 5 to 6 Days
+                              <br>2 - 7 to 8 Days
+                              <br>1 - 9 to 10 Days</p>
+                          </div>
+
+                          <!--Priority-->
                            <div class="inputfield">
                           <label>Priority:</label>
                           <div class="custom_select">
@@ -120,7 +133,7 @@ $mysqltime = date ('Y-m-d H:i:s', time());
                           </div>
                     </form>
                           <div class="inputfield">
-                            <a href="ticket.php" value="Back" class="btn" style="text-decoration: none;" ><center>Back</center></a>
+                            <a href="javascript:history.back()" value="Back" class="btn" style="text-decoration: none;" ><center>Back</center></a>
                           </div>
                     </div>
                 </div>	

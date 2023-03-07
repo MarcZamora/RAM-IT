@@ -42,10 +42,14 @@ $mysqltime = date ('h:i a', time());
                                         
                                         <div id="chatbody" class="card-body p-4" style="height: 500px; overflow: auto; background-color: white;">
                                         
-                                            <!--CB-->
+                                        <?php 
+                                        $query=mysqli_query($con,"SELECT * FROM cbr where id = 0");
+                                        $row=mysqli_fetch_array($query);
+                                        ?>
+                                            <!-- CB -->
                                             <div class="d-flex align-items-baseline mb-4">
                                                 <!--Avatar-->
-                                                <div class="position-relative avatar">
+                                                 <div class="position-relative avatar">
                                                     <img src="res/accountimg/bot.png"
                                                         class="img-fluid rounded-circle" alt="">
                                                     <span
@@ -53,16 +57,16 @@ $mysqltime = date ('h:i a', time());
                                                         <span class="visually-hidden">New alerts</span>
                                                     </span>
                                                 </div>
-                                                <!--Message-->
+                                                 <!-- Message -->
                                                 <div class="pe-2">
                                                     <div>
-                                                        <div class="card card-text d-inline-block p-2 px-3 m-1">Hello there, how can I help you? Input the numbers below if your problem is fit within this catergory: 1. Hardware 2. Software 3. Account 4. Computer Laboratory 5. WiFi Connection 6. Borrowing Equipment</div>
+                                                        <div class="card card-text d-inline-block p-2 px-3 m-1"><?=$row['replies']?></div>
                                                     </div>
                                                     <div>
                                                         <div class="small"><?php echo $mysqltime ?></div>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </div> 
                             
 
                                             <!-- (Code Lines)
