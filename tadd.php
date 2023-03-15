@@ -17,9 +17,7 @@ $mysqltime = date ('Y-m-d H:i:s', time());
 <!DOCTYPE html>
         <html>
             <head>
-            <style>
-                .nav_link .badge { position: absolute; top: 5px; left: 2px; padding: 5px 10px; border-radius: 50%; background-color: red; color: white; z-index: -1;}
-                </style>
+            
                 <meta charset='utf-8'>
                 <meta name='viewport' content='width=device-width, initial-scale=1'>
                 <title>Home</title>
@@ -37,12 +35,6 @@ $mysqltime = date ('Y-m-d H:i:s', time());
             </head>
 
     <body className='snippet-body'>
-    <body id="body-pd">
-        <header class="header" id="header">
-            <!--Toogle Sidebar Navigation-->
-            <div class="header_toggle"> <i class='bx bx-menu' id="header-toggle"></i> </div>
-            <div class="header_img"> <img src="res/img/logo.png" alt=""> </div>
-        </header>
 
             <!--Sidebar Navigatioon-->
             <?php require 'code/components/nav.php'; ?>
@@ -98,33 +90,6 @@ $mysqltime = date ('Y-m-d H:i:s', time());
                           <label>Description:</label>
                           <textarea class="textarea" name="fdes" placeholder="Full Description" id="txt_field" required></textarea>
                        </div> 
-                
-                        <!--Priority ht-->
-                        <div class="help-tip" style="margin-left: 60px; margin-top: 5px; width: 25px; height: 25px;">
-                              <p style = "width: 140px;" >Priority Level: min 1 - 5 max <br>
-                              -------------------
-                              <br>5 - 1 to 2 Day/s
-                              <br>4 - 3 to 4 Days
-                              <br>3 - 5 to 6 Days
-                              <br>2 - 7 to 8 Days
-                              <br>1 - 9 to 10 Days</p>
-                          </div>
-
-                          <!--Priority-->
-                           <div class="inputfield">
-                          <label>Priority:</label>
-                          <div class="custom_select">
-                            <select name="priority" value="" id="priority" required>
-                              <option value="1">1</option>
-                              <option value="2">2</option>
-                              <option value="3">3</option>
-                              <option value="4">4</option>
-                              <option value="5">5</option>
-                            </select>
-                            </div>
-                            </div> 
-                            
-                      
                       
                            <input class="inputfield" type="file" name="uploadfile" value="" />
 
@@ -140,52 +105,6 @@ $mysqltime = date ('Y-m-d H:i:s', time());
 
             </div><!--End-->
 
-    <!--Container Main end-->
-            <script type='text/javascript' src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js'></script>
-            <script type='text/javascript' src='#'></script>
-            <script type='text/javascript' src='#'></script>
-            <script type='text/javascript' src='#'></script>
-            <script type='text/javascript'>document.addEventListener("DOMContentLoaded", function(event) {
-   
-                const showNavbar = (toggleId, navId, bodyId, headerId) =>{
-                const toggle = document.getElementById(toggleId),
-                nav = document.getElementById(navId),
-                bodypd = document.getElementById(bodyId),
-                headerpd = document.getElementById(headerId)
-
-                // Validate that all variables exist
-                if(toggle && nav && bodypd && headerpd){
-                toggle.addEventListener('click', ()=>{
-                // show navbar
-                nav.classList.toggle('show')
-                // change icon
-                toggle.classList.toggle('bx-x')
-                // add padding to body
-                bodypd.classList.toggle('body-pd')
-                // add padding to header
-                headerpd.classList.toggle('body-pd')
-                })
-                }
-                }
-
-                showNavbar('header-toggle','nav-bar','body-pd','header')
-
-                /*===== LINK ACTIVE =====*/
-                const linkColor = document.querySelectorAll('.nav_link')
-
-                function colorLink(){
-                if(linkColor){
-                linkColor.forEach(l=> l.classList.remove('active'))
-                this.classList.add('active')
-                }
-                }
-                linkColor.forEach(l=> l.addEventListener('click', colorLink))
-
-                // Your code to run since DOM is loaded and ready
-                });</script>
-
-                <script type='text/javascript'>var myLink = document.querySelector('a[href="#"]');
-                myLink.addEventListener('click', function(e) {e.preventDefault();});</script>
                             
     </body>
 </html>

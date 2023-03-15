@@ -52,15 +52,7 @@
 	  .header_toggle{color: var(--first-color);
 	  font-size: 1.5rem;
 	  cursor: pointer}
-	  
-	  .header_img{width: 35px;
-	  height: 35px;display: flex;
-	  justify-content: center;
-	  border-radius: 50%;
-	  overflow: hidden}
-	  
-	  .header_img img{width: 40px}
-	  
+		
 	  .l-navbar{position: fixed;
 		top: 0;
 		left: -30%;
@@ -75,11 +67,17 @@
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
-		overflow: hidden}.nav_logo, .nav_link{display: grid;
+		overflow: hidden}
+		
+		.nav_logo, .nav_link{display: grid;
 		grid-template-columns: max-content max-content;
 		align-items: center;
 		column-gap: 1rem;
-		padding: .5rem 0 .5rem 1.5rem}.nav_logo{margin-bottom: 2rem}.nav_logo-icon{font-size: 1.25rem;
+		padding: .5rem 0 .5rem 1.5rem}
+		
+		.nav_logo{margin-bottom: 2rem}
+		
+		.nav_logo-icon{font-size: 1.25rem;
 		color: black}
 		
 		.nav_logo-name{color: black;
@@ -96,7 +94,9 @@
 		
 		.body-pd{padding-left: calc(var(--nav-width) + 1rem)}
 		
-		.active{color: var(--white-color)}.active::before{content: '';
+		.active{color: var(--white-color)}
+		
+		.active::before{content: '';
 		position: absolute;
 		left: 0;
 		width: 2px;
@@ -108,11 +108,15 @@
 		
 		.header{height: calc(var(--header-height) + 1rem);padding: 0 2rem 0 calc(var(--nav-width) + 2rem)}
 		
-		.header_img{width: 40px;height: 40px}.header_img img{width: 45px}.l-navbar{left: 0;padding: 1rem 1rem 0 0}
+		.header_img{width: 210px; display:flex;}
+		
+		.header_img img{width: 50px; height: 50px; border-radius:50%; }
+
+		.l-navbar{left: 0;padding: 1rem 1rem 0 0}
 		
 		.show{width: calc(var(--nav-width) + 156px)}.body-pd{padding-left: calc(var(--nav-width) + 188px)}}
 
-.nav_link .badge { position: absolute; top: 5px; left: 2px; padding: 5px 10px; border-radius: 50%; background-color: red; color: white; z-index: 4;}
+		.nav_link .badge { position: absolute; top: 5px; left: 2px; padding: 5px 10px; border-radius: 50%; background-color: red; color: white; z-index: 4;}
 </style>
 
 
@@ -133,17 +137,25 @@ if ($_SESSION['pstion'] == "student"){
                             $i = 0;
 ?>
 
+<body id="body-pd">
+<header class="header" id="header">
+            <!--Toogle Sidebar Navigation-->
+            <div class="header_toggle"> <i class='bx bx-menu' id="header-toggle"></i> </div>
+            <div class="header_img"> <div style=""> <div style="height:25%;"></div> 
+			<?=$_SESSION['fname']. ' ' . $_SESSION['mname']. ' ' . $_SESSION['lname']?></div>
+			<div style="width:5%;"></div>
+			<img src="res/accountimg/<?=$_SESSION['filename']?>" alt=""></div>
+        </header>
 
               
 
 <div class="l-navbar" id="nav-bar">
                 <nav class="nav">
-                    <div> <a href="#" class="nav_logo"> <i class="fa-solid fa-list fa-xl" style="color:black;margin-left:-4px;"></i> <span class="nav_logo-name">RAM-IT</span> </a>
+                    <div> <a href="home.php?link=home" class="nav_logo"> <img src="res/imgweb/logo.png" alt="" style="width: 28px; border-radius: 50px"> <span class="nav_logo-name">RAM-IT</span> </a>
                         <div class="nav_list">
-                            <a href="home.php?link=home" class="nav_link <?php if ($page == 'home') {echo 'active';} else {echo '';}?>"> <i class='bx bx-home nav_icon'></i> <span class="nav_name">Home</span> </a>
-                            <a href="profile.php?link=profile" class="nav_link <?php if ($page == 'profile') {echo 'active';} else {echo '';}?>"> <i class='bx bx-user nav_icon'></i> <span class="nav_name">Profile</span> </a>
-                            <a href="ticket.php?link=ticket" class="nav_link <?php if ($page == 'ticket') {echo 'active';} else {echo '';}?>"> <i class='bx bx-envelope nav_icon'></i> <span class="nav_name">All Tickets</span> </a>
-                            <a href="notification.php?link=notif" class="nav_link <?php if ($page == 'notif') {echo 'active';} else {echo '';}?>" > <span class="badge"><?php while($nrow = mysqli_fetch_array($nresult)){ $i++; } if( $i == 0) { } else{echo $i;} ?></span><i class='fas fa-bell nav_icon'></i> <span class="nav_name">Notification</span> </a>
+                            <a href="home.php?link=home" class="nav_link <?php if ($page == 'home') {echo 'active';} else {echo '';}?>"> <i class="fa-solid fa-house"></i> <span class="nav_name">Home</span> </a>
+							<a href="notification.php?link=notif" class="nav_link <?php if ($page == 'notif') {echo 'active';} else {echo '';}?>" > <span class="badge"><?php while($nrow = mysqli_fetch_array($nresult)){ $i++; } if( $i == 0) { } else{echo $i;} ?></span><i class='fas fa-bell nav_icon'></i> <span class="nav_name">Notification</span> </a>
+                            <a href="ticket.php?link=ticket" class="nav_link <?php if ($page == 'ticket') {echo 'active';} else {echo '';}?>"> <i class="fa-solid fa-envelope"></i> <span class="nav_name">All Tickets</span> </a>
                             <a href="ticketo.php?link=ticketo" class="nav_link <?php if ($page == 'ticketo') {echo 'active';} else {echo '';}?>"> <i class="fa-solid fa-lock-open 2px"></i> <span class="nav_name"><?php if ($_SESSION['pstion'] == 'it' ){?>Assigned Tickets<?php } else {echo "Open Tickets";}?></span> </a> 
                             <a href="ticketc.php?link=ticketc" class="nav_link <?php if ($page == 'ticketc') {echo 'active';} else {echo '';}?>"> <i class="fa-solid fa-lock"></i> <span class="nav_name">Closed Tickets</span> </a> 
                             <?php if ($_SESSION['pstion'] == 'student'){}else{?>
@@ -156,4 +168,46 @@ if ($_SESSION['pstion'] == "student"){
             </div>
 
             
-            
+             <!--Container Main end (Nav and Page)-->
+			 <script type='text/javascript' src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js'></script>
+            <script type='text/javascript'>document.addEventListener("DOMContentLoaded", function(event) {
+   
+                const showNavbar = (toggleId, navId, bodyId, headerId) =>{
+                const toggle = document.getElementById(toggleId),
+                nav = document.getElementById(navId),
+                bodypd = document.getElementById(bodyId),
+                headerpd = document.getElementById(headerId)
+
+                // Validate that all variables exist
+                if(toggle && nav && bodypd && headerpd){
+                toggle.addEventListener('click', ()=>{
+                // show navbar
+                nav.classList.toggle('show')
+                // change icon
+                toggle.classList.toggle('bx-x')
+                // add padding to body
+                bodypd.classList.toggle('body-pd')
+                // add padding to header
+                headerpd.classList.toggle('body-pd')
+                })
+                }
+                }
+
+                showNavbar('header-toggle','nav-bar','body-pd','header')
+
+                /*===== LINK ACTIVE =====*/
+                const linkColor = document.querySelectorAll('.nav_link')
+
+                function colorLink(){
+                if(linkColor){
+                linkColor.forEach(l=> l.classList.remove('active'))
+                this.classList.add('active')
+                }
+                }
+                linkColor.forEach(l=> l.addEventListener('click', colorLink))
+
+                // Your code to run since DOM is loaded and ready
+                });</script>
+
+                <script type='text/javascript'>var myLink = document.querySelector('a[href="#"]');
+                myLink.addEventListener('click', function(e) {e.preventDefault();});</script>

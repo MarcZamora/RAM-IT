@@ -205,10 +205,10 @@ $date1 = strtotime($input1);
                                 <div class="help-tip" style="margin-left: 70px; margin-bottom: 10px; width: 25px; height: 25px; ">
                               <p>Severity: <br>
                               -------------------
-                              <br>5: Multiple departments or classes are affected
-                              <br>4: A department or a class is affected
-                              <br>3: A medium sized group is affected
-                              <br>2: A small sized group is affected
+                              <br>5: Whole school image is affected
+                              <br>4: Whole school services is affected
+                              <br>3: One or more classes and/or one or more offices is/are affected
+                              <br>2: A small sized group or an org is affected
                               <br>1: One Person Affected</p>
                             </div>
                                 <div class="row">

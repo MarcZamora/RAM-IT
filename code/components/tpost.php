@@ -20,7 +20,6 @@ $ipstion = $_POST["ipstion"];
 $img = $_POST["img"];
 $inquiry = $_POST["inquiry"];
 $stat = $_POST["stat"];
-$priority = $_POST["priority"];
 $itype = $_POST["itype"];
 $fdes = $_POST["fdes"];
 $dt = $_POST["dt"];

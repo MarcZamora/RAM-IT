@@ -20,9 +20,7 @@ require 'code/components/connect.php';
 <!DOCTYPE html>
         <html>
             <head>
-            <style>
-                .nav_link .badge { position: absolute; top: 5px; left: 2px; padding: 5px 10px; border-radius: 50%; background-color: red; color: white; z-index: -1;}
-                </style>
+            
                 <meta charset='utf-8'>
                 <meta name='viewport' content='width=device-width, initial-scale=1'>
                 <title>Home</title>
@@ -44,12 +42,10 @@ require 'code/components/connect.php';
             </head>
 
     <body className='snippet-body'>
-    <body id="body-pd">
-        <header class="header" id="header">
-            <!--Toogle Sidebar Navigation-->
-            <div class="header_toggle"> <i class='bx bx-menu' id="header-toggle"></i> </div>
-            <div class="header_img"> <img src="res/img/logo.png" alt=""> </div>
-        </header>
+
+        
+                <br>
+                <br>
 
             <!--Sidebar Navigatioon-->
             <?php require 'code/components/nav.php'; ?>

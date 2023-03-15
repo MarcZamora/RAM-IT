@@ -21,7 +21,7 @@
 
         .slide{
             width: 20%;
-            transition: 2s;
+            transition: 360s;
         }
 
         .slide img{
@@ -43,7 +43,7 @@
             padding: 5px;
             border-radius: 10px;
             cursor: pointer;
-            transition: 120s;
+            transition: 360s;
         }
         .manual-btn:not(:last-child){
             margin-right: 40px;                                                                                       
@@ -81,7 +81,7 @@
             border: 2px solid #e7ae41;
             padding: 5px;
             border-radius: 10px;
-            transition: 120s;
+            transition: 360s;
         }
 
         .navigation-auto div:not(:last-child){
@@ -109,7 +109,7 @@
         @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 
         #headerwel {
-          background-image: linear-gradient(rgba(0, 5, 24, 0.8), rgba(0, 3, 15, 0.8)), url("../img/bg.jpg");
+          background-image: linear-gradient(rgba(0, 5, 24, 0.8), rgba(0, 3, 15, 0.8)), url("../imgweb/bg.jpg");
           background-position: center;
           background-size: cover;
           width: 100%;

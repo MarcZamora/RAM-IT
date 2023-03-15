@@ -4,6 +4,8 @@ $input = $row['dt'];
 $date = strtotime($input);
 $input1 = $row['dta'];
 $date1 = strtotime($input1);
+$input2 = $row['dtc'];
+$date2 = strtotime($input2);
 $con = mysqli_connect('localhost','root','', 'ramit','3308');
 $aquery=mysqli_query($con,"SELECT * FROM accounts where pstion='it'");
 date_default_timezone_set('Asia/Singapore');
@@ -52,8 +54,9 @@ if ($_SESSION['pstion'] == $row['ipstion'] && $_SESSION['id'] == $row['iid']){
                                             <div class="mt-3">
                                                 <h4><?=$row['iname'];?></h4>
                                                 <hr>
-                                                <p class="text-secondary mb-1">Bachleor of Science in Information and Technology</p>
-                                                <p class="text-muted font-size-sm">Mobile and Internet</p>
+                                                <span class="text-secondary" style="text-transform: uppercase;"> <?=$row['iid']?></span>
+                                                <br>
+                                                <span class="text-secondary"> <?=$row['email']?></span>
                                             </div>
                                     </div>
                                 </div>
@@ -61,14 +64,55 @@ if ($_SESSION['pstion'] == $row['ipstion'] && $_SESSION['id'] == $row['iid']){
                         <div class="card mt-3">
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-                                    <h6 class="mb-0"><i class="fa-solid fa-ticket"></i> Ticket no.</h6>
+                                    <h5 class="mb-0"><i class="fa-solid fa-ticket"></i> Ticket</h5>
+                                    
+
+                                <ul>
+
+                                <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap"  style="width: 285px;">
+                                    <h6 class="mb-0"><i class="fa-solid fa-hashtag"></i> Number</h6>
                                     <span class="text-secondary"><?=$row['tid'];?></span>
                                 </li>
                                 <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-                                    <h6 class="mb-0"><i class="fa-solid fa-signal"></i> Status</h6>
+                                    <h6 class="mb-0"><i class="fa-solid fa-signal" style="font-size: 12px;"></i> Status</h6>
                                     <span class="text-secondary" style="text-transform: uppercase;"><?=$row['stat'];?></span>
                                 </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                                    <h6 class="mb-0">  <i class="fa-sharp fa-solid fa-exclamation"></i> Priority</h6>
+                                    <span class="text-secondary" style="text-transform: uppercase;"><?=$row['priority'];?></span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                                    <h6 class="mb-0"><i class="fa-sharp fa-solid fa-exclamation"></i> Severity</h6>
+                                    <span class="text-secondary" style="text-transform: uppercase;"><?=$row['severity'];?></span>
+                                </li>
+
+                                    </ul>
+                                </li>
                                 
+
+                               
+                                <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                                    <h5 class="mb-0"><i class="fa-solid fa-calendar"></i> Date</h5>
+                                    <ul>
+                                    <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap"  style="width: 286px;">
+                                    <h6 class="m-1"> Created:</h6>
+                                    <span class="text-secondary" style="text-transform: uppercase;"> <?=date('M d Y h:i A', $date);?></span>
+                                </li>
+
+                                <?php if ($row['dta'] != '0000-00-00 00:00:00'){?>
+                                <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                                    <h6 class="m-1"> Assigned:</h6>
+                                    <span class="text-secondary" style="text-transform: uppercase;"> <?=date('M d Y h:i A', $date1);?></span>
+                                </li> <?php } ?>
+
+                                <?php if ($row['stat'] == 'closed'){?>
+                                <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                                    <h6 class="m-1"> Closed:</h6>
+                                    <span class="text-secondary" style="text-transform: uppercase;"> <?=date('M d Y h:i A', $date2);?></span>
+                                </li> <?php } ?>
+                                    </ul>
+                                </li>
+
                                 
                                 <?php if ($_SESSION['id'] == $row['iid']){?>
                                 
@@ -109,48 +153,10 @@ if ($_SESSION['pstion'] == $row['ipstion'] && $_SESSION['id'] == $row['iid']){
                             <div class="card-body">
                                 <div class="row">
                                 <div class="col-sm-3">
-                                <h6 class="mb-0">Inquirer ID:</h6>
-                                </div>
-                                <div class="col-sm-9 text-secondary">
-                                <?=$row['iid'];?>
-                                </div>
-                                </div>
-                             <hr>
-                                <div class="row">
-                                <div class="col-sm-3">
-                                <h6 class="mb-0">Email:</h6>
-                                </div>
-                                <div class="col-sm-9 text-secondary">
-                                <h6 class="mb-0"><?=$row['email'];?></h6>
-                                </div>
-                                </div>
-                            <hr>
-                                <div class="row">
-                                <div class="col-sm-3">
                                 <h6 class="mb-0">Inquiry:</h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
                                 <?=$row['inquiry'];?>
-                                </div>
-                                </div>
-
-                            <hr>
-                                <div class="row">
-                                <div class="col-sm-3">
-                                <h6 class="mb-0">Priority:</h6>
-                                </div>
-                                <div class="col-sm-9 text-secondary">
-                                <?=$row['priority'];?>
-                                </div>
-                                </div>
-
-                                <hr>
-                                <div class="row">
-                                <div class="col-sm-3">
-                                <h6 class="mb-0">Severity:</h6>
-                                </div>
-                                <div class="col-sm-9 text-secondary">
-                                <?=$row['severity'];?>
                                 </div>
                                 </div>
 
@@ -185,15 +191,6 @@ if ($_SESSION['pstion'] == $row['ipstion'] && $_SESSION['id'] == $row['iid']){
                                 </div>
                                 </div>
                             <?php }?>
-                            <hr>
-                                <div class="row">
-                                <div class="col-sm-3">
-                                <h6 class="mb-0">Date Created:</h6>
-                                </div>
-                                <div class="col-sm-9 text-secondary">
-                                <?=date('M d Y h:i A', $date);?>
-                                </div>
-                                </div>
                             <hr>
     
                   <!--ITRO Details-->
@@ -266,15 +263,6 @@ if ($_SESSION['pstion'] == $row['ipstion'] && $_SESSION['id'] == $row['iid']){
                     <?=$row['aemail'];?>
                     </div>
                     </div>
-                <hr>
-                    <div class="row">
-                    <div class="col-sm-3">
-                    <h6 class="mb-0">Date Assigned:</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                    <?=date('M d Y h:i A', $date1);?>
-                    </div>
-                    </div>
                 <?php } } else{ 
                     if ($row['stat'] == "pending"){
                         ?>
@@ -318,15 +306,6 @@ if ($_SESSION['pstion'] == $row['ipstion'] && $_SESSION['id'] == $row['iid']){
                     </div>
                     <div class="col-sm-9 text-secondary">
                     <?=$row['aemail'];?>
-                    </div>
-                    </div>
-                <hr>
-                    <div class="row">
-                    <div class="col-sm-3">
-                    <h6 class="mb-0">Date Assigned:</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                    <?=date('M d Y h:i A', $date1);?>
                     </div>
                     </div>
                 <?php } }
