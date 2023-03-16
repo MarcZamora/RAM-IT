@@ -101,7 +101,7 @@ $i = 0;
                             <tr>
                                 
                                <td><?=$row['id']; ?></td>
-                               <td><div class="tbl-of"><?=$row['queries']; ?></div></td>
+                               <td><div class="tbl-of" style="height: 80px; width: 320px;"><?=$row['queries']; ?></div></td>
                                <td><div class="tbl-of" style="height: 80px; width: 500px;"><?=$row['replies']?></div></td>
                                <td>
                                    <a  class = "links" href="tcbedit.php? id=<?=$row['id']; ?>"><button type="button" class="btn btn-inverse btn-roundedOT waves-effect waves-light m-b-5">Edit</button></a>
@@ -127,7 +127,11 @@ $i = 0;
 
                 <!--Space Division-->
                 <div style="height:5%;"></div>
-            
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
              <!--Chatbot -->
              <?php require 'code/components/cb.php';?>
              
