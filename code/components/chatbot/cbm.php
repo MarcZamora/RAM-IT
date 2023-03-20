@@ -26,7 +26,7 @@ $(document).ready(function(){
         
         // start ajax code
         $.ajax({
-            url: 'code/components/cbmp.php',
+            url: 'code/components/chatbot/cbmp.php',
             type: 'POST',
             data: 'text='+$value,
             success: function(result){

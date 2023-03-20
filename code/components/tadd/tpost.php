@@ -7,25 +7,46 @@ use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
 //Load Composer's autoloader
-require('../../composer/vendor/phpmailer/phpmailer/src/Exception.php');
-require('../../composer/vendor/phpmailer/phpmailer/src/SMTP.php');
-require('../../composer/vendor/phpmailer/phpmailer/src/PHPMailer.php');
+require('../../../composer/vendor/phpmailer/phpmailer/src/Exception.php');
+require('../../../composer/vendor/phpmailer/phpmailer/src/SMTP.php');
+require('../../../composer/vendor/phpmailer/phpmailer/src/PHPMailer.php');
 
-require 'connect.php';
+require '../connect.php';
 
 $iid = $_POST["iid"];
 $iname = $_POST["iname"];
-$email = $_POST["email"];
 $ipstion = $_POST["ipstion"];
+$email = $_POST["email"];
 $img = $_POST["img"];
-$inquiry = $_POST["inquiry"];
-$stat = $_POST["stat"];
 $itype = $_POST["itype"];
+$inqry = $_POST["inquiry"];
 $fdes = $_POST["fdes"];
+$stat = $_POST["stat"];
+
+
+$loc = $_POST["location"];
+if ($loc == "Outside"){
+    $floor = 0;
+    $room = 0;
+} else {
+    $floor = $_POST["floor"];
+    $room = $_POST["room"];
+}
+
+// (priority = itype)
+
+
+// (severity = inquiry * location)
+
+
+// (location,
+// floor *,
+// room)
+
 $dt = $_POST["dt"];
 $filename = $_FILES["uploadfile"]["name"];
 $tempname = $_FILES["uploadfile"]["tmp_name"];
-$folder = "../../res/img/" . $filename;
+$folder = "../../../res/img/" . $filename;
 
 move_uploaded_file($tempname, $folder);
 
@@ -63,7 +84,6 @@ $mail = new PHPMailer(true);
     <br>  ID: ". $_POST["iid"] ."
     <br>  Name: ". $_POST["iname"] ."
     <br>  Inquiry: ". $_POST["inquiry"] ."
-    <br>  Priority: ". $_POST["priority"] ."
     <br>  Inquiry Type: ". $_POST["itype"] ."
     <br>  Full Description: ". $_POST["fdes"] ."
     <br>  Date Created: ". $_POST["dt"] ."
@@ -75,13 +95,13 @@ $mail = new PHPMailer(true);
     <br> Thank You
     <br> RAM-IT System";
 
-$sql = "INSERT INTO ticket (iid, iname, ipstion, email , img, inquiry, stat, priority, dt, itype, fdes, filename, notifstus, notifstum)
-VALUES ('$iid', '$iname', '$ipstion', '$email' , '$img' ,'$inquiry', '$stat', '$priority', '$dt', '$itype','$fdes', '$filename', '0', ' $iname submitted a new ticket')";
-
+    $sql = "INSERT INTO ticket (iid, iname, ipstion, email , img , itype , inqry , fdes , stat , dt , place , floor , room, filename, notifstus, notifstum)
+    VALUES ('$iid', '$iname', '$ipstion', '$email' , '$img' , '$itype' , '$inqry' , '$fdes' , '$stat', '$dt', '$loc', '$floor', '$room', '$filename', '0', '$iname submitted a new ticket')";
+    
 if ($con->query($sql) === TRUE) {
 echo "New record created successfully";
 $mail->send();
-header('location: ../../ticket.php?link=ticket');
+header('location: ../../../ticket.php?link=ticket');
 } else {
 echo "Error: " . $sql . "<br>" . $con->error;      
 }

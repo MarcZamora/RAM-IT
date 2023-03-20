@@ -112,7 +112,7 @@ $t = 0;
                                <td><?=$row['tid']; ?></td>
                                <td><?=$row['iid']; ?></td>
                                <td><?=$row['iname']?></td>
-                               <td><div class="tbl-of"><?=$row['inquiry']; ?></div></td>
+                               <td><div class="tbl-of"><?=$row['inqry']; ?></div></td>
                                <td style="text-transform: capitalize;"><?=$row['itype']; ?></td>
                                <td style="text-transform: uppercase;"><?=$row['stat']; ?></td>
                                <td><?=$row['priority']; ?></td>
@@ -175,7 +175,7 @@ $t = 0;
                 <br>
                 
              <!--Chatbot -->
-             <?php require 'code/components/cb.php';?>
+             <?php require 'code/components/chatbot/cb.php';?>
              
 
             <!--Table Scripts-->

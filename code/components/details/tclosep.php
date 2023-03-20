@@ -74,5 +74,5 @@ $mail->send();
 mysqli_query($con,"update `ticket` set stat='closed', notifits='0', notifitm='The ticket# ". $id ." is now closed the inquirer is satisfied with the ticket.',  notifdti='". $mysqltime. "' where tid=". $id);
 
 
-	header('location:../../ticket.php?link=ticket');
+	header('location:../../../ticket.php?link=ticket');
 ?>

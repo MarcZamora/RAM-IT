@@ -35,7 +35,7 @@
                                         
                                         
                                         <?php 
-                                        require "code/components/chl.php";
+                                        require "code/components/chatbox/chl.php";
                                         
                                         ?>
                                         
@@ -74,7 +74,7 @@ document.getElementById("chatbody").innerHTML =
 this.responseText;}
                                                         
 };
-xhttp.open("GET", "code/components/chl.php?id=<?=$row['tid']; ?>", true);
+xhttp.open("GET", "code/components/chatbox/chl.php?id=<?=$row['tid']; ?>", true);
 xhttp.send();
 }
 setInterval(function(){
@@ -114,7 +114,7 @@ $("#chatbody").scrollTop($("#chatbody")[0].scrollHeight);
 
      $.ajax({
          type: "POST",
-         url: "code/components/chbmp.php",
+         url: "code/components/chatbox/chbmp.php",
          data: {
             tid: tid,
             id: id,

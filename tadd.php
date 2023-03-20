@@ -52,50 +52,99 @@ $mysqltime = date ('Y-m-d H:i:s', time());
                     
                         
                     
-                    <form method="POST" action="code/components/tpost.php" enctype="multipart/form-data"> 
-                      <!--Hidden-->
-                            <input type="hidden" name="iname" value="<?=$_SESSION['fname']?> <?=$_SESSION['mname']?> <?=$_SESSION['lname']?>" id="iname" required>
+                    <form method="POST" action="code/components/tadd/tpost.php" enctype="multipart/form-data"> 
+                     <!--Hidden-->
+                     <input type="hidden" name="iname" value="<?=$_SESSION['fname']?> <?=$_SESSION['mname']?> <?=$_SESSION['lname']?>" id="iname" required>
                             <input type="hidden" name="iid" value="<?=$_SESSION['id']?>" id="iid" required>
                             <input type="hidden" name="email" placeholder="email" id="txt_field" value="<?=$_SESSION['name']?>">
                             <input type="hidden" name="stat" value="pending" id="stat" required>
                             <input class="form-control" type="hidden" name="ipstion" id="ipstion" value="<?=$_SESSION['pstion']?>" />
                             <input class="form-control" type="hidden" name="img" id="img" value="<?=$_SESSION['filename']?>" />
                             <?php echo  '<input type="hidden" name="dt" value="'. $mysqltime . '" id="dt" required>'?>
+                            
                       <!--Inquiry-->
                         <div class="form">
-                        <div class="inputfield">
-                          <label>Inquiry:</label>
-                          <textarea class="textarea" name="inquiry" placeholder="Inquiry" id="txt_field" required></textarea>
-                           </div> 
+                        
+                           
                           
                            <!--Type-->
                            <div class="inputfield" >
                           <label>Type:</label>
                           <div class="custom_select">
                           <select type="select" name="itype" placeholder="Type" id="itype" style="text-transform: capitalize;" required>
-                            <option value="Hardware">Hardware</option>
-                            <option value="Software">Software</option> 
-                            <option value="Account">Account</option>  
-                            <option value="Hyflex Equipment">Hyflex Equipment</option>  
-                            <option value="Borrowed Equipment">Borrowed Equipment</option>
-                            <option value="WiFi Connection">WiFi Connection</option>
-                            <option value="Others">Others</option>  
+                          <option value="">--- Select the type of the Inquiry ---</option>
+                            <option value="Hardware">Hardware</option> <!-- 2 -->
+                            <option value="Software">Software</option> <!-- 2 -->
+                            <option value="Account">Account</option>  <!-- 2 -->
+                            <option value="Hyflex Equipment">Hyflex Equipment</option> <!-- 3 -->  
+                            <option value="Borrowed Equipment">Borrowed Equipment</option> <!-- 3 -->
+                            <option value="Others">Others</option>  <!-- 1 -->
                             </select>
                           </div>
-                           </div> 
+                          </div> 
+
+
+                         <div id="form-element-container"></div>
                 
-                        <!--Description-->
-                        <div class="form">
-                        <div class="inputfield">
-                          <label>Description:</label>
-                          <textarea class="textarea" name="fdes" placeholder="Full Description" id="txt_field" required></textarea>
-                       </div> 
+                        
                       
                            <input class="inputfield" type="file" name="uploadfile" value="" />
+
+                          <!--Place-->
+                          <div class="inputfield" >
+                          <label>Where are you:</label>
+                          <div class="custom_select">
+                          <select name="location" id="location">
+                          <option value="">Select an option</option>
+                          <option value="On-Premise">On-Premise</option>
+                          <option value="Outside">Outside</option>
+                          </select>
+                          </div>
+                          </div> 
+
+                          <!-- HTML select input that will be shown only when option1a is selected -->
+                          <div id="option2-wrapper" style="display:none;">
+
+                          <!--floor-->
+                          <div class="inputfield" >
+                          <label>What Floor are you on:</label>
+                          <div class="custom_select">
+                          <select name="floor" id="floor">
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                          <option value="7">7</option>
+                          <option value="8">8</option>
+                          <option value="9">9</option>
+                          <option value="10">10</option>
+                          <option value="11">11</option>
+                          <option value="12">12</option>
+                          </select>
+                          </div>
+                          </div>
+
+                          <div id="optroom" name="optroom" style="display:none;">
+                          <!--room-->
+                          <div class="inputfield" >
+                          <label>What room are you in:</label>
+                          <div class="custom_select">
+                          <select name="room" id="room">
+                          </select>
+                          </div>
+                          </div> 
+                          </div> <!--optroom-->
+
+                           </div><!--option wrapper -->
+
+                           <br>
 
                           <div class="inputfield">
                             <button type="submit" class="btn" value="Post">Add Ticket</button>
                           </div>
+
                     </form>
                           <div class="inputfield">
                             <a href="javascript:history.back()" value="Back" class="btn" style="text-decoration: none;" ><center>Back</center></a>
@@ -105,6 +154,7 @@ $mysqltime = date ('Y-m-d H:i:s', time());
 
             </div><!--End-->
 
+            <?php require "code/components/tadd/js.php";?>
                             
     </body>
 </html>

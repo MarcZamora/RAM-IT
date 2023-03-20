@@ -1,6 +1,6 @@
 <?php 
 session_start();
-require 'connect.php';
+$con = mysqli_connect('localhost','root','', 'ramit','3308');
 $id = $_GET['id'];  
 
                                         $qry=mysqli_query($con,"SELECT * from chat where tid = $id");

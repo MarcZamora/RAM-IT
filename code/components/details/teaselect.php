@@ -2,7 +2,7 @@
 
 $q = intval($_GET['q']);
 
-require 'connect.php';
+require '../connect.php';
 if (!$con) {
   die('Could not connect: ' . mysqli_error($con));
 }

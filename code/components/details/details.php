@@ -6,7 +6,7 @@ $input1 = $row['dta'];
 $date1 = strtotime($input1);
 $input2 = $row['dtc'];
 $date2 = strtotime($input2);
-$con = mysqli_connect('localhost','root','', 'ramit','3308');
+require "code/components/connect.php";
 $aquery=mysqli_query($con,"SELECT * FROM accounts where pstion='it'");
 date_default_timezone_set('Asia/Singapore');
 $mysqltime = date ('Y-m-d H:i:s', time());
@@ -22,28 +22,7 @@ if ($_SESSION['pstion'] == $row['ipstion'] && $_SESSION['id'] == $row['iid']){
 } else{
 
 }
-?>
-
-
-   
-<!--General Container-->
-<div class="height-100 bg-light">
-                
-                <!--Landon Welcome-->
-            <div>
-                <section id="headerwel">
-                   <div class="containerwel">
-                           <div class="container-fluidwel"></div>                
-                       <div class="middlewel">
-                           <h1 class="text-white display-3 fw-bold">
-                               <span class="theme-text">Ticket Details</span></h1>
-                       </div>
-                   </div>
-                   </section>
-               </div>
-    
-               <br>
-               
+?>             
                 <!--Profile-->
                 <div class="row gutters-sm">
                         <div class="col-md-4 mb-3">
@@ -120,7 +99,7 @@ if ($_SESSION['pstion'] == $row['ipstion'] && $_SESSION['id'] == $row['iid']){
 
                                 <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
                                 <div class="inputfield">
-                                <a href='code/components/tclosep.php?id=<?=$row['tid'];?>'>
+                                <a href='code/components/details/tclosep.php?id=<?=$row['tid'];?>'>
                                 <button type="submit" class="btn" value="Post" style="background-color:red;">Close Ticket</button>
                                 </a>
                                 </div>
@@ -129,7 +108,7 @@ if ($_SESSION['pstion'] == $row['ipstion'] && $_SESSION['id'] == $row['iid']){
                                 <?php if ($_SESSION['pstion'] == 'supervisor') {?>
                                 <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
                                 <div class="inputfield">
-                                <a href='code/components/tedit.php?id=<?=$row['tid']; ?>'>
+                                <a href='code/components/details/tedit.php?id=<?=$row['tid']; ?>'>
                                 <button type="submit" class="btn" value="Post" style="background-color:cyan;">Edit Ticket</button>
                                 </a>
                                 </div>
@@ -137,7 +116,7 @@ if ($_SESSION['pstion'] == $row['ipstion'] && $_SESSION['id'] == $row['iid']){
                                 <?php } ?>
                                 <?php } elseif ($_SESSION['pstion'] == 'supervisor') {?>
                                 <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-                                <a href='code/components/tedit.php?id=<?=$row['tid']; ?>'>
+                                <a href='code/components/details/tedit.php?id=<?=$row['tid']; ?>'>
                                 <div class="inputfield">
                                 <button type="submit" class="btn" value="Post" style="background-color:cyan;">Edit Ticket</button>
                                 </div>
@@ -148,19 +127,11 @@ if ($_SESSION['pstion'] == $row['ipstion'] && $_SESSION['id'] == $row['iid']){
                             </ul>
                         </div>
                         </div>
+                        
                     <div class="col-md-8">
                         <div class="card mb-3">
                             <div class="card-body">
-                                <div class="row">
-                                <div class="col-sm-3">
-                                <h6 class="mb-0">Inquiry:</h6>
-                                </div>
-                                <div class="col-sm-9 text-secondary">
-                                <?=$row['inquiry'];?>
-                                </div>
-                                </div>
-
-                                <hr>
+                               
                                 <div class="row">
                                 <div class="col-sm-3">
                                 <h6 class="mb-0">Type:</h6>
@@ -169,6 +140,19 @@ if ($_SESSION['pstion'] == $row['ipstion'] && $_SESSION['id'] == $row['iid']){
                                 <?=$row['itype'];?>
                                 </div>
                                 </div>
+                            
+                            <hr>
+
+                                <div class="row">
+                                <div class="col-sm-3">
+                                <h6 class="mb-0">Inquiry:</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                <?=$row['inqry'];?>
+                                </div>
+                                </div>
+
+                               
                             
                             <hr>
                                 <div class="row">
@@ -180,6 +164,27 @@ if ($_SESSION['pstion'] == $row['ipstion'] && $_SESSION['id'] == $row['iid']){
                                 </div>
                                 </div>
 
+                            <hr>
+                                <div class="row">
+                                <div class="col-sm-3">
+                                <h6 class="mb-0">Location:</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                <?=$row['place'];?>
+                                </div>
+                                </div>
+
+                            <?php if ($row["place"] == "On-Premise") {?>
+                            <hr>
+                                <div class="row">
+                                <div class="col-sm-3">
+                                <h6 class="mb-0">Room:</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                <?=$row['room'];?>
+                                </div>
+                                </div>
+                                <?php }?>
                                 <?php if ($row['filename'] != ""){?>
                             <hr>
                                 <div class="row">
@@ -211,7 +216,7 @@ if ($_SESSION['pstion'] == $row['ipstion'] && $_SESSION['id'] == $row['iid']){
                 <option value="<?=$arow['id']?>"><?=$arow['fname']. " " .$arow['mname']. " " .$arow['lname']?></option>
                 <?php } ?>
                 </select>
-                <form method="POST" action="code/components/tassignp.php?id=<?=$id?>">
+                <form method="POST" action="code/components/details/tassignp.php?id=<?=$id?>">
                 <div id="txtHint"></div>
                 </form>
                 <script>
@@ -226,7 +231,7 @@ if ($_SESSION['pstion'] == $row['ipstion'] && $_SESSION['id'] == $row['iid']){
                                 document.getElementById("txtHint").innerHTML=this.responseText;
                                 }
                             }
-                            xmlhttp.open("GET","code/components/aselect.php?q="+str,true);
+                            xmlhttp.open("GET","code/components/details/aselect.php?q="+str,true);
                             
                             xmlhttp.send();
                             }

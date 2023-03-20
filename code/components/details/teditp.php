@@ -180,5 +180,5 @@ $mail1->Body    =
 	}
 
 
-	header('location: ../../ticket.php?link=ticket');
+	header('location: ../../../ticket.php?link=ticket');
 ?>

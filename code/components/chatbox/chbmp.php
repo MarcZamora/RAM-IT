@@ -1,5 +1,5 @@
 <?php
-require 'connect.php';
+require '../connect.php';
    date_default_timezone_set('Asia/Singapore');
    $mysqltime = date ('Y-m-d H:i:s', time());
      if(!$con){

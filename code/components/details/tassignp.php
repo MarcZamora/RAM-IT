@@ -1,5 +1,5 @@
 <?php
-	require 'connect.php';
+	require '../connect.php';
 	date_default_timezone_set('Asia/Singapore');
    	$mysqltime = date ('Y-m-d H:i:s', time());
 	
@@ -20,9 +20,9 @@ use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
 //Load Composer's autoloader
-require('../../composer/vendor/phpmailer/phpmailer/src/Exception.php');
-require('../../composer/vendor/phpmailer/phpmailer/src/SMTP.php');
-require('../../composer/vendor/phpmailer/phpmailer/src/PHPMailer.php');
+require('../../../composer/vendor/phpmailer/phpmailer/src/Exception.php');
+require('../../../composer/vendor/phpmailer/phpmailer/src/SMTP.php');
+require('../../../composer/vendor/phpmailer/phpmailer/src/PHPMailer.php');
 
 
 //inquirer
@@ -125,7 +125,7 @@ $mail1->send();
     notifitm='You are assigned to the ticket# ".$id."', notifdts='".$mysqltime."', notifdti='".$mysqltime."'   where tid=". $id);
 
 
-	header('location: ../../ticket.php?link=ticket');
+	header('location: ../../../ticket.php?link=ticket');
 	exit;
 	
 	

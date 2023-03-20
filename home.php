@@ -98,13 +98,13 @@ $page = $_GET['link'];
                         <label for="radio4" class="manual-btn"></label>
                     </div>
                 </div>
-                <?php } else{ require 'code/components/homecharts.php'; ?>
+                <?php } else{ require 'code/components/home/homecharts.php'; ?>
                             <div style = " position: relative; left: 510px; bottom: 450px; width:200px; height:250px;">
-                            <?php    require 'code/components/itrocharts.php';} ?>   
+                            <?php    require 'code/components/home/itrocharts.php';} ?>   
                             </div>
                                 
                  <!--Chatbot -->
-                 <?php require 'code/components/cb.php';?>
+                 <?php require 'code/components/chatbot/cb.php';?>
 
                 <!--Space Division-->
                 <div style="height:5%;"></div>

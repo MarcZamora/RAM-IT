@@ -109,7 +109,7 @@ $page = $_GET['link'];
                                <td><?=$row['tid']; ?></td>
                                <td><?=$row['iid']; ?></td>
                                <td><?=$row['iname']?></td>
-                               <td><div class="tbl-of"><?=$row['inquiry']; ?></div></td>
+                               <td><div class="tbl-of"><?=$row['inqry']; ?></div></td>
                                <td style="text-transform: capitalize;"><?=$row['itype']; ?></td>
                                <td style="text-transform: uppercase;"><?=$row['stat']; ?></td>
                                <td><?=$row['priority']; ?></td>
@@ -174,7 +174,7 @@ $page = $_GET['link'];
                 <br>
 
              <!--Chatbot -->
-             <?php require 'code/components/cb.php';?>
+             <?php require 'code/components/chatbot/cb.php';?>
 
             <!--Table Scripts-->
             <script src="https://code.jquery.com/jquery-3.5.1.js"></script>

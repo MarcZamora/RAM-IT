@@ -4,10 +4,10 @@
 session_start();
 // If the user is not logged in redirect to the login page...
 if (!isset($_SESSION['loggedin'])) {
-    header('Location: ../../login.php');
+    header('Location: ../../../login.php');
     exit;
 }
-require 'connect.php';
+require '../connect.php';
 $id=$_GET['id'];
 $aquery=mysqli_query($con,"SELECT * FROM accounts where pstion = 'it'");
 $query=mysqli_query($con,"SELECT * FROM ticket where tid = '$id'");
@@ -111,79 +111,47 @@ $date1 = strtotime($input1);
                             <div class="card">
                                 <div class="card-body">
                                     <div class="d-flex flex-column align-items-center text-center">
-                                        <img src="../../res/accountimg/<?=$row['iid']?>.png" alt="" class="rounded-circle" width="150">
+                                        <img src="../../../res/accountimg/<?=$row['iid']?>.png" alt="" class="rounded-circle" width="150">
                                             <div class="mt-3">
-                                                <h4><?=$row['iname'];?></h4>
+                                            <h4><?=$row['iname'];?></h4>
                                                 <hr>
-                                                <p class="text-secondary mb-1">Bachleor of Science in Information and Technology</p>
-                                                <p class="text-muted font-size-sm">Mobile and Internet</p>
+                                                <span class="text-secondary" style="text-transform: uppercase;"> <?=$row['iid']?></span>
+                                                <br>
+                                                <span class="text-secondary"> <?=$row['email']?></span>
                                             </div>
                                     </div>
                                 </div>
                             </div>
-                        <div class="card mt-3">
+                            <div class="card mt-3">
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-                                    <h6 class="mb-0"><i class="fa-solid fa-ticket"></i> Ticket no.</h6>
+                                    <h5 class="mb-0"><i class="fa-solid fa-ticket"></i> Ticket</h5>
+                                    
+
+                                <ul>
+
+                                <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap"  style="width: 285px;">
+                                    <h6 class="mb-0"><i class="fa-solid fa-hashtag"></i> Number</h6>
                                     <span class="text-secondary"><?=$row['tid'];?></span>
                                 </li>
                                 <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-                                    <h6 class="mb-0"><i class="fa-solid fa-signal"></i> Status</h6>
-                                    <span class="text-secondary"><?=$row['stat'];?></span>
+                                    <h6 class="mb-0"><i class="fa-solid fa-signal" style="font-size: 12px;"></i> Status</h6>
+                                    <span class="text-secondary" style="text-transform: uppercase;"><?=$row['stat'];?></span>
                                 </li>
                                 <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-                                <div class="inputfield">
-                                <button type="submit" class="btn" value="Post" style="background-color:cyan;">Edit Ticket</button>
-                                </div>
-                                </li>
-
-                            </ul>
-                        </div>
-                        </div>
-                    <div class="col-md-8">
-                        <div class="card mb-3">
-                            <div class="card-body">
+                                    <h6 class="mb-0">  <i class="fa-sharp fa-solid fa-exclamation"></i> Priority</h6>
+                                    <!--Priority ht-->
+                                 <div class="help-tip" style="margin-left: 70px; width: 25px; height: 25px; ">
+                                <p>Priority Level: <br>
+                                -------------------
+                                <br>5 - 1 to 2 Day/s
+                                <br>4 - 3 to 4 Days
+                                <br>3 - 5 to 6 Days
+                                <br>2 - 7 to 8 Days
+                                <br>1 - 9 to 10 Days</p>
+                               </div>
                                 <div class="row">
                                 <div class="col-sm-3">
-                                <h6 class="mb-0">Inquirer ID:</h6>
-                                </div>
-                                <div class="col-sm-9 text-secondary">
-                                <?=$row['iid'];?>
-                                </div>
-                                </div>
-                             <hr>
-                                <div class="row">
-                                <div class="col-sm-3">
-                                <h6 class="mb-0">Email:</h6>
-                                </div>
-                                <div class="col-sm-9 text-secondary">
-                                <h6 class="mb-0"><?=$row['email'];?></h6>
-                                </div>
-                                </div>
-                            <hr>
-                                <div class="row">
-                                <div class="col-sm-3">
-                                <h6 class="mb-0">Inquiry:</h6>
-                                </div>
-                                <div class="col-sm-9 text-secondary">
-                                <?=$row['inquiry'];?>
-                                </div>
-                                </div>
-
-                            <hr>
-                            <!--Priority ht-->
-                            <div class="help-tip" style="margin-left: 70px; margin-bottom: 10px; width: 25px; height: 25px; ">
-                              <p>Priority Level: <br>
-                              -------------------
-                              <br>5 - 1 to 2 Day/s
-                              <br>4 - 3 to 4 Days
-                              <br>3 - 5 to 6 Days
-                              <br>2 - 7 to 8 Days
-                              <br>1 - 9 to 10 Days</p>
-                            </div>
-                                <div class="row">
-                                <div class="col-sm-3">
-                                <h6 class="mb-0">Priority:</h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
                                 <div class="custom_select">
@@ -199,26 +167,27 @@ $date1 = strtotime($input1);
                                 </div>
                                 </div>
                                 </div>
+                                </li>
 
-                                <hr>
-                            <!--Severity ht-->
-                                <div class="help-tip" style="margin-left: 70px; margin-bottom: 10px; width: 25px; height: 25px; ">
-                              <p>Severity: <br>
-                              -------------------
-                              <br>5: Whole school image is affected
-                              <br>4: Whole school services is affected
-                              <br>3: One or more classes and/or one or more offices is/are affected
-                              <br>2: A small sized group or an org is affected
-                              <br>1: One Person Affected</p>
-                            </div>
+                                <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                                    <h6 class="mb-0"><i class="fa-sharp fa-solid fa-exclamation"></i> Severity</h6>
+                                    <!--Priority ht-->
+                                 <div class="help-tip" style="margin-left: 70px; width: 25px; height: 25px; ">
+                                <p>Severity: <br>
+                                -------------------
+                                <br>5: Whole school image is affected
+                                <br>4: Whole school services is affected
+                                <br>3: One or more classes and/or one or more offices is/are affected
+                                <br>2: A small sized group or an org is affected
+                                <br>1: One Person Affected</p>
+                               </div>
                                 <div class="row">
                                 <div class="col-sm-3">
-                                <h6 class="mb-0">Severity:</h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
                                 <div class="custom_select">
-                                <select name="severity" value="" id="severity" required>
-                                <option value="<?=$row['severity'];?>"><?=$row['severity'];?></option>
+                                <select name="priority" value="" id="priority" required>
+                                <option value="<?=$row['priority'];?>"><?=$row['priority'];?></option>
                                 <option value="">/////</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
@@ -229,8 +198,51 @@ $date1 = strtotime($input1);
                                 </div>
                                 </div>
                                 </div>
+                                </li>
+                                </li>
 
-                                <hr>
+                                    </ul>
+                                </li>
+                                
+
+                               
+                                <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                                    <h5 class="mb-0"><i class="fa-solid fa-calendar"></i> Date</h5>
+                                    <ul>
+                                    <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap"  style="width: 286px;">
+                                    <h6 class="m-1"> Created:</h6>
+                                    <span class="text-secondary" style="text-transform: uppercase;"> <?=date('M d Y h:i A', $date);?></span>
+                                </li>
+
+                                <?php if ($row['dta'] != '0000-00-00 00:00:00'){?>
+                                <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                                    <h6 class="m-1"> Assigned:</h6>
+                                    <span class="text-secondary" style="text-transform: uppercase;"> <?=date('M d Y h:i A', $date1);?></span>
+                                </li> <?php } ?>
+
+                                <?php if ($row['stat'] == 'closed'){?>
+                                <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                                    <h6 class="m-1"> Closed:</h6>
+                                    <span class="text-secondary" style="text-transform: uppercase;"> <?=date('M d Y h:i A', $date2);?></span>
+                                </li> <?php } ?>
+                                    </ul>
+                                </li>
+
+                                    <br>
+                                <div class="inputfield">
+                                <button type="submit" class="btn" value="Post" style="background-color:cyan;">Edit Ticket</button>
+                                </div>
+                                <br>
+                                </li>
+
+                            </ul>
+                        </div>
+                        </div>
+                    <div class="col-md-8">
+                        <div class="card mb-3">
+                            <div class="card-body">
+
+                            <hr>
                                 <div class="row">
                                 <div class="col-sm-3">
                                 <h6 class="mb-0">Type:</h6>
@@ -245,10 +257,19 @@ $date1 = strtotime($input1);
                                 <option value="Account">Account</option>  
                                 <option value="Hyflex Equipment">Hyflex Equipment</option>  
                                 <option value="Borrowed Equipment">Borrowed Equipment</option>
-                                <option value="WiFi Connection">WiFi Connection</option>
                                 <option value="Others">Others</option>   
                                 </select>
                                 </div>
+                                </div>
+                                </div>
+
+                            <hr>
+                                <div class="row">
+                                <div class="col-sm-3">
+                                <h6 class="mb-0">Inquiry:</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                <?=$row['inqry'];?>
                                 </div>
                                 </div>
                             
@@ -264,21 +285,36 @@ $date1 = strtotime($input1);
                             <hr>
                                 <div class="row">
                                 <div class="col-sm-3">
-                                <h6 class="mb-0">File:</h6>
+                                <h6 class="mb-0">Location:</h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
-                                <img src="./../../res/img/<?=$row['filename']?>" style = "width: 350px;">
+                                <?=$row['place'];?>
                                 </div>
                                 </div>
+
+                            <?php if ($row["place"] == "On-Premise") {?>
                             <hr>
                                 <div class="row">
                                 <div class="col-sm-3">
-                                <h6 class="mb-0">Date Created:</h6>
+                                <h6 class="mb-0">Room:</h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
-                                <?=date('M d Y h:i A', $date);?>
+                                <?=$row['room'];?>
                                 </div>
                                 </div>
+                                <?php }?>
+
+                            <?php if ($row["filename"] != ""){?>
+                            <hr>
+                                <div class="row">
+                                <div class="col-sm-3">
+                                <h6 class="mb-0">File:</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                <img src="./../../../res/img/<?=$row['filename']?>" style = "width: 350px;">
+                                </div>
+                                </div>
+                                <?php } else {}?>
                             <hr>
    
                   <!--ITRO Details-->
@@ -315,20 +351,12 @@ $date1 = strtotime($input1);
                     <?=$row['aemail'];?>
                     </div>
                     </div>
-                <hr>
-                    <div class="row">
-                    <div class="col-sm-3">
-                    <h6 class="mb-0">Date Assigned:</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                    <?=date('M d Y h:i A', $date1);?>
-                    </div>
-                    </div>
     
 
 
                 <hr>
                 <h4 class="mb-0">Change the person that is assigned to this ticket</h4>
+                <br>
                 <select name="users" onchange="showUser(this.value)">
                 <option value="">Select a person:</option>
                 <?php while($arow = mysqli_fetch_array($aquery)){?>

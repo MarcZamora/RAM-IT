@@ -52,7 +52,7 @@ if (!isset($_SESSION['loggedin'])) {
                     
                         
                     
-                    <form method="POST" action="code/components/tcbep.php?id=<?=$id?>" enctype="multipart/form-data"> 
+                    <form method="POST" action="code/components/cbadd/tcbep.php?id=<?=$id?>" enctype="multipart/form-data"> 
 
                     <!--Query ht-->
                     <div class="help-tip" style="margin-left: 60px; margin-top: 50px; width: 25px; height: 25px;">

@@ -51,14 +51,30 @@ require 'code/components/connect.php';
             <?php require 'code/components/nav.php'; ?>
 
 
-
+            <!--General Container-->
+            <div class="height-100 bg-light">
+                
+                <!--Landon Welcome-->
+            <div>
+                <section id="headerwel">
+                   <div class="containerwel">
+                           <div class="container-fluidwel"></div>                
+                       <div class="middlewel">
+                           <h1 class="text-white display-3 fw-bold">
+                               <span class="theme-text">Ticket Details</span></h1>
+                       </div>
+                   </div>
+                   </section>
+               </div>
+    
+               <br>
         
-            <?php require 'code/components/details.php'; 
+            <?php require 'code/components/details/details.php'; 
             if ($row['stat'] == 'pending') {
                 
                 
             }else{
-                require 'code/components/chb.php';
+                require 'code/components/chatbox/chb.php';
             }
             ?>
             <!--Space Division-->

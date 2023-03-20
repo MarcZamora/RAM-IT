@@ -50,7 +50,7 @@ require 'code/components/pf.php';
                     
                         
                     
-                    <form method="POST" action="code/components/tcbpost.php" enctype="multipart/form-data"> 
+                    <form method="POST" action="code/components/cbadd/tcbpost.php" enctype="multipart/form-data"> 
                       <!--Query ht-->
                       <div class="help-tip" style="margin-left: 60px; margin-top: 50px; width: 25px; height: 25px;">
                               <p style = "width: 180px;" > If theres many possible queries use " | " sign example: <br>  hey | hello | hellow  

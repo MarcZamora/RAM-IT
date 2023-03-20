@@ -1,5 +1,5 @@
 <?php
-require 'connect.php';
+require '../connect.php';
 
 // getting user message through ajax
 $getMesg = mysqli_real_escape_string($con, $_POST['text']);
