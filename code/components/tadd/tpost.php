@@ -22,26 +22,20 @@ $itype = $_POST["itype"];
 $inqry = $_POST["inquiry"];
 $fdes = $_POST["fdes"];
 $stat = $_POST["stat"];
-
+$priority = $_POST["priority"];
 
 $loc = $_POST["location"];
 if ($loc == "Outside"){
     $floor = 0;
     $room = 0;
+    $ls = 1;
 } else {
     $floor = $_POST["floor"];
     $room = $_POST["room"];
+    $ls = 2;
 }
 
-// (priority = itype)
 
-
-// (severity = inquiry * location)
-
-
-// (location,
-// floor *,
-// room)
 
 $dt = $_POST["dt"];
 $filename = $_FILES["uploadfile"]["name"];
@@ -95,8 +89,8 @@ $mail = new PHPMailer(true);
     <br> Thank You
     <br> RAM-IT System";
 
-    $sql = "INSERT INTO ticket (iid, iname, ipstion, email , img , itype , inqry , fdes , stat , dt , place , floor , room, filename, notifstus, notifstum)
-    VALUES ('$iid', '$iname', '$ipstion', '$email' , '$img' , '$itype' , '$inqry' , '$fdes' , '$stat', '$dt', '$loc', '$floor', '$room', '$filename', '0', '$iname submitted a new ticket')";
+    $sql = "INSERT INTO ticket (iid, iname, ipstion, email , img , itype , inqry , fdes , stat , priority , severity , dt , place , floor , room, filename, notifstus, notifstum)
+    VALUES ('$iid', '$iname', '$ipstion', '$email' , '$img' , '$itype' , '$inqry' , '$fdes' , '$stat', '$priority', '$severity', '$dt', '$loc', '$floor', '$room', '$filename', '0', '$iname submitted a new ticket')";
     
 if ($con->query($sql) === TRUE) {
 echo "New record created successfully";
@@ -112,3 +106,21 @@ $con->close();
 
  
 
+
+<!-- 4
+Webcam
+Projector
+Desktop
+Laptop
+Tablet
+Camera
+Projector
+
+5
+Camera
+Drawing Tablet
+Laptop
+Others
+
+6 
+Others -->

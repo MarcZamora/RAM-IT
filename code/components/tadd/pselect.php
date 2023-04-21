@@ -21,7 +21,7 @@ if ($selected_value == '1') {
 } elseif ($selected_value == '8') {
   $options = array('801', '802', '803', '804', '805', '806', '807', '808', '809', '810', '811', '812');
 } elseif ($selected_value == '9') {
-  $options = array('901', '902', '903', '904', '095', '906', '907', '908', '909', '910', '911', '912');
+  $options = array('901', '902', '903', '904', '905', '906', '907', '908', '909', '910', '911', '912');
 } elseif ($selected_value == '10') {
   $options = array('1001', '1002', '1003', '1004', '1005', '1006', '1007', '1008', '1009', '1010', '1011', '1012');
 } elseif ($selected_value == '11') {
@@ -30,6 +30,7 @@ if ($selected_value == '1') {
   $options = array('Atrium');
 }
 
+echo '<option value="">--- Select the room you are in ---</option>';
 // output options as HTML
 foreach ($options as $option) {
   echo "<option value=\"$option\">$option</option>";

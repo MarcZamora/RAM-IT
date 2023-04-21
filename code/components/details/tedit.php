@@ -16,6 +16,8 @@ $input = $row['dt'];
 $date = strtotime($input);
 $input1 = $row['dta'];
 $date1 = strtotime($input1);
+$input2 = $row['dtc'];
+$date2 = strtotime($input2);
 ?>
 
  <!--Outsource Bootstrap (NAV and PAGE)-->
@@ -138,6 +140,8 @@ $date1 = strtotime($input1);
                                     <h6 class="mb-0"><i class="fa-solid fa-signal" style="font-size: 12px;"></i> Status</h6>
                                     <span class="text-secondary" style="text-transform: uppercase;"><?=$row['stat'];?></span>
                                 </li>
+                                
+                                <?php if ($_SESSION['pstion'] == "supervisor"){?>
                                 <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
                                     <h6 class="mb-0">  <i class="fa-sharp fa-solid fa-exclamation"></i> Priority</h6>
                                     <!--Priority ht-->
@@ -186,8 +190,8 @@ $date1 = strtotime($input1);
                                 </div>
                                 <div class="col-sm-9 text-secondary">
                                 <div class="custom_select">
-                                <select name="priority" value="" id="priority" required>
-                                <option value="<?=$row['priority'];?>"><?=$row['priority'];?></option>
+                                <select name="severity" value="" id="severity" required>
+                                <option value="<?=$row['severity'];?>"><?=$row['severity'];?></option>
                                 <option value="">/////</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
@@ -200,7 +204,18 @@ $date1 = strtotime($input1);
                                 </div>
                                 </li>
                                 </li>
+                                <?php } else {?>
 
+                                    <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                                    <h6 class="mb-0">  <i class="fa-sharp fa-solid fa-exclamation"></i> Priority</h6>
+                                    <span class="text-secondary" style="text-transform: uppercase;"><?=$row['priority'];?></span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                                    <h6 class="mb-0"><i class="fa-sharp fa-solid fa-exclamation"></i> Severity</h6>
+                                    <span class="text-secondary" style="text-transform: uppercase;"><?=$row['severity'];?></span>
+                                </li>
+
+                                <?php }?>
                                     </ul>
                                 </li>
                                 
@@ -241,8 +256,6 @@ $date1 = strtotime($input1);
                     <div class="col-md-8">
                         <div class="card mb-3">
                             <div class="card-body">
-
-                            <hr>
                                 <div class="row">
                                 <div class="col-sm-3">
                                 <h6 class="mb-0">Type:</h6>
@@ -268,7 +281,7 @@ $date1 = strtotime($input1);
                                 <div class="col-sm-3">
                                 <h6 class="mb-0">Inquiry:</h6>
                                 </div>
-                                <div class="col-sm-9 text-secondary">
+                                <div class="col-sm-9 text-secondary" id = "form-element-container">
                                 <?=$row['inqry'];?>
                                 </div>
                                 </div>
@@ -317,7 +330,8 @@ $date1 = strtotime($input1);
                                 <?php } else {}?>
                             <hr>
    
-                  <!--ITRO Details-->
+
+                <!--ITRO Details-->
                 <div class="itwelhead">
                     <div class="itmainhead">
                         <h2>Assigned IT Staff Information:</h2>
@@ -351,44 +365,26 @@ $date1 = strtotime($input1);
                     <?=$row['aemail'];?>
                     </div>
                     </div>
-    
 
+                    <?php if ($_SESSION['pstion'] == "supervisor"){?>
+                    <hr>
+                    <h4 class="mb-0">Change the person that is assigned to this ticket</h4>
+                    <br>
+                    <select name="users" onchange="showUser(this.value)">
+                    <option value="">Select a person:</option>
+                    <?php while($arow = mysqli_fetch_array($aquery)){?>
+                    <option value="<?=$arow['id']?>"><?=$arow['fname']. " " .$arow['mname']. " " .$arow['lname']?></option>
+                    <?php } ?>
+                    </select>
+                    <div id="txtHint"></div>
+                    <?php }?>
 
-                <hr>
-                <h4 class="mb-0">Change the person that is assigned to this ticket</h4>
-                <br>
-                <select name="users" onchange="showUser(this.value)">
-                <option value="">Select a person:</option>
-                <?php while($arow = mysqli_fetch_array($aquery)){?>
-                <option value="<?=$arow['id']?>"><?=$arow['fname']. " " .$arow['mname']. " " .$arow['lname']?></option>
-                <?php } ?>
-                </select>
-                <div id="txtHint"></div>
-                <script>
-                            function showUser(str) {
-                            if (str=="") {
-                                document.getElementById("txtHint").innerHTML="";
-                                return;
-                            }
-                            var xmlhttp=new XMLHttpRequest();
-                            xmlhttp.onreadystatechange=function() {
-                                if (this.readyState==4 && this.status==200) {
-                                document.getElementById("txtHint").innerHTML=this.responseText;
-                                }
-                            }
-                            xmlhttp.open("GET","teaselect.php?q="+str,true);
-                            
-                            xmlhttp.send();
-                            }
-                            
-                    </script>
-                
-
-               
-                        
                     </div>
                 </div>
+
+                  
                 </form>
             <!--Space Division-->
             <div style="height:5%;"></div>
             
+            <?php require "js.php";?>

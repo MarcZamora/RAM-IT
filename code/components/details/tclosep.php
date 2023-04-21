@@ -5,10 +5,10 @@ use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
 //Load Composer's autoloader
-require('../../composer/vendor/phpmailer/phpmailer/src/Exception.php');
-require('../../composer/vendor/phpmailer/phpmailer/src/SMTP.php');
-require('../../composer/vendor/phpmailer/phpmailer/src/PHPMailer.php');
-require 'connect.php';
+require('../../../composer/vendor/phpmailer/phpmailer/src/Exception.php');
+require('../../../composer/vendor/phpmailer/phpmailer/src/SMTP.php');
+require('../../../composer/vendor/phpmailer/phpmailer/src/PHPMailer.php');
+require '../connect.php';
 
 date_default_timezone_set('Asia/Singapore');
 $mysqltime = date ('Y-m-d H:i:s', time());
@@ -71,7 +71,8 @@ $mail->Body    =
 <br> RAM-IT System";
 
 $mail->send();
-mysqli_query($con,"update `ticket` set stat='closed', notifits='0', notifitm='The ticket# ". $id ." is now closed the inquirer is satisfied with the ticket.',  notifdti='". $mysqltime. "' where tid=". $id);
+mysqli_query($con,"update `ticket` set stat='closed', notifits='0', notifitm='The ticket# ". $id .
+" is now closed the inquirer is satisfied with the ticket.',  notifdti='". $mysqltime. "', dtc='".$mysqltime."' where tid=". $id);
 
 
 	header('location:../../../ticket.php?link=ticket');

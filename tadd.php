@@ -84,7 +84,9 @@ $mysqltime = date ('Y-m-d H:i:s', time());
                           </div> 
 
 
-                         <div id="form-element-container"></div>
+                          <div id="form-element-container"></div>
+                          
+                          <div id="form-element-container1"></div>
                 
                         
                       
@@ -110,6 +112,7 @@ $mysqltime = date ('Y-m-d H:i:s', time());
                           <label>What Floor are you on:</label>
                           <div class="custom_select">
                           <select name="floor" id="floor">
+                          <option value="">--- Select the floor you are on ---</option>
                           <option value="1">1</option>
                           <option value="2">2</option>
                           <option value="3">3</option>

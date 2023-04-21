@@ -114,6 +114,7 @@ if ($_SESSION['pstion'] == $row['ipstion'] && $_SESSION['id'] == $row['iid']){
                                 </div>
                                 </li>
                                 <?php } ?>
+
                                 <?php } elseif ($_SESSION['pstion'] == 'supervisor') {?>
                                 <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
                                 <a href='code/components/details/tedit.php?id=<?=$row['tid']; ?>'>
@@ -122,8 +123,16 @@ if ($_SESSION['pstion'] == $row['ipstion'] && $_SESSION['id'] == $row['iid']){
                                 </div>
                                 </a>
                                 </li>
-                                <?php }
-                                ?>
+                                <?php } elseif ($_SESSION['id'] == $row['assignid']){?>
+                                <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                                <a href='code/components/details/tedit.php?id=<?=$row['tid']; ?>'>
+                                <div class="inputfield">
+                                <button type="submit" class="btn" value="Post" style="background-color:cyan;">Edit Ticket</button>
+                                </div>
+                                </a>
+                                </li>
+                                <?php }?>  
+
                             </ul>
                         </div>
                         </div>
