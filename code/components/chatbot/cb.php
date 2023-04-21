@@ -43,6 +43,7 @@ $mysqltime = date ('h:i a', time());
                                         <div id="chatbody" class="card-body p-4" style="height: 500px; overflow: auto; background-color: white;">
                                         
                                         <?php 
+                                    
                                         $query=mysqli_query($con,"SELECT * FROM cbr where id = 0");
                                         $row=mysqli_fetch_array($query);
                                         ?>

@@ -51,20 +51,36 @@ $mail = new PHPMailer(true);
     $mail->isHTML(true);                                  //Set email format to HTML
     $mail->Subject = 'Ticket #'. $id . " Assigned";
     $mail->Body    = 
-    " The ticket #" . $id . " is assigned to 
-	<br> 
-    ". $_POST['aname'] . "
-    <br> 
-	". $_POST['assignid'] . "
+    " <!--RAMIT to ITRO Specialist-->
+    <br>    The ticket ". $id ." is assigned to an ITRO Specialist with its details below:     
     <br>
-	". $_POST['aemail'] . "
-    <br> 
+    <br>    ". $_POST["aname"] ."
+    <br>   ". $_POST["assignid"] ."
+    <br>   ". $_POST["aemail"] ."
     <br>
-	<br>
-	<br> P.S: Wait for the ITRO specialist to chat you in your ticket.
-	<br>
-    <br> Thank You
-    <br> RAM-IT System";
+    <br>    Inquirer's Info
+            <hr>
+    <br>    Good Day,
+    <br>
+    <br>    This is to inform that the ticket ". $id ." is assigned to ". $row["aname"] .". 
+    <br>
+    <br>    As a confirmation, the following are the details of the ticket that was received by RAM-IT.
+    <br>
+    <br>    Inquirer ID: ". $row["iid"] ."
+    <br>    Name: ". $row["iname"] ."
+    <br>    Ticket Priority: ". $row["priority"] ."
+    <br>    Inquiry: ". $row["inquiry"] ."
+    <br>    Type of Inquiry: ". $row["itype"] ."
+    <br>    Inquiry Description: ". $row["fdes"] ."
+    <br>    Date of Creation: ". $row["dt"] ."
+    <br>
+    <br>    Upon receiving this e-mail, we encourage you to access the RAM-IT website to process the submitted ticket.
+    <br>
+    <br>    Thank you.
+    <br>
+    <br>    RAM-IT
+            <hr>
+    <br>   **This is a system-generated e-mail. Please do not reply.**";
 	
 	
 
@@ -76,8 +92,8 @@ $mail1 = new PHPMailer(true);
 $mail1->isSMTP();                                          //Send using SMTP
 $mail1->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
 $mail1->SMTPAuth   = true;                                 //Enable SMTP authentication
-$mail1->Username   = 'shido2111@gmail.com';             //SMTP username    shido2111         ramitnoreply      marczamora143
-$mail1->Password   = 'djmcbhljqqztfgdg';                   //SMTP password    djmcbhljqqztfgdg  wtwibgdwpxuypfoc  dbzxakuqekgbulhi
+$mail1->Username   = 'ramitnoreply@gmail.com';             //SMTP username    shido2111         ramitnoreply      marczamora143
+$mail1->Password   = 'wtwibgdwpxuypfoc';                   //SMTP password    djmcbhljqqztfgdg  wtwibgdwpxuypfoc  dbzxakuqekgbulhi
 $mail1->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;          //Enable implicit TLS encryption
 $mail1->Port       = 465;                                  //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
@@ -94,26 +110,36 @@ $mail1->addAddress($_POST['aemail'], $_POST['aname']);     //Add a recipient    
 $mail1->isHTML(true);                                  //Set email format to HTML
 $mail1->Subject = 'The Ticket #'. $id . " is assigned to you";
 $mail1->Body    = 
-" The ticket #" . $id . " is assigned to 
-<br> 
-". $_POST['aname'] . "
-<br> 
-". $_POST['assignid'] . "
+" <!--RAMIT to ITRO Specialist-->
+<br>    The ticket ". $id ." is assigned to an ITRO Specialist with its details below:     
 <br>
-". $_POST['aemail'] . "
-<br> 
-<br> Inquirer's Info:
-<hr>
-<br>  Inquirer ID: ". $row["iid"] ."
-<br>  Name: ". $row["iname"] ."
-<br>  Inquiry: ". $row["inquiry"] ."
-<br>  Priority: ". $row["priority"] ."
-<br>  Inquiry Type: ". $row["itype"] ."
-<br>  Full Description: ". $row["fdes"] ."
-<br>  Date Created: ". $row["dt"] ."
+<br>    ". $_POST["aname"] ."
+<br>   ". $_POST["assignid"] ."
+<br>   ". $_POST["aemail"] ."
 <br>
-<br> Thank You
-<br> RAM-IT System";
+<br>    Inquirer's Info
+        <hr>
+<br>    Good Day,
+<br>
+<br>    This is to inform that the ticket ". $id ." is assigned to ". $row["aname"] .". 
+<br>
+<br>    As a confirmation, the following are the details of the ticket that was received by RAM-IT.
+<br>
+<br>    Inquirer ID: ". $row["iid"] ."
+<br>    Name: ". $row["iname"] ."
+<br>    Ticket Priority: ". $row["priority"] ."
+<br>    Inquiry: ". $row["inquiry"] ."
+<br>    Type of Inquiry: ". $row["itype"] ."
+<br>    Inquiry Description: ". $row["fdes"] ."
+<br>    Date of Creation: ". $row["dt"] ."
+<br>
+<br>    Upon receiving this e-mail, we encourage you to access the RAM-IT website to process the submitted ticket.
+<br>
+<br>    Thank you.
+<br>
+<br>    RAM-IT
+        <hr>
+<br>   **This is a system-generated e-mail. Please do not reply.**";
 
 $mail->send();
 $mail1->send();

@@ -49,7 +49,7 @@ require 'code/components/pf.php';
                    
                     
                         
-                    
+                    <!-- form -->
                     <form method="POST" action="code/components/cbadd/tcbpost.php" enctype="multipart/form-data"> 
                       <!--Query ht-->
                       <div class="help-tip" style="margin-left: 60px; margin-top: 50px; width: 25px; height: 25px;">
@@ -87,10 +87,12 @@ require 'code/components/pf.php';
                           <textarea class="textarea" name="msg" placeholder="Message of link" id="txt_field" ></textarea>
                        </div> 
                        
+                       <!-- submit button -->
                           <div class="inputfield">
                             <button type="submit" class="btn" value="Post">Add Ticket</button>
                           </div>
                     </form>
+                    <!-- back button -->
                           <div class="inputfield">
                             <a href="javascript:history.back()" value="Back" class="btn" style="text-decoration: none;" ><center>Back</center></a>
                           </div>

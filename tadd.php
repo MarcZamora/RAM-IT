@@ -51,7 +51,7 @@ $mysqltime = date ('Y-m-d H:i:s', time());
                    
                     
                         
-                    
+                    <!-- form -->
                     <form method="POST" action="code/components/tadd/tpost.php" enctype="multipart/form-data"> 
                      <!--Hidden-->
                      <input type="hidden" name="iname" value="<?=$_SESSION['fname']?> <?=$_SESSION['mname']?> <?=$_SESSION['lname']?>" id="iname" required>
@@ -86,8 +86,6 @@ $mysqltime = date ('Y-m-d H:i:s', time());
 
                           <div id="form-element-container"></div>
                           
-                          <div id="form-element-container1"></div>
-                
                         
                       
                            <input class="inputfield" type="file" name="uploadfile" value="" />
@@ -129,8 +127,8 @@ $mysqltime = date ('Y-m-d H:i:s', time());
                           </div>
                           </div>
 
-                          <div id="optroom" name="optroom" style="display:none;">
                           <!--room-->
+                          <div id="optroom" name="optroom" style="display:none;">
                           <div class="inputfield" >
                           <label>What room are you in:</label>
                           <div class="custom_select">
@@ -144,11 +142,13 @@ $mysqltime = date ('Y-m-d H:i:s', time());
 
                            <br>
 
+                           <!-- add button -->
                           <div class="inputfield">
                             <button type="submit" class="btn" value="Post">Add Ticket</button>
                           </div>
 
                     </form>
+                    <!-- back button -->
                           <div class="inputfield">
                             <a href="javascript:history.back()" value="Back" class="btn" style="text-decoration: none;" ><center>Back</center></a>
                           </div>

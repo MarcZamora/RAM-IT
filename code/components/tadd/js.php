@@ -82,30 +82,6 @@
 
             </script>
 
-            <script>
-                // get the form element container
-            var fec = document.getElementById("form-element-container1");
-
-            // listen for changes to the first select element
-            var inq = document.getElementById("inquiry");
-            inq.addEventListener("change", function() {
-              // get the selected value
-              var SV = inq.value;
-
-              // send an AJAX request to get the next form element based on the selected value
-              var xhr1 = new XMLHttpRequest();
-              xhr1.onreadystatechange = function() {
-                if (this.readyState === 4 && this.status === 200) {
-                  // update the form element container with the response
-                  fec.innerHTML = this.responseText;
-                }
-              };
-              xhr1.open("GET", "code/components/tadd/iselect.php?SV=" + SV, true);
-              xhr1.send();
-            });
-
-            </script>
-
           
 
             

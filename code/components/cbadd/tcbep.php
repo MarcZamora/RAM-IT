@@ -1,6 +1,6 @@
 
 <?php
-require 'connect.php';
+require '../connect.php';
 
 $id=$_GET['id'];
 
@@ -11,7 +11,7 @@ $sql = "update `cbr` set  queries='$queries' , replies='$replies'  where id=". $
 
 if ($con->query($sql) === TRUE) {
 echo "New record created successfully";
-header('location: ../../tcb.php?link=tcb');
+header('location: ../../../tcb.php?link=tcb');
 } else {
 echo "Error: " . $sql . "<br>" . $con->error;      
 }

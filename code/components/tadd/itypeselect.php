@@ -29,6 +29,7 @@ if ($selectedValue == "Hardware") {
     <label>Description:</label>
     <textarea class="textarea" name="fdes" placeholder="Description" id="txt_field" required></textarea>
     <input type="hidden" name="priority" id="priority" value="2">
+    
   </div>';
 
 } elseif ($selectedValue == "Software") {
@@ -55,6 +56,7 @@ if ($selectedValue == "Hardware") {
     <label>Description:</label>
     <textarea class="textarea" name="fdes" placeholder="Description" id="txt_field" required></textarea>
     <input type="hidden" name="priority" id="priority" value="2">
+    
   </div>';
 } 
 elseif ($selectedValue == "Account") {
@@ -79,6 +81,7 @@ elseif ($selectedValue == "Account") {
     <label>Description:</label>
     <textarea class="textarea" name="fdes" placeholder="Description" id="txt_field" required></textarea>
     <input type="hidden" name="priority" id="priority" value="2">
+    
   </div>';
 } 
 elseif ($selectedValue == "Hyflex Equipment") {
@@ -107,6 +110,7 @@ elseif ($selectedValue == "Hyflex Equipment") {
     <label>Description:</label>
     <textarea class="textarea" name="fdes" placeholder="Description" id="txt_field" required></textarea>
     <input type="hidden" name="priority" id="priority" value="3">
+    
   </div>';
 } 
 elseif ($selectedValue == "Borrowed Equipment") {
@@ -132,6 +136,7 @@ elseif ($selectedValue == "Borrowed Equipment") {
     <label>Description:</label>
     <textarea class="textarea" name="fdes" placeholder="Description" id="txt_field" required></textarea>
     <input type="hidden" name="priority" id="priority" value="3">
+    
   </div>';
 } 
 elseif ($selectedValue == "Others") {
@@ -149,6 +154,7 @@ elseif ($selectedValue == "Others") {
     <label>Description:</label>
     <textarea class="textarea" name="fdes" placeholder="Full Description" id="txt_field" required></textarea>
     <input type="hidden" name="priority" id="priority" value="1">
+    
   </div> ';
 } 
 

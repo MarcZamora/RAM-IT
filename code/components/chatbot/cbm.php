@@ -24,7 +24,7 @@ $(document).ready(function(){
         $("#chatbody").append($msg);
         $("#data").val('');
         
-        // start ajax code
+        // start ajax code query
         $.ajax({
             url: 'code/components/chatbot/cbmp.php',
             type: 'POST',

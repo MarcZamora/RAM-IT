@@ -49,7 +49,7 @@ if (isset($_SESSION['loggedin'])) {
                         <div class="text-center mb-1">
                       <h4>Login using your <img src="res/res-login/365.png" width="230px"> Account</h4>
                     </div>
-                    <!-- Form -->
+                    <!-- Login Form -->
                         <form class="px-3" action="authenticate.php" method = "post">
                             <!-- Input Box -->
                             <div class="form-input">

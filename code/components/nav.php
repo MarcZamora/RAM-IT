@@ -137,6 +137,7 @@ if ($_SESSION['pstion'] == "student"){
                             $i = 0;
 ?>
 
+<!-- header -->
 <body id="body-pd">
 <header class="header" id="header">
             <!--Toogle Sidebar Navigation-->
@@ -148,7 +149,7 @@ if ($_SESSION['pstion'] == "student"){
         </header>
 
               
-
+<!-- navigation bar -->
 <div class="l-navbar" id="nav-bar">
                 <nav class="nav">
                     <div> <a href="home.php?link=home" class="nav_logo"> <img src="res/imgweb/logo.png" alt="" style="width: 28px; border-radius: 50px"> <span class="nav_logo-name">RAM-IT</span> </a>

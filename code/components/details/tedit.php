@@ -146,13 +146,25 @@ $date2 = strtotime($input2);
                                     <h6 class="mb-0">  <i class="fa-sharp fa-solid fa-exclamation"></i> Priority</h6>
                                     <!--Priority ht-->
                                  <div class="help-tip" style="margin-left: 70px; width: 25px; height: 25px; ">
-                                <p>Priority Level: <br>
+                                <p>
+                                
+                                Priority Level: On-Premise<br>
                                 -------------------
-                                <br>5 - 1 to 2 Day/s
-                                <br>4 - 3 to 4 Days
-                                <br>3 - 5 to 6 Days
-                                <br>2 - 7 to 8 Days
-                                <br>1 - 9 to 10 Days</p>
+                                <br>5 - Within an hour
+                                <br>4 - 2 - 6 hours
+                                <br>3 - 7 - 12 hours
+                                <br>2 - 13 - 24 hours
+                                <br>1 - More than 24 hours <Br> <Br>
+                            
+                                Priority Level: Outside<br>
+                                -------------------
+                                <br>5 - Within 12 hours
+                                <br>4 - 12 - 24 hours
+                                <br>3 - 36 hours
+                                <br>2 - 36 - 48 hours
+                                <br>1 - More than 48 hours
+
+                                </p>
                                </div>
                                 <div class="row">
                                 <div class="col-sm-3">
@@ -179,11 +191,12 @@ $date2 = strtotime($input2);
                                  <div class="help-tip" style="margin-left: 70px; width: 25px; height: 25px; ">
                                 <p>Severity: <br>
                                 -------------------
-                                <br>5: Whole school image is affected
-                                <br>4: Whole school services is affected
-                                <br>3: One or more classes and/or one or more offices is/are affected
-                                <br>2: A small sized group or an org is affected
-                                <br>1: One Person Affected</p>
+                                <br>- 5: An ongoing class is affected / Whole school is affected / An ongoing event is affected / A school is affected
+                                <br> 4: A scheduled class is affected / A scheduled event is affected / An office is affected
+                                <br> 3: An organization is affected
+                                <br> 2: A small group is affected
+                                <br> 1: An individual is affected
+                                </p>
                                </div>
                                 <div class="row">
                                 <div class="col-sm-3">
@@ -244,6 +257,7 @@ $date2 = strtotime($input2);
                                 </li>
 
                                     <br>
+                                    <!-- edit ticket -->
                                 <div class="inputfield">
                                 <button type="submit" class="btn" value="Post" style="background-color:cyan;">Edit Ticket</button>
                                 </div>

@@ -1,7 +1,7 @@
 <?php 
  
 // Load the database configuration file 
-include_once 'connect.php'; 
+include_once '../connect.php'; 
  
 // Fetch records from database 
 $query = $con->query("SELECT * FROM ticket ORDER BY tid ASC"); 
@@ -14,12 +14,12 @@ if($query->num_rows > 0){
     $f = fopen('php://memory', 'w'); 
      
     // Set column headers 
-    $fields = array('tid', 'iid', 'iname', 'email', 'img', 'inquiry', 'itype', 'fdes', 'stat', 'priority', 'severity', 'filename', 'assignid', 'aname', 'dt'); 
+    $fields = array('tid', 'iid', 'iname', 'email', 'img', 'inqry', 'itype', 'fdes', 'stat', 'priority', 'severity', 'filename', 'assignid', 'aname', 'dt' , 'dta' , 'dtc'); 
     fputcsv($f, $fields, $delimiter); 
      
     // Output each row of the data, format line as csv and write to file pointer 
     while($row = $query->fetch_assoc()){ 
-        $lineData = array($row['tid'], $row['iid'], $row['iname'], $row['email'], $row['img'], $row['inquiry'], $row['itype'], $row['fdes'], $row['stat'], $row['priority'], $row['severity'], $row['filename'], $row['assignid'], $row['aname'],  $row['dt']); 
+        $lineData = array($row['tid'], $row['iid'], $row['iname'], $row['email'], $row['img'], $row['inqry'], $row['itype'], $row['fdes'], $row['stat'], $row['priority'], $row['severity'], $row['filename'], $row['assignid'], $row['aname'],  $row['dt'] ,  $row['dta'] ,  $row['dtc']); 
         fputcsv($f, $lineData, $delimiter); 
     } 
      

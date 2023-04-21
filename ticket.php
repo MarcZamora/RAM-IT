@@ -14,11 +14,11 @@ if (mysqli_connect_errno()){
     die();
 }
 if ($_SESSION['pstion'] == "student"){
-$sql = "SELECT * from ticket where iid = ".$_SESSION['id'];
+$sql = "SELECT * from ticket where stat = 'pending' AND iid = ".$_SESSION['id'];
 
 } else
 {
-    $sql = "SELECT * from ticket";
+    $sql = "SELECT * from ticket where stat = 'pending'";
 }
 
 $page = $_GET['link'];
@@ -93,8 +93,8 @@ $t = 0;
                                 <th>Ticket ID:</th>
                                 <th>Inquirer ID:</th>
                                 <th>Inquirer's Name:</th>
-                                <th>Inquiry:</th>
                                 <th>Type:</th>
+                                <th>Inquiry:</th>
                                 <th>Status:</th>
                                 <th>Priority:</th>
                                 <th>Severity:</th>
@@ -112,8 +112,10 @@ $t = 0;
                                <td><?=$row['tid']; ?></td>
                                <td><?=$row['iid']; ?></td>
                                <td><?=$row['iname']?></td>
-                               <td><div class="tbl-of"><?=$row['inqry']; ?></div></td>
                                <td style="text-transform: capitalize;"><?=$row['itype']; ?></td>
+                               <td><div class="tbl-of"><div class="help-tip"><?=$row['inqry'];?> 
+                               <?php require 'res/res-tickets/inqry.php';?><p><?=$row['fdes']; ?></div></div> 
+                               </td>
                                <td style="text-transform: uppercase;"><?=$row['stat']; ?></td>
                                <td><?=$row['priority']; ?></td>
                                <td><?=$row['severity']; ?></td>
@@ -139,8 +141,8 @@ $t = 0;
                             <th>Ticket ID:</th>
                             <th>Inquirer ID:</th>
                             <th>Inquirer's Name:</th>
-                            <th>Inquiry:</th>
                             <th>Type:</th>
+                            <th>Inquiry:</th>
                             <th>Status:</th>
                             <th>Priority:</th>
                             <th>Severity:</th>
@@ -166,7 +168,7 @@ $t = 0;
                 
                 <?php if ($_SESSION['pstion'] == 'it' || $_SESSION['pstion'] == 'supervisor'){?>
                 <!--Download CV-->
-                <a href="code/components/tcsv.php"><button type="button" class="btn btn-primary btn-rounded waves-effect waves-light m-b-5">Download Data</button></a>
+                <a href="code/components/csv/tcsv.php"><button type="button" class="btn btn-primary btn-rounded waves-effect waves-light m-b-5">Download Data</button></a>
                 <?php }?>
 
                 <br>

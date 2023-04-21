@@ -51,7 +51,7 @@ if (!isset($_SESSION['loggedin'])) {
                    
                     
                         
-                    
+                    <!-- form -->
                     <form method="POST" action="code/components/cbadd/tcbep.php?id=<?=$id?>" enctype="multipart/form-data"> 
 
                     <!--Query ht-->
@@ -76,10 +76,12 @@ if (!isset($_SESSION['loggedin'])) {
                           <textarea class="textarea" name="replies" placeholder="" id="txt_field" required><?=$row['replies']?></textarea>
                        </div> 
                        
+                       <!-- edit button -->
                           <div class="inputfield">
                             <button type="submit" class="btn" value="Post">Edit</button>
                           </div>
                     </form>
+                    <!-- back button -->
                           <div class="inputfield">
                             <a href="tcb.php?link=tcb" value="Back" class="btn" style="text-decoration: none;" ><center>Back</center></a>
                           </div>

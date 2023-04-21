@@ -41,8 +41,8 @@ $mail = new PHPMailer(true);
     $mail->isSMTP();                                          //Send using SMTP
     $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
     $mail->SMTPAuth   = true;                                 //Enable SMTP authentication
-    $mail->Username   = 'shido2111@gmail.com';             //SMTP username    shido2111         ramitnoreply      marczamora143
-    $mail->Password   = 'djmcbhljqqztfgdg';                   //SMTP password    djmcbhljqqztfgdg  wtwibgdwpxuypfoc  dbzxakuqekgbulhi
+    $mail->Username   = 'ramitnoreply@gmail.com';             //SMTP username    shido2111         ramitnoreply      marczamora143
+    $mail->Password   = 'wtwibgdwpxuypfoc';                   //SMTP password    djmcbhljqqztfgdg  wtwibgdwpxuypfoc  dbzxakuqekgbulhi
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;          //Enable implicit TLS encryption
     $mail->Port       = 465;                                  //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
@@ -58,24 +58,31 @@ $mail = new PHPMailer(true);
     $mail->isHTML(true);                                  //Set email format to HTML
     $mail->Subject = 'Ticket# '. $id .' Edited';
     $mail->Body    = 
-    " The 'Ticket# ". $id ." is edited by the Supervisor
-	<br> 
-	Inquirer's Info:
-    <hr>  TID: ". $id ."
-    <br>  ID: ". $_POST["iid"] ."
-    <br>  Name: ". $_POST["iname"] ."
-    <br>  Inquiry: ". $_POST["inquiry"] ."
-    <br>  Priority: ". $_POST["priority"] ."
-    <br>  Inquiry Type: ". $_POST["itype"] ."
-    <br>  Full Description: ". $_POST["fdes"] ."
-    <br>  Date Created: ". $_POST["dt"] ."
+    "  <!--RAMIT to STUDENT-->
+    <br>    The ticket ". $id ." was edited by the ITRO Supervisor     
     <br>
-    <br> 
+    <br>    Inquirer's Info
+    <hr>
+    <br>    Good Day,
     <br>
-    <br>  The current state of the ticket is Pending go to the RAM-IT website to assign an ITRO specialist for the ticket.
+    <br>    This is to inform about the current state of the ticket ". $_POST["iid"] ." recieved by RAM-IT.  
     <br>
-    <br> Thank You
-    <br> RAM-IT System";
+    <br>    As a confirmation, the following are the details of the ticket that was received by RAM-IT.
+    <br>
+    <br>    Inquiry: ". $_POST["inquiry"] ."
+    <br>    Type of Inquiry: ". $_POST["itype"] ."
+    <br>    Inquiry Description: ". $_POST["fdes"] ."
+    <br>    Date of Creation: ". $_POST["dt"] ."
+    <br>
+    <br>    The current state of the ticket ". $_POST["iid"] ." is PENDING.
+    <br>
+    <br>    Upon receiving this e-mail, we encourage you to access the RAM-IT website to process the submitted ticket.
+    <br>
+    <br>    Thank you.
+    <br>
+    <br>    RAM-IT
+            <hr>
+    <br>   **This is a system-generated e-mail. Please do not reply.**";
 
 	 $mail->send();
 	
@@ -110,20 +117,25 @@ $mail->addAddress($row["email"], $row["iname"]);      //Add a recipient         
 $mail->isHTML(true);                                  //Set email format to HTML
 $mail->Subject = 'Ticket #'. $id . " Assigned NEW";
 $mail->Body    = 
-" The ticket #" . $id . " is assigned to a new ITRO specialist
-<br> 
-". $_POST['aname'] . "
-<br> 
-". $_POST['assignid'] . "
+"<!--RAMIT to STUDENT-->
+<br>    The ticket " .  $id . " is assigned to a new ITRO Specioalist with its details below:     
 <br>
-". $_POST['aemail'] . "
-<br> 
+<br> " .  $_POST["aname"] . "
+<br> " .  $_POST["assignid"] . "
+<br> " .  $_POST["aemail"] . "
 <br>
+        <hr>
+<br>    Good Day,
 <br>
-<br> P.S: Wait for the ITRO specialist to chat you in your ticket.
+<br>    This is to inform to wait for the ITRO Specialist to respond to the ticket. 
 <br>
-<br> Thank You
-<br> RAM-IT System";
+<br>    Upon receiving this e-mail, we encourage you to access the RAM-IT website time to time to monitor your submitted ticket.
+<br>
+<br>    Thank you.
+<br>
+<br>    RAM-IT
+        <hr>
+<br>   **This is a system-generated e-mail. Please do not reply.**";
 
 //assign
 $mail1 = new PHPMailer(true);
@@ -151,25 +163,36 @@ $mail1->addAddress($_POST['aemail'], $_POST['aname']);     //Add a recipient    
 $mail1->isHTML(true);                                  //Set email format to HTML
 $mail1->Subject = 'The Ticket #'. $id . " is assigned to you";
 $mail1->Body    = 
-" The ticket #" . $id . " is assigned to 
-<br> 
-". $_POST['aname'] . "
-<br> 
-". $_POST['assignid'] . "
+"  <!--RAMIT to ITRO Specialist-->
+<br>    The ticket ". $id ." is assigned to an ITRO Specialist with its details below:     
 <br>
-". $_POST['aemail'] . "
-<br> 
-<br> Inquirer's Info:
-<hr>
-<br>  Inquirer ID: ". $row["iid"] ."
-<br>  Name: ". $row["iname"] ."
-<br>  Inquiry: ". $row["inquiry"] ."
-<br>  Priority: ". $row["priority"] ."
-<br>  Inquiry Type: ". $row["itype"] ."
-<br>  Full Description: ". $row["fdes"] ."
-<br>  Date Created: ". $row["dt"] ."
-<br> Thank You
-<br> RAM-IT System";
+<br>    ". $_POST["aname"] ."
+<br>   ". $_POST["assignid"] ."
+<br>   ". $_POST["aemail"] ."
+<br>
+<br>    Inquirer's Info
+        <hr>
+<br>    Good Day,
+<br>
+<br>    This is to inform that the ticket ". $_POST["iid"] ." is assigned to ". $_POST["aname"] .". 
+<br>
+<br>    As a confirmation, the following are the details of the ticket that was received by RAM-IT.
+<br>
+<br>    Inquirer ID: ". $_POST["iid"] ."
+<br>    Name: ". $_POST["iname"] ."
+<br>    Ticket Priority: ". $_POST["priority"] ."
+<br>    Inquiry: ". $_POST["inquiry"] ."
+<br>    Type of Inquiry: ". $_POST["itype"] ."
+<br>    Inquiry Description: ". $_POST["fdes"] ."
+<br>    Date of Creation: ". $_POST["dt"] ."
+<br>
+<br>    Upon receiving this e-mail, we encourage you to access the RAM-IT website to process the submitted ticket.
+<br>
+<br>    Thank you.
+<br>
+<br>    RAM-IT
+        <hr>
+<br>   **This is a system-generated e-mail. Please do not reply.**";
 
  $mail->send();
  $mail1->send();

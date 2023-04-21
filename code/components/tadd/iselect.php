@@ -1,12 +1,12 @@
 <?php
 // get the selected value from the query string
-$SV = $_GET["SV"];
+$selectedValue1 = $_GET["selectedValue"];
 
 // generate the HTML code for the next form element based on the selected value
-if ($SV == "Desktop") {$html = '<input type="number" name="is" id="is" value="2">';} 
-elseif ($SV == "Laptop") {$html = '<input type="number" name="is" id="is" value="2">';} 
-else {$html = ' ';}
+if ($selectedValue1 == "Desktop") {$html2 = '<input type="number" name="is" id="is" value="2">';} 
+elseif ($selectedValue1 == "Laptop") {$html2 = '<input type="number" name="is" id="is" value="2">';} 
+else {$html2 = ' ';}
 
 // return the HTML code
-echo $html;
+echo $html2;
 ?>

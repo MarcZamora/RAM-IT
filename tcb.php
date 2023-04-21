@@ -133,7 +133,7 @@ $i = 0;
                 <br>
                 <br>
              <!--Chatbot -->
-             <?php require 'code/components/cb.php';?>
+             <?php require 'code/components/chatbot/cb.php';?>
              
 
             <!--Table Scripts-->

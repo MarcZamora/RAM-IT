@@ -23,7 +23,7 @@ if ($_SESSION['pstion'] == $row['ipstion'] && $_SESSION['id'] == $row['iid']){
 
 }
 ?>             
-                <!--Profile-->
+                <!--Ticket details top left-->
                 <div class="row gutters-sm">
                         <div class="col-md-4 mb-3">
                             <div class="card">
@@ -137,6 +137,7 @@ if ($_SESSION['pstion'] == $row['ipstion'] && $_SESSION['id'] == $row['iid']){
                         </div>
                         </div>
                         
+                        <!-- ticket info/details top right -->
                     <div class="col-md-8">
                         <div class="card mb-3">
                             <div class="card-body">

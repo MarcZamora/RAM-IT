@@ -1,6 +1,6 @@
 
 <?php
-require 'connect.php';
+require '../connect.php';
 
 $queries = mysqli_real_escape_string($con, $_POST['queries']);
 $replies = mysqli_real_escape_string($con, $_POST['replies']);
@@ -25,7 +25,7 @@ VALUES ('$queries', '$replies $flink' )";
 
 if ($con->query($sql) === TRUE) {
 echo "New record created successfully";
-header('location: ../../tcb.php?link=tcb');
+header('location: ../../../tcb.php?link=tcb');
 } else {
 echo "Error: " . $sql . "<br>" . $con->error;      
 }
