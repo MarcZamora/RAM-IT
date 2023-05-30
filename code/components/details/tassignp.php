@@ -8,7 +8,7 @@
 	$assignid=$_POST['assignid'];
 	$aemail=$_POST['aemail'];
 	$aname=$_POST['aname'];
-    $apstion=$_POST['apstion'];
+        $apstion=$_POST['apstion'];
 	
 	$query=mysqli_query($con,"SELECT * FROM ticket where tid = '$id'");
 	$row=mysqli_fetch_array($query);
@@ -34,7 +34,7 @@ $mail = new PHPMailer(true);
     $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
     $mail->SMTPAuth   = true;                                 //Enable SMTP authentication
     $mail->Username   = 'shido2111@gmail.com';             ///SMTP username    shido2111         ramitnoreply      marczamora143
-    $mail->Password   = 'djmcbhljqqztfgdg';                   //SMTP password    djmcbhljqqztfgdg  wtwibgdwpxuypfoc  dbzxakuqekgbulhi
+    $mail->Password   = 'djmcbhljqqztfgdg';                   //SMTP password    djmcbhljqqztfgdg  effeoktkfardfnia  dbzxakuqekgbulhi
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;          //Enable implicit TLS encryption
     $mail->Port       = 465;                                  //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
@@ -93,7 +93,7 @@ $mail1->isSMTP();                                          //Send using SMTP
 $mail1->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
 $mail1->SMTPAuth   = true;                                 //Enable SMTP authentication
 $mail1->Username   = 'ramitnoreply@gmail.com';             //SMTP username    shido2111         ramitnoreply      marczamora143
-$mail1->Password   = 'wtwibgdwpxuypfoc';                   //SMTP password    djmcbhljqqztfgdg  wtwibgdwpxuypfoc  dbzxakuqekgbulhi
+$mail1->Password   = 'effeoktkfardfnia';                   //SMTP password    djmcbhljqqztfgdg  effeoktkfardfnia  dbzxakuqekgbulhi
 $mail1->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;          //Enable implicit TLS encryption
 $mail1->Port       = 465;                                  //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
