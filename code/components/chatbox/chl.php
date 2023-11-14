@@ -18,7 +18,11 @@ $id = $_GET['id'];
                                 <div class="small"><?=$rw['name']?></div>
                             </div>
                                 <div>
+                                <?php if($rw['msg'] == ""){?>
+                                    <div class="card card-text d-inline-block p-2 px-3 m-1"><img style="height: 300px; width: 500px;" src="res/cbimg/<?=$rw['img']?>"></div>
+                                <?php } else { ?>
                                     <div class="card card-text d-inline-block p-2 px-3 m-1"><?=$rw['msg']?></div>
+                                <?php } ?> 
                                 </div>
                                 <div>
                                     <div class="small"><?php $input = $rw["dtm"]; $date = strtotime($input); echo date('M d Y h:i A', $date);?></div>
@@ -59,7 +63,11 @@ else{
                                                     <div class="small"><?=$rw['name']?></div>
                                                 </div>
                                                     <div>
-                                                        <div class="card card-text d-inline-block p-2 px-3 m-1"><?=$rw['msg']?></div>
+                                                        <?php if($rw['msg'] == ""){?>
+                                                            <div class="card card-text d-inline-block p-2 px-3 m-1"><img style="height: 300px; width: 500px;" src="res/cbimg/<?=$rw['img']?>"></div>
+                                                         <?php } else { ?>
+                                                            <div class="card card-text d-inline-block p-2 px-3 m-1"><?=$rw['msg']?></div>
+                                                         <?php } ?>      
                                                     </div>
                                                     <div>
                                                         <div class="small"><?php $input = $rw["dtm"]; $date = strtotime($input); echo date('M d Y h:i A', $date);?></div>

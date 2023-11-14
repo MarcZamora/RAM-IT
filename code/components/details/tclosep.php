@@ -1,5 +1,6 @@
 <?php
-
+require '../connect.php';
+$id=$_GET['id'];
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
@@ -8,14 +9,14 @@ use PHPMailer\PHPMailer\Exception;
 require('../../../composer/vendor/phpmailer/phpmailer/src/Exception.php');
 require('../../../composer/vendor/phpmailer/phpmailer/src/SMTP.php');
 require('../../../composer/vendor/phpmailer/phpmailer/src/PHPMailer.php');
-require '../connect.php';
+
 
 date_default_timezone_set('Asia/Singapore');
 $mysqltime = date ('Y-m-d H:i:s', time());
 
 	   
 
-	$id=$_GET['id'];
+	
 	
 
 	$query=mysqli_query($con,"SELECT * FROM ticket where tid = '$id'");
@@ -58,7 +59,7 @@ $mail->Body    =
 <br>    Inquirer ID: ". $row["iid"] ."
 <br>    Name: ". $row["iname"] ."
 <br>    Ticket Priority: ". $row["priority"] ."
-<br>    Inquiry: ". $row["inquiry"] ."
+<br>    Inquiry: ". $row["inqry"] ."
 <br>    Type of Inquiry: ". $row["itype"] ."
 <br>    Inquiry Description: ". $row["fdes"] ."
 <br>    Date of Creation: ". $row["dt"] ."

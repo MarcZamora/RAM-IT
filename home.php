@@ -45,7 +45,7 @@ $page = $_GET['link'];
             <?php require 'code/components/nav.php'; ?>
 
             <!--General Container-->
-            <div class="height-100 bg-light">
+            <div class="height-800 bg-light">
 
                 <!--Landon Welcome-->
                 <div>
@@ -62,47 +62,17 @@ $page = $_GET['link'];
 
                <br>
 
-                <?php if ($_SESSION['pstion'] == 'student'){?>
-                    <!--Content Slider-->
-                <div class="slider">
-                    <div class="slides">
-                        <input type="radio" name="radio-btn" id="radio1">
-                        <input type="radio" name="radio-btn" id="radio2">
-                        <input type="radio" name="radio-btn" id="radio3">
-                        <input type="radio" name="radio-btn" id="radio4">
-            
-                        <div class="slide first">
-                            <img src="res/res-home/1.png" alt="">
-                        </div>
-                        <div class="slide">
-                            <img src="res/res-home/2.png" alt="">
-                        </div>
-                        <div class="slide">
-                            <img src="res/res-home/3.png" alt="">
-                        </div>
-                        <div class="slide">
-                            <img src="res/res-home/4.png" alt="">
-                        </div>
-            
-                        <div class="navigation-auto">
-                            <div class="auto-btn1"></div>
-                            <div class="auto-btn2"></div>
-                            <div class="auto-btn3"></div>
-                            <div class="auto-btn4"></div>
-                        </div>
-                    </div>
-            
-                    <div class="navigation-manual">
-                        <label for="radio1" class="manual-btn"></label>
-                        <label for="radio2" class="manual-btn"></label>
-                        <label for="radio3" class="manual-btn"></label>
-                        <label for="radio4" class="manual-btn"></label>
-                    </div>
-                </div>
+                <?php if ($_SESSION['pstion'] == 'student'){
+                    require 'code/components/home/slides.php'; 
+                    ?>
+                  
                 <!-- charts -->
                 <?php } else{ require 'code/components/home/homecharts.php'; ?>
                             <div style = " position: relative; left: 510px; bottom: 450px; width:200px; height:250px;">
-                            <?php    require 'code/components/home/itrocharts.php';} ?>   
+                            <?php    require 'code/components/home/itrocharts.php';
+                            require 'code/components/home/itrocharts1.php';
+                        
+                        } ?>   
                             </div>
                                 
                  <!--Chatbot -->

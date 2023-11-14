@@ -75,6 +75,7 @@ require 'code/components/connect.php';
                 
             }else{
                 require 'code/components/chatbox/chb.php';
+                
             }
             ?>
             <!--Space Division-->

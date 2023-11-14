@@ -33,8 +33,8 @@ $mail = new PHPMailer(true);
     $mail->isSMTP();                                          //Send using SMTP
     $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
     $mail->SMTPAuth   = true;                                 //Enable SMTP authentication
-    $mail->Username   = 'shido2111@gmail.com';             ///SMTP username    shido2111         ramitnoreply      marczamora143
-    $mail->Password   = 'djmcbhljqqztfgdg';                   //SMTP password    djmcbhljqqztfgdg  effeoktkfardfnia  dbzxakuqekgbulhi
+    $mail->Username   = 'ramitnoreply@gmail.com';             ///SMTP username    shido2111         ramitnoreply      marczamora143
+    $mail->Password   = 'effeoktkfardfnia';                   //SMTP password    djmcbhljqqztfgdg  effeoktkfardfnia  dbzxakuqekgbulhi
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;          //Enable implicit TLS encryption
     $mail->Port       = 465;                                  //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
@@ -69,7 +69,7 @@ $mail = new PHPMailer(true);
     <br>    Inquirer ID: ". $row["iid"] ."
     <br>    Name: ". $row["iname"] ."
     <br>    Ticket Priority: ". $row["priority"] ."
-    <br>    Inquiry: ". $row["inquiry"] ."
+    <br>    Inquiry: ". $row["inqry"] ."
     <br>    Type of Inquiry: ". $row["itype"] ."
     <br>    Inquiry Description: ". $row["fdes"] ."
     <br>    Date of Creation: ". $row["dt"] ."
@@ -128,7 +128,7 @@ $mail1->Body    =
 <br>    Inquirer ID: ". $row["iid"] ."
 <br>    Name: ". $row["iname"] ."
 <br>    Ticket Priority: ". $row["priority"] ."
-<br>    Inquiry: ". $row["inquiry"] ."
+<br>    Inquiry: ". $row["inqry"] ."
 <br>    Type of Inquiry: ". $row["itype"] ."
 <br>    Inquiry Description: ". $row["fdes"] ."
 <br>    Date of Creation: ". $row["dt"] ."

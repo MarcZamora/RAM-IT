@@ -343,7 +343,7 @@ $date2 = strtotime($input2);
                                 </div>
                                 <?php } else {}?>
                             <hr>
-   
+   <?php if($row['stat'] == "pending" ) {}else{?>
 
                 <!--ITRO Details-->
                 <div class="itwelhead">
@@ -401,4 +401,4 @@ $date2 = strtotime($input2);
             <!--Space Division-->
             <div style="height:5%;"></div>
             
-            <?php require "js.php";?>
+            <?php } require "js.php";?>

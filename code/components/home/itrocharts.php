@@ -1,64 +1,80 @@
-<!-- charts -->
-                    <?php 
-                     $sql = "SELECT * FROM accounts where pstion = 'it'";
-                     $aresult = mysqli_query($con,$sql);
-                     while ($row = mysqli_fetch_array($aresult)) {
-                    ?>
-                    
-                    <br>
-                    <br>
-                    
-                    <div style="width: 200px;"> <center><?=$row['fname'], " " ,$row['lname']?><center>
+<div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<!-- select -->
+<input type="month" id="data_option" name="data_option" value="<?=date('Y-m')?>">
 
-                    <?php
-                    $sqliopen = "SELECT * FROM ticket where stat='open' AND assignid = ". $row['id']. " ORDER BY tid";
-                    $sqliclosed = "SELECT * FROM ticket where stat='closed' AND assignid = ". $row['id']. " ORDER BY tid";
+<!-- select end -->
 
-                    $io = 0;
-                    $ic = 0;
+<div id="graph_container">
+        <canvas id="line_chart"></canvas>
+</div>
+</div>
 
 
-                    $ioresult = mysqli_query($con,$sqliopen);
-                    $icresult = mysqli_query($con,$sqliclosed);
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-                    while($iorow = mysqli_fetch_array($ioresult)){ $io++; } 
-                    while($icrow = mysqli_fetch_array($icresult)){ $ic++; } 
+<script>
+ // JavaScript to handle dropdown change event and update the graph
+ $(document).ready(function () {
+    // Function to update the line graph based on selected option
+    function updateGraph(selectedOption) {
+        $.ajax({
+            method: "POST",
+            url: "code/components/home/data.php", // PHP script to fetch data
+            data: { option: selectedOption },
+            success: function (data) {
+                var parsedData = JSON.parse(data);
+                // Call a function to update the graph with the new data
+                renderLineGraph(parsedData);
+            },
+            error: function () {
+                console.error("Error fetching data.");
+            }
+        });
+    }
 
-                    ?>
+    // Initial graph rendering
+    updateGraph($("#data_option").val());
 
-                    <input id="iopen<?=$row['id']?>" type="hidden" value="<?=$io?>"></input>
-                    <input id="iclose<?=$row['id']?>" type="hidden" value="<?=$ic?>"></input>
-                    <canvas id="itickets<?=$row['id']?>"></canvas>
-                    </div>
-                    
-                    
+    // Event handler for dropdown change
+    $("#data_option").change(function () {
+        var selectedOption = $(this).val();
+        updateGraph(selectedOption);
+    });
+});
 
-                    <!-- the script needs new ids and new variables thus having a while loop ontop makes it doable by putting the ids of the itro
-                        to become the new variables and ids
-                    -->
-                    <script>
-                        var iopen<?=$row['id']?> = $("#iopen<?=$row['id']?>").val();
-                        var iclose<?=$row['id']?> = $("#iclose<?=$row['id']?>").val();
-                        
-                    const ctx<?=$row['id']?> = document.getElementById('itickets<?=$row['id']?>');
-                    new Chart(ctx<?=$row['id']?>, {
-                        type: 'doughnut',
-                        data: {
-                        labels: ['Open', 'Closed'],
-                        datasets: [
-                            {  
-                            data: [iopen<?=$row['id']?>, iclose<?=$row['id']?>],
-                            borderWidth: 1
-                        }
-                        ]
-                        },
-                        options: {
-                        // scales: {
-                        //     y: {
-                        //     beginAtZero: true
-                        //     }
-                        // }
-                        }
-                    });    
-                    </script>   
-                    <?php } ?>
+// Function to render the line graph
+function renderLineGraph(data) {
+    var ctx = document.getElementById('line_chart').getContext('2d');
+    ctx.canvas.width = 800;
+    ctx.canvas.height = 400;
+    var myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: data.labels,
+            datasets: data.datasets,
+        },
+        options: {
+            responsive: false,
+           
+            scales: {
+                y: {
+                   
+                }
+            }
+        }
+    });
+}
+</script>
+
+
+
+
+
+<!-- data -->
+

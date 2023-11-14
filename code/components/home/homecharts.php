@@ -1,10 +1,18 @@
 <!-- charts -->
                     
                     <?php 
+                    if ($_SESSION['pstion'] == 'it'){
+                        $sqlopen = "SELECT * FROM ticket where stat='open' AND assignid=". $_SESSION['id'];
+                        $sqlpending = "SELECT * FROM ticket where stat='pending'";
+                        $sqlclosed = "SELECT * FROM ticket where stat='closed' AND assignid='". $_SESSION['id'] . "' AND dtm=". date("Y-m");
+                    }
+                    else{
+                        $sqlopen = "SELECT * FROM ticket where stat='open'";
+                        $sqlpending = "SELECT * FROM ticket where stat='pending' ";
+                        $sqlclosed = "SELECT * FROM ticket where stat='closed'AND dtm=". date("Y-m");
+                    }
+
                     
-                    $sqlopen = "SELECT * FROM ticket where stat='open' ORDER BY tid";
-                    $sqlpending = "SELECT * FROM ticket where stat='pending' ORDER BY tid";
-                    $sqlclosed = "SELECT * FROM ticket where stat='closed' ORDER BY tid";
 
                     $o = 0;
                     $p = 0;
@@ -21,7 +29,7 @@
 
                     ?>
                     
-                    <div style="width: 400px;"> <center>Tickets<center>
+                    <div style="margin-left:100px; width: 300px;"> <center>Tickets<center>
                     <input id="open" type="hidden" value="<?=$o?>"></input>
                     <input id="pending" type="hidden" value="<?=$p?>"></input>
                     <input id="close" type="hidden" value="<?=$c?>"></input>

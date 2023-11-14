@@ -57,6 +57,7 @@
 								<button id="send-btn" class="btn btn-light text-secondary"> Send
 									<i id="button" class="fas fa-paper-plane"></i>
 								</button>
+                                <?php require "code/components/chatbox/img.php";?>
 							</div>
 						<?php } } ?>   
 						</div>

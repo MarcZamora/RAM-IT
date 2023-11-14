@@ -43,7 +43,7 @@ if ($loc == "Outside"){
 
 }
 
-
+$dtm = date('Y-m');
 $dt = $_POST["dt"];
 $filename = $_FILES["uploadfile"]["name"];
 $tempname = $_FILES["uploadfile"]["tmp_name"];
@@ -104,8 +104,8 @@ $mail = new PHPMailer(true);
             <hr>
     <br>   **This is a system-generated e-mail. Please do not reply.**";
 
-    $sql = "INSERT INTO ticket (iid, iname, ipstion, email , img , itype , inqry , fdes , stat , priority , severity , dt , place , floor , room, filename, notifstus, notifstum)
-    VALUES ('$iid', '$iname', '$ipstion', '$email' , '$img' , '$itype' , '$inqry' , '$fdes' , '$stat', '$priority', '$severity', '$dt', '$loc', '$floor', '$room', '$filename', '0', '$iname submitted a new ticket')";
+    $sql = "INSERT INTO ticket (iid, iname, ipstion, email , img , itype , inqry , fdes , stat , priority , severity , dtm , dt , place , floor , room, filename, notifstus, notifstum)
+    VALUES ('$iid', '$iname', '$ipstion', '$email' , '$img' , '$itype' , '$inqry' , '$fdes' , '$stat', '$priority', '$severity', '$dtm', '$dt', '$loc', '$floor', '$room', '$filename', '0', '$iname submitted a new ticket')";
     
 if ($con->query($sql) === TRUE) {
 echo "New record created successfully";

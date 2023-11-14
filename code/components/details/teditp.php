@@ -23,11 +23,11 @@ require '../connect.php';
 	$priority=$_POST["priority"];
 	$severity=$_POST["severity"];
 	$itype=$_POST["itype"];
-    $inquiry=$_POST["inquiry"];
+        $inquiry=$_POST["inquiry"];
 	$assignid=$_POST["assignid"];
 	$aemail=$_POST["aemail"];
 	$aname=$_POST["aname"];
-    $apstion=$_POST["apstion"];
+        $apstion=$_POST["apstion"];
 	
 	if ($assignid == " " && $aemail == " " && $aname == " ") {
 
@@ -146,7 +146,7 @@ $mail1->isSMTP();                                          //Send using SMTP
 $mail1->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
 $mail1->SMTPAuth   = true;                                 //Enable SMTP authentication
 $mail1->Username   = 'shido2111@gmail.com';             //SMTP username    shido2111         ramitnoreply      marczamora143
-$mail1->Password   = 'djmcbhljqqztfgdg';                   //SMTP password    djmcbhljqqztfgdg  effeoktkfardfnia  dbzxakuqekgbulhi
+$mail1->Password   = 'effeoktkfardfnia';                   //SMTP password    djmcbhljqqztfgdg  effeoktkfardfnia  dbzxakuqekgbulhi
 $mail1->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;          //Enable implicit TLS encryption
 $mail1->Port       = 465;                                  //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
