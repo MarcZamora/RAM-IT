@@ -145,7 +145,7 @@ $mail1 = new PHPMailer(true);
 $mail1->isSMTP();                                          //Send using SMTP
 $mail1->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
 $mail1->SMTPAuth   = true;                                 //Enable SMTP authentication
-$mail1->Username   = 'shido2111@gmail.com';             //SMTP username    shido2111         ramitnoreply      marczamora143
+$mail1->Username   = 'ramitnoreply@gmail.com';                //SMTP username    shido2111         ramitnoreply      marczamora143
 $mail1->Password   = 'effeoktkfardfnia';                   //SMTP password    djmcbhljqqztfgdg  effeoktkfardfnia  dbzxakuqekgbulhi
 $mail1->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;          //Enable implicit TLS encryption
 $mail1->Port       = 465;                                  //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
@@ -174,17 +174,17 @@ $mail1->Body    =
         <hr>
 <br>    Good Day,
 <br>
-<br>    This is to inform that the ticket ". $_POST["iid"] ." is assigned to ". $_POST["aname"] .". 
+<br>    This is to inform that the ticket ". $row["iid"] ." is assigned to ". $_POST["aname"] .". 
 <br>
 <br>    As a confirmation, the following are the details of the ticket that was received by RAM-IT.
 <br>
-<br>    Inquirer ID: ". $_POST["iid"] ."
-<br>    Name: ". $_POST["iname"] ."
+<br>    Inquirer ID: ". $row["iid"] ."
+<br>    Name: ". $row["iname"] ."
 <br>    Ticket Priority: ". $_POST["priority"] ."
 <br>    Inquiry: ". $_POST["inquiry"] ."
 <br>    Type of Inquiry: ". $_POST["itype"] ."
-<br>    Inquiry Description: ". $_POST["fdes"] ."
-<br>    Date of Creation: ". $_POST["dt"] ."
+<br>    Inquiry Description: ". $row["fdes"] ."
+<br>    Date of Creation: ". $row["dt"] ."
 <br>
 <br>    Upon receiving this e-mail, we encourage you to access the RAM-IT website to process the submitted ticket.
 <br>

@@ -105,8 +105,11 @@ $date2 = strtotime($input2);
                     <h1 style = "margin-left: 20px;">Edit Ticket Details</h1>
                     </div>
                 </div>
-    
+                <?php if($row['stat'] == "open"){?>
                 <form method="POST" action="teditp.php?id=<?=$id?>" enctype="multipart/form-data">
+                <?php } else{ ?>
+                <form method="POST" action="teditp1.php?id=<?=$id?>" enctype="multipart/form-data">
+                <?php } ?>
                 <!--Profile-->
                 <div class="row gutters-sm">
                         <div class="col-md-4 mb-3">
